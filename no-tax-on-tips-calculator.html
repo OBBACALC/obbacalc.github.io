@@ -29,9 +29,37 @@
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'G-Y7ZEFHVV43');
-    function trackCalc() { gtag('event', 'calculate', { event_category: 'tips_calculator' }); }
+    function trackCalc() {} // replaced by post-calculate event below
     function trackOcc(n) { gtag('event', 'occupation_selected', { event_category: 'tips_calculator', event_label: n }); }
     function trackAffiliate(n) { gtag('event', 'affiliate_click', { event_category: 'monetization', event_label: n }); }
+
+    function getIncomeBucket(income) {
+      if (income < 30000)  return 'under_30k';
+      if (income < 50000)  return '30k_50k';
+      if (income < 75000)  return '50k_75k';
+      if (income < 100000) return '75k_100k';
+      if (income < 150000) return '100k_150k';
+      if (income < 300000) return '150k_300k';
+      return 'over_300k';
+    }
+
+    function getSavingsBucket(savings) {
+      if (savings <= 0)    return 'zero';
+      if (savings < 500)   return 'under_500';
+      if (savings < 1000)  return '500_1000';
+      if (savings < 2500)  return '1000_2500';
+      if (savings < 5000)  return '2500_5000';
+      return 'over_5000';
+    }
+
+    function getTipsBucket(tips) {
+      if (tips < 5000)  return 'under_5k';
+      if (tips < 10000) return '5k_10k';
+      if (tips < 15000) return '10k_15k';
+      if (tips < 20000) return '15k_20k';
+      if (tips < 25000) return '20k_25k';
+      return '25k_plus';
+    }
   </script>
   <script src="/cookie-banner.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -492,6 +520,20 @@ function calculateTips() {
   void el.offsetWidth;
   el.classList.add('visible');
   setTimeout(() => el.scrollIntoView({ behavior: 'smooth', block: 'nearest' }), 50);
+
+  // GA4 — fire after results shown, bucketed values only (no raw PII)
+  gtag('event', 'tips_calculated', {
+    event_category:   'tips_calculator',
+    filing_status:    filing,
+    income_bucket:    getIncomeBucket(income),
+    tips_bucket:      getTipsBucket(tips),
+    savings_bucket:   getSavingsBucket(savings),
+    state:            state || 'not_selected',
+    occupation:       document.getElementById('occupation').value || 'not_selected',
+    phaseout_applied: income > (filing === 'mfj' ? 300000 : 150000) ? 'yes' : 'no',
+    marginal_rate:    Math.round(rate * 100) + '%',
+    deduction_capped: tips > 25000 ? 'yes' : 'no'
+  });
 }
 
 renderOcc();

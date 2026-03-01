@@ -39,8 +39,27 @@
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'G-Y7ZEFHVV43');
-    function trackCalc() { gtag('event', 'calculate', { event_category: 'overtime_calculator' }); }
+    function trackCalc() {} // replaced by post-calculate event below
     function trackAffiliate(n) { gtag('event', 'affiliate_click', { event_category: 'monetization', event_label: n }); }
+
+    function getIncomeBucket(income) {
+      if (income < 30000)  return 'under_30k';
+      if (income < 50000)  return '30k_50k';
+      if (income < 75000)  return '50k_75k';
+      if (income < 100000) return '75k_100k';
+      if (income < 150000) return '100k_150k';
+      if (income < 300000) return '150k_300k';
+      return 'over_300k';
+    }
+
+    function getSavingsBucket(savings) {
+      if (savings <= 0)    return 'zero';
+      if (savings < 500)   return 'under_500';
+      if (savings < 1000)  return '500_1000';
+      if (savings < 2500)  return '1000_2500';
+      if (savings < 5000)  return '2500_5000';
+      return 'over_5000';
+    }
   </script>
   <script src="/cookie-banner.js"></script>
   <meta name="fo-verify" content="e9122160-81fa-4b4e-93fd-b66781d36e3a" />
@@ -589,6 +608,19 @@
     void el.offsetWidth;
     el.classList.add('visible');
     setTimeout(() => el.scrollIntoView({ behavior: 'smooth', block: 'nearest' }), 50);
+
+    // GA4 — fire after results shown, use bucketed values only (no raw PII)
+    gtag('event', 'overtime_calculated', {
+      event_category:  'overtime_calculator',
+      filing_status:   filing,
+      income_bucket:   getIncomeBucket(income),
+      savings_bucket:  getSavingsBucket(savings),
+      input_method:    reporting,
+      state:           state || 'not_selected',
+      phaseout_applied: income > (filing === 'mfj' ? 300000 : 150000) ? 'yes' : 'no',
+      marginal_rate:   Math.round(rate * 100) + '%',
+      deduction_capped: raw > cap ? 'yes' : 'no'
+    });
   }
 </script>
 </body>
