@@ -35,6 +35,18 @@
     ]
   }
   </script>
+  <!-- Google Consent Mode v2 defaults -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'default', {
+      analytics_storage: 'denied',
+      ad_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied',
+      wait_for_update: 500,
+    });
+  </script>
   <!-- Google Analytics GA4 -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y7ZEFHVV43"></script>
   <script>
@@ -45,6 +57,7 @@
     gtag('event', 'state_page_view', { event_category: 'state_pages', event_label: 'NM' });
     function trackAffiliate(n) { gtag('event', 'affiliate_click', { event_category: 'monetization', event_label: n }); }
   </script>
+  <script src="/cookie-banner.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <style>
@@ -255,7 +268,7 @@
 <footer>
   <p><strong>OBBACalc.com</strong> — Free OBBBA Tax Deduction Calculators</p>
   <p>Information is based on IRS Notice 2025-69, IRS Notice 2025-72, and New Mexico Department of Revenue guidance as of March 2026. This is not tax advice.</p>
-  <p style="margin-top:8px;font-size:12px;">© 2026 OBBACalc.com · <a href="/privacy.html">Privacy Policy</a> · This site may earn commissions from affiliate links at no cost to you.</p>
+  <p style="margin-top:8px;font-size:12px;">© 2026 OBBACalc.com · <a href="/privacy.html">Privacy Policy</a> · <a href="/about.html">About</a> · <a href="/disclaimer.html">Disclaimer</a> · This site contains affiliate links.</p>
 </footer>
 
 <script>

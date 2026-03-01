@@ -25,6 +25,18 @@
   }
   </script>
 
+  <!-- Google Consent Mode v2 defaults — must come before GA tag -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'default', {
+      analytics_storage: 'denied',
+      ad_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied',
+      wait_for_update: 500,
+    });
+  </script>
   <!-- Google Analytics GA4 -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y7ZEFHVV43"></script>
   <script>
@@ -32,6 +44,9 @@
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'G-Y7ZEFHVV43');
+  </script>
+  <script src="/cookie-banner.js"></script>
+  <script>// placeholder to avoid double close
 
     function trackOccSelect(name) {
       gtag('event', 'occupation_selected', { event_category: 'tips_calculator', event_label: name });
@@ -496,7 +511,7 @@
   <p><strong>OBBACalc.com</strong> — Free OBBBA Tax Deduction Calculators</p>
   <p>This calculator provides estimates for informational purposes only. It is not tax advice. Consult a qualified tax professional for your specific situation.</p>
   <p style="margin-top:8px;">Sources: <a href="https://www.irs.gov" target="_blank">IRS.gov</a> · IRS Notice 2025-72 · IRC §224 · Public Law 119-21 (OBBBA)</p>
-  <p style="margin-top:8px;font-size:12px;">© 2026 OBBACalc.com · <a href="/privacy.html">Privacy Policy</a> · This site may earn commissions from affiliate links at no cost to you.</p>
+  <p style="margin-top:8px;font-size:12px;">© 2026 OBBACalc.com · <a href="/privacy.html">Privacy Policy</a> · <a href="/about.html">About</a> · <a href="/disclaimer.html">Disclaimer</a> · This site contains affiliate links.</p>
 </footer>
 
 <script>
