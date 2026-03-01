@@ -4,31 +4,24 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>No Tax on Overtime Calculator 2025 | OBBBA Deduction | OBBACalc</title>
-  <meta name="fo-verify" content="e9122160-81fa-4b4e-93fd-b66781d36e3a" />
   <meta name="description" content="Calculate your No Tax on Overtime deduction under the One Big Beautiful Bill Act (OBBBA). Free calculator for the 2025 federal income tax deduction. Covers all 50 states." />
   <meta name="keywords" content="no tax on overtime calculator, OBBBA calculator, overtime deduction 2025, One Big Beautiful Bill overtime, overtime tax savings 2025" />
   <link rel="canonical" href="https://obbacalc.com/" />
-
-  <!-- Open Graph -->
   <meta property="og:title" content="No Tax on Overtime Calculator 2025 | OBBACalc" />
   <meta property="og:description" content="Find out exactly how much you save on your 2025 taxes under the OBBBA overtime deduction. Free, instant, state-specific." />
-  <meta property="og:url" content="https://obbacalc.com/" />
   <meta property="og:type" content="website" />
-
-  <!-- Schema.org structured data -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "WebApplication",
     "name": "No Tax on Overtime Calculator",
     "url": "https://obbacalc.com",
-    "description": "Calculate your 2025 No Tax on Overtime deduction under the One Big Beautiful Bill Act (OBBBA). Free, instant, state-specific results.",
+    "description": "Calculate your 2025 No Tax on Overtime deduction under the One Big Beautiful Bill Act (OBBBA).",
     "applicationCategory": "FinanceApplication",
     "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
   }
   </script>
-
-  <!-- Google Consent Mode v2 defaults — must come before GA tag -->
+  <!-- Google Consent Mode v2 defaults -->
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
@@ -40,651 +33,171 @@
       wait_for_update: 500,
     });
   </script>
-  <!-- Google Analytics GA4 -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y7ZEFHVV43"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'G-Y7ZEFHVV43');
+    function trackCalc() { gtag('event', 'calculate', { event_category: 'overtime_calculator' }); }
+    function trackAffiliate(n) { gtag('event', 'affiliate_click', { event_category: 'monetization', event_label: n }); }
   </script>
   <script src="/cookie-banner.js"></script>
-  <script>// placeholder to avoid double close
-
-    // Track calculator use
-    function trackCalc() {
-      gtag('event', 'calculate', { event_category: 'overtime_calculator', event_label: 'calculate_clicked' });
-    }
-    // Track affiliate clicks
-    function trackAffiliate(name) {
-      gtag('event', 'affiliate_click', { event_category: 'monetization', event_label: name });
-    }
-  </script>
-
+  <meta name="fo-verify" content="e9122160-81fa-4b4e-93fd-b66781d36e3a" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
-
   <style>
     :root {
-      --navy: #0D1F3C;
-      --navy-mid: #1A3259;
-      --gold: #C9952A;
-      --gold-light: #F0B940;
-      --cream: #FAF7F2;
-      --white: #FFFFFF;
-      --green: #1A7A4A;
-      --green-bg: #EAF7EE;
-      --red: #B83030;
-      --red-bg: #FDEAEA;
-      --yellow-bg: #FFF8E1;
-      --yellow: #C07A00;
-      --text: #1A1A2E;
-      --muted: #5A6478;
-      --border: #DDE3EE;
-      --radius: 12px;
+      --navy:#0D1F3C; --navy-mid:#1A3259; --gold:#C9952A; --gold-light:#F0B940;
+      --cream:#FAF7F2; --white:#FFFFFF; --green:#1A7A4A; --green-bg:#EAF7EE;
+      --red:#B83030; --red-bg:#FDEAEA; --yellow-bg:#FFF8E1; --yellow:#C07A00;
+      --text:#1A1A2E; --muted:#5A6478; --border:#DDE3EE; --radius:12px;
     }
-
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--text); line-height: 1.6; }
 
-    body {
-      font-family: 'DM Sans', sans-serif;
-      background: var(--cream);
-      color: var(--text);
-      line-height: 1.6;
-    }
-
-    /* ── HEADER ── */
-    header {
-      background: var(--navy);
-      border-bottom: 3px solid var(--gold);
-      padding: 0 24px;
-    }
-    .header-inner {
-      max-width: 1100px;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: 64px;
-    }
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      text-decoration: none;
-    }
-    .logo-icon {
-      width: 36px; height: 36px;
-      background: var(--gold);
-      border-radius: 8px;
-      display: flex; align-items: center; justify-content: center;
-      font-family: 'Playfair Display', serif;
-      font-weight: 900;
-      font-size: 18px;
-      color: var(--navy);
-    }
-    .logo-text {
-      font-family: 'Playfair Display', serif;
-      font-weight: 700;
-      font-size: 20px;
-      color: var(--white);
-      letter-spacing: -0.3px;
-    }
+    /* HEADER */
+    header { background: var(--navy); border-bottom: 3px solid var(--gold); padding: 0 24px; position: sticky; top: 0; z-index: 100; }
+    .header-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 64px; }
+    .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .logo-icon { width: 36px; height: 36px; background: var(--gold); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-weight: 900; font-size: 18px; color: var(--navy); }
+    .logo-text { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 20px; color: var(--white); }
     .logo-text span { color: var(--gold-light); }
     nav { display: flex; gap: 24px; align-items: center; }
-    nav a {
-      color: rgba(255,255,255,0.75);
-      text-decoration: none;
-      font-size: 14px;
-      font-weight: 500;
-      transition: color 0.2s;
-    }
+    nav a { color: rgba(255,255,255,0.75); text-decoration: none; font-size: 14px; font-weight: 500; }
     nav a:hover { color: var(--gold-light); }
     nav a.active { color: var(--white); }
-    .nav-cta {
-      background: var(--gold);
-      color: var(--navy) !important;
-      padding: 7px 16px;
-      border-radius: 6px;
-      font-weight: 600 !important;
-    }
-    .nav-cta:hover { background: var(--gold-light); }
+    .nav-cta { background: var(--gold); color: var(--navy) !important; padding: 7px 16px; border-radius: 6px; font-weight: 600 !important; }
+    .hamburger { display: none; background: none; border: none; cursor: pointer; padding: 8px; flex-direction: column; gap: 5px; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: white; border-radius: 2px; }
+    .mobile-nav { display: none; background: var(--navy-mid); border-top: 1px solid rgba(255,255,255,0.1); }
+    .mobile-nav.open { display: block; }
+    .mobile-nav a { display: block; padding: 14px 24px; color: rgba(255,255,255,0.85); text-decoration: none; font-size: 15px; font-weight: 500; border-bottom: 1px solid rgba(255,255,255,0.07); }
 
-    /* ── HERO ── */
-    .hero {
-      background: linear-gradient(160deg, var(--navy) 0%, var(--navy-mid) 100%);
-      color: var(--white);
-      padding: 64px 24px 72px;
-      position: relative;
-      overflow: hidden;
-    }
-    .hero::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background-image: radial-gradient(circle at 80% 20%, rgba(201,149,42,0.12) 0%, transparent 60%),
-                        radial-gradient(circle at 10% 80%, rgba(201,149,42,0.07) 0%, transparent 50%);
-    }
-    .hero-inner {
-      max-width: 780px;
-      margin: 0 auto;
-      text-align: center;
-      position: relative;
-    }
-    .hero-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      background: rgba(201,149,42,0.2);
-      border: 1px solid rgba(201,149,42,0.4);
-      color: var(--gold-light);
-      font-size: 13px;
-      font-weight: 600;
-      padding: 5px 14px;
-      border-radius: 100px;
-      margin-bottom: 20px;
-      letter-spacing: 0.3px;
-    }
-    .hero h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(32px, 5vw, 52px);
-      font-weight: 900;
-      line-height: 1.15;
-      margin-bottom: 16px;
-      letter-spacing: -0.5px;
-    }
-    .hero h1 em {
-      font-style: normal;
-      color: var(--gold-light);
-    }
-    .hero p {
-      font-size: 18px;
-      color: rgba(255,255,255,0.78);
-      max-width: 580px;
-      margin: 0 auto 28px;
-      font-weight: 300;
-    }
-    .hero-stats {
-      display: flex;
-      justify-content: center;
-      gap: 40px;
-      flex-wrap: wrap;
-    }
-    .hero-stat { text-align: center; }
-    .hero-stat .num {
-      display: block;
-      font-family: 'Playfair Display', serif;
-      font-size: 28px;
-      font-weight: 900;
-      color: var(--gold-light);
-    }
-    .hero-stat .lbl {
-      font-size: 13px;
-      color: rgba(255,255,255,0.6);
-    }
+    /* HERO */
+    .hero { background: linear-gradient(160deg, var(--navy) 0%, var(--navy-mid) 100%); color: var(--white); padding: 48px 24px 56px; position: relative; overflow: hidden; }
+    .hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 80% 20%, rgba(201,149,42,0.12) 0%, transparent 60%); }
+    .hero-inner { max-width: 700px; margin: 0 auto; text-align: center; position: relative; }
+    .hero-badge { display: inline-flex; align-items: center; gap: 6px; background: rgba(201,149,42,0.2); border: 1px solid rgba(201,149,42,0.4); color: var(--gold-light); font-size: 13px; font-weight: 600; padding: 5px 14px; border-radius: 100px; margin-bottom: 16px; }
+    .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(28px,5vw,48px); font-weight: 900; line-height: 1.15; margin-bottom: 8px; }
+    .hero h1 em { font-style: normal; color: var(--gold-light); }
+    .hero-asterisk { font-size: 12px; color: rgba(255,255,255,0.45); margin-bottom: 14px; }
+    .hero p { font-size: 16px; color: rgba(255,255,255,0.75); max-width: 520px; margin: 0 auto; font-weight: 300; }
 
-    /* ── MAIN LAYOUT ── */
-    .main-wrap {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 48px 24px 80px;
-      display: grid;
-      grid-template-columns: 1fr 340px;
-      gap: 32px;
-      align-items: start;
-    }
+    /* LAYOUT */
+    .main-wrap { max-width: 1100px; margin: 0 auto; padding: 36px 24px 80px; display: grid; grid-template-columns: 1fr 300px; gap: 28px; align-items: start; }
 
-    /* ── CALCULATOR CARD ── */
-    .calc-card {
-      background: var(--white);
-      border-radius: var(--radius);
-      box-shadow: 0 4px 24px rgba(13,31,60,0.09);
-      overflow: hidden;
-    }
-    .calc-header {
-      background: var(--navy);
-      padding: 22px 28px;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-    .calc-header-icon {
-      width: 42px; height: 42px;
-      background: var(--gold);
-      border-radius: 8px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 20px;
-    }
-    .calc-header h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: 20px;
-      color: var(--white);
-      font-weight: 700;
-    }
-    .calc-header p { font-size: 13px; color: rgba(255,255,255,0.6); }
-    .calc-body { padding: 28px; }
-
-    .form-section {
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 20px;
-      margin-bottom: 20px;
-    }
-    .form-section-title {
-      font-size: 12px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.8px;
-      color: var(--muted);
-      margin-bottom: 16px;
-    }
-    .form-row { margin-bottom: 16px; }
+    /* CALCULATOR */
+    .calc-card { background: var(--white); border-radius: var(--radius); box-shadow: 0 4px 24px rgba(13,31,60,0.09); overflow: hidden; }
+    .calc-header { background: var(--navy); padding: 18px 24px; display: flex; align-items: center; gap: 12px; }
+    .calc-header-icon { width: 38px; height: 38px; background: var(--gold); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; }
+    .calc-header h2 { font-family: 'Playfair Display', serif; font-size: 17px; color: var(--white); font-weight: 700; }
+    .calc-header p { font-size: 12px; color: rgba(255,255,255,0.55); }
+    .calc-body { padding: 22px; }
+    .form-section { border: 1px solid var(--border); border-radius: 10px; padding: 16px; margin-bottom: 14px; }
+    .form-section-title { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: var(--muted); margin-bottom: 12px; }
+    .form-row { margin-bottom: 12px; }
     .form-row:last-child { margin-bottom: 0; }
-    label {
-      display: block;
-      font-size: 14px;
-      font-weight: 600;
-      color: var(--text);
-      margin-bottom: 6px;
-    }
-    label span {
-      font-weight: 400;
-      color: var(--muted);
-      font-size: 13px;
-    }
-    select, input[type="number"] {
-      width: 100%;
-      height: 44px;
-      border: 1.5px solid var(--border);
-      border-radius: 8px;
-      padding: 0 14px;
-      font-family: 'DM Sans', sans-serif;
-      font-size: 15px;
-      color: var(--text);
-      background: var(--white);
-      transition: border-color 0.2s, box-shadow 0.2s;
-      outline: none;
-      -moz-appearance: textfield;
-    }
-    input[type="number"]::-webkit-outer-spin-button,
-    input[type="number"]::-webkit-inner-spin-button { -webkit-appearance: none; }
-    select:focus, input:focus {
-      border-color: var(--gold);
-      box-shadow: 0 0 0 3px rgba(201,149,42,0.15);
-    }
+    label { display: block; font-size: 14px; font-weight: 600; color: var(--text); margin-bottom: 5px; }
+    .label-sub { font-size: 11px; color: var(--muted); font-weight: 400; display: block; margin-top: 1px; }
+    select, input[type="number"] { width: 100%; height: 44px; border: 1.5px solid var(--border); border-radius: 8px; padding: 0 14px; font-family: 'DM Sans', sans-serif; font-size: 15px; color: var(--text); background: var(--white); outline: none; -moz-appearance: textfield; transition: border-color 0.2s; }
+    input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-inner-spin-button { -webkit-appearance: none; }
+    select:focus, input:focus { border-color: var(--gold); box-shadow: 0 0 0 3px rgba(201,149,42,0.12); }
 
-    .radio-group { display: flex; gap: 10px; }
-    .radio-option {
-      flex: 1;
-      position: relative;
-    }
+    /* RADIO - MOBILE SAFE */
+    .radio-group { display: flex; gap: 8px; flex-wrap: wrap; }
+    .radio-option { flex: 1 1 calc(33% - 6px); min-width: 90px; }
     .radio-option input[type="radio"] { display: none; }
-    .radio-option label {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 44px;
-      border: 1.5px solid var(--border);
-      border-radius: 8px;
-      cursor: pointer;
-      font-size: 14px;
-      font-weight: 500;
-      color: var(--muted);
-      transition: all 0.18s;
-      margin: 0;
-      text-align: center;
-      padding: 0 8px;
-    }
-    .radio-option input[type="radio"]:checked + label {
-      border-color: var(--gold);
-      background: rgba(201,149,42,0.08);
-      color: var(--navy);
-      font-weight: 600;
-    }
+    .radio-option label { display: flex; align-items: center; justify-content: center; min-height: 44px; border: 1.5px solid var(--border); border-radius: 8px; cursor: pointer; font-size: 12px; font-weight: 500; color: var(--muted); text-align: center; padding: 8px 4px; line-height: 1.3; margin: 0; transition: all 0.18s; }
+    .radio-option input[type="radio"]:checked + label { border-color: var(--gold); background: rgba(201,149,42,0.08); color: var(--navy); font-weight: 700; }
 
-    .input-prefix {
-      position: relative;
-    }
-    .input-prefix span {
-      position: absolute;
-      left: 14px;
-      top: 50%;
-      transform: translateY(-50%);
-      color: var(--muted);
-      font-size: 15px;
-      pointer-events: none;
-    }
-    .input-prefix input { padding-left: 28px; }
+    .input-prefix { position: relative; }
+    .input-prefix span { position: absolute; left: 12px; top: 50%; transform: translateY(-50%); color: var(--muted); font-size: 15px; pointer-events: none; }
+    .input-prefix input { padding-left: 26px; }
 
-    .tooltip {
-      display: inline-block;
-      width: 16px; height: 16px;
-      background: var(--border);
-      color: var(--muted);
-      border-radius: 50%;
-      font-size: 10px;
-      font-weight: 700;
-      text-align: center;
-      line-height: 16px;
-      cursor: help;
-      margin-left: 6px;
-      position: relative;
-    }
-    .tooltip:hover::after {
-      content: attr(data-tip);
-      position: absolute;
-      bottom: calc(100% + 6px);
-      left: 50%;
-      transform: translateX(-50%);
-      background: var(--navy);
-      color: white;
-      font-size: 12px;
-      font-weight: 400;
-      padding: 8px 12px;
-      border-radius: 6px;
-      white-space: normal;
-      width: 240px;
-      z-index: 10;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-      line-height: 1.4;
-    }
+    /* TOOLTIP */
+    .tooltip { display: inline-flex; align-items: center; justify-content: center; width: 15px; height: 15px; background: #E8EDF5; color: var(--muted); border-radius: 50%; font-size: 10px; font-weight: 700; cursor: help; margin-left: 4px; position: relative; vertical-align: middle; }
+    .tooltip:hover::after { content: attr(data-tip); position: absolute; bottom: calc(100% + 8px); left: 50%; transform: translateX(-50%); background: var(--navy); color: white; font-size: 12px; font-weight: 400; padding: 10px 14px; border-radius: 8px; white-space: normal; width: 240px; z-index: 50; box-shadow: 0 4px 16px rgba(0,0,0,0.2); line-height: 1.5; pointer-events: none; }
 
-    .calc-btn {
-      width: 100%;
-      height: 52px;
-      background: var(--gold);
-      color: var(--navy);
-      border: none;
-      border-radius: 10px;
-      font-family: 'DM Sans', sans-serif;
-      font-size: 16px;
-      font-weight: 700;
-      cursor: pointer;
-      transition: background 0.2s, transform 0.1s;
-      margin-top: 8px;
-      letter-spacing: -0.2px;
-    }
+    .calc-btn { width: 100%; height: 52px; background: var(--gold); color: var(--navy); border: none; border-radius: 10px; font-family: 'DM Sans', sans-serif; font-size: 16px; font-weight: 700; cursor: pointer; transition: background 0.2s; margin-top: 4px; }
     .calc-btn:hover { background: var(--gold-light); }
-    .calc-btn:active { transform: scale(0.99); }
 
-    /* ── RESULTS ── */
-    #results {
-      display: none;
-      margin-top: 24px;
-      border-top: 2px dashed var(--border);
-      padding-top: 24px;
-      animation: fadeUp 0.4s ease;
-    }
-    #results.visible { display: block; }
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(12px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    .results-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 18px;
-      font-weight: 700;
-      color: var(--navy);
-      margin-bottom: 16px;
-    }
-    .result-primary {
-      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
-      border-radius: 10px;
-      padding: 24px;
-      color: white;
-      text-align: center;
-      margin-bottom: 16px;
-    }
-    .result-primary .amount {
-      font-family: 'Playfair Display', serif;
-      font-size: 48px;
-      font-weight: 900;
-      color: var(--gold-light);
-      display: block;
-      line-height: 1;
-      margin-bottom: 4px;
-    }
-    .result-primary .label { font-size: 14px; color: rgba(255,255,255,0.7); }
-    .result-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-      margin-bottom: 16px;
-    }
-    .result-box {
-      background: var(--cream);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 14px 16px;
-    }
-    .result-box .r-label { font-size: 12px; color: var(--muted); margin-bottom: 4px; }
-    .result-box .r-value { font-size: 20px; font-weight: 700; color: var(--navy); font-family: 'Playfair Display', serif; }
-
-    .state-badge {
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
-      padding: 14px 16px;
-      border-radius: 8px;
-      font-size: 14px;
-      margin-bottom: 16px;
-    }
+    /* RESULTS */
+    #results { display: none; margin-top: 22px; border-top: 2px dashed var(--border); padding-top: 22px; }
+    #results.visible { display: block; animation: fadeUp 0.35s ease; }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    .results-title { font-family: 'Playfair Display', serif; font-size: 16px; font-weight: 700; color: var(--navy); margin-bottom: 12px; }
+    .result-primary { background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%); border-radius: 10px; padding: 20px; text-align: center; margin-bottom: 12px; }
+    .result-primary .amount { font-family: 'Playfair Display', serif; font-size: 52px; font-weight: 900; color: var(--gold-light); display: block; line-height: 1; margin-bottom: 4px; }
+    .result-primary .label { font-size: 13px; color: rgba(255,255,255,0.65); }
+    .result-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 12px; }
+    .result-box { background: var(--cream); border: 1px solid var(--border); border-radius: 8px; padding: 12px; }
+    .result-box .r-label { font-size: 11px; color: var(--muted); margin-bottom: 2px; }
+    .result-box .r-value { font-size: 22px; font-weight: 700; color: var(--navy); font-family: 'Playfair Display', serif; }
+    .state-badge { display: flex; align-items: flex-start; gap: 10px; padding: 11px 13px; border-radius: 8px; font-size: 13px; margin-bottom: 12px; }
     .state-badge.green { background: var(--green-bg); border: 1px solid #A3D9B8; color: var(--green); }
     .state-badge.red { background: var(--red-bg); border: 1px solid #F0AAAA; color: var(--red); }
     .state-badge.yellow { background: var(--yellow-bg); border: 1px solid #FFD980; color: var(--yellow); }
-    .state-badge .badge-icon { font-size: 18px; flex-shrink: 0; margin-top: 1px; }
     .state-badge strong { display: block; font-weight: 700; margin-bottom: 2px; }
+    .disclaimer-box { background: #F3F5FA; border-left: 3px solid var(--gold); padding: 12px 14px; border-radius: 0 8px 8px 0; font-size: 13px; color: var(--muted); line-height: 1.5; }
+    .affiliate-cta { background: linear-gradient(135deg, #1A5C35 0%, #1A7A4A 100%); border-radius: 10px; padding: 18px; text-align: center; color: white; margin-top: 12px; }
+    .affiliate-cta strong { font-size: 15px; display: block; margin-bottom: 6px; }
+    .affiliate-cta p { font-size: 13px; opacity: 0.8; margin-bottom: 10px; }
+    .affiliate-cta a { display: inline-block; background: white; color: #1A5C35; padding: 9px 24px; border-radius: 7px; font-weight: 700; font-size: 14px; text-decoration: none; }
+    .turbo-disc { font-size: 11px; color: rgba(255,255,255,0.5); margin-top: 8px; line-height: 1.4; }
 
-    .disclaimer-box {
-      background: #F3F5FA;
-      border-left: 3px solid var(--gold);
-      border-radius: 0 8px 8px 0;
-      padding: 12px 14px;
-      font-size: 13px;
-      color: var(--muted);
-      line-height: 1.5;
-    }
-
-    .affiliate-cta {
-      background: linear-gradient(135deg, #1A5C35 0%, #1A7A4A 100%);
-      border-radius: 10px;
-      padding: 20px;
-      text-align: center;
-      color: white;
-      margin-top: 16px;
-    }
-    .affiliate-cta p { font-size: 14px; opacity: 0.85; margin-bottom: 12px; }
-    .affiliate-cta strong { font-size: 16px; display: block; margin-bottom: 8px; }
-    .affiliate-cta a {
-      display: inline-block;
-      background: white;
-      color: #1A5C35;
-      padding: 10px 24px;
-      border-radius: 7px;
-      font-weight: 700;
-      font-size: 14px;
-      text-decoration: none;
-      transition: opacity 0.2s;
-    }
-    .affiliate-cta a:hover { opacity: 0.9; }
-
-    /* ── SIDEBAR ── */
-    .sidebar { display: flex; flex-direction: column; gap: 20px; }
-
-    .side-card {
-      background: var(--white);
-      border-radius: var(--radius);
-      box-shadow: 0 2px 12px rgba(13,31,60,0.07);
-      overflow: hidden;
-    }
-    .side-card-header {
-      padding: 14px 18px;
-      background: var(--navy);
-      font-family: 'Playfair Display', serif;
-      font-size: 15px;
-      font-weight: 700;
-      color: var(--white);
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .side-card-body { padding: 16px 18px; }
-
-    .tips-link-card {
-      background: linear-gradient(135deg, var(--navy) 0%, #2A4A7A 100%);
-      border-radius: var(--radius);
-      padding: 24px;
-      color: white;
-      text-decoration: none;
-      display: block;
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-    .tips-link-card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(13,31,60,0.2); }
-    .tips-link-card .tc-badge {
-      background: rgba(201,149,42,0.25);
-      border: 1px solid rgba(201,149,42,0.5);
-      color: var(--gold-light);
-      font-size: 11px;
-      font-weight: 700;
-      padding: 3px 10px;
-      border-radius: 100px;
-      display: inline-block;
-      margin-bottom: 10px;
-      letter-spacing: 0.5px;
-    }
-    .tips-link-card h3 {
-      font-family: 'Playfair Display', serif;
-      font-size: 18px;
-      font-weight: 700;
-      margin-bottom: 8px;
-    }
-    .tips-link-card p { font-size: 13px; color: rgba(255,255,255,0.7); margin-bottom: 14px; }
-    .tips-link-card .arrow {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 14px;
-      font-weight: 600;
-      color: var(--gold-light);
-    }
-
+    /* SIDEBAR */
+    .sidebar { display: flex; flex-direction: column; gap: 16px; }
+    .side-card { background: var(--white); border-radius: var(--radius); box-shadow: 0 2px 12px rgba(13,31,60,0.07); overflow: hidden; }
+    .side-card-header { padding: 12px 16px; background: var(--navy); font-family: 'Playfair Display', serif; font-size: 14px; font-weight: 700; color: var(--white); }
+    .side-card-body { padding: 14px 16px; }
+    .tips-promo { background: linear-gradient(135deg, var(--navy) 0%, #2A4A7A 100%); border-radius: var(--radius); padding: 20px; color: white; text-decoration: none; display: block; }
+    .tips-promo .tp-tag { background: rgba(201,149,42,0.25); color: var(--gold-light); font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 100px; display: inline-block; margin-bottom: 10px; }
+    .tips-promo h3 { font-family: 'Playfair Display', serif; font-size: 16px; margin-bottom: 6px; }
+    .tips-promo p { font-size: 13px; color: rgba(255,255,255,0.7); margin-bottom: 10px; }
+    .tips-promo .arrow { font-size: 13px; font-weight: 600; color: var(--gold-light); }
     .fact-list { list-style: none; }
-    .fact-list li {
-      display: flex;
-      gap: 10px;
-      padding: 9px 0;
-      border-bottom: 1px solid var(--border);
-      font-size: 13.5px;
-      color: var(--text);
-      line-height: 1.4;
-    }
+    .fact-list li { display: flex; gap: 8px; padding: 7px 0; border-bottom: 1px solid var(--border); font-size: 13px; color: var(--text); line-height: 1.4; }
     .fact-list li:last-child { border-bottom: none; }
-    .fact-list li::before { content: '✓'; color: var(--green); font-weight: 700; flex-shrink: 0; margin-top: 1px; }
-
-    .state-mini-list { list-style: none; }
-    .state-mini-list li {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 8px 0;
-      border-bottom: 1px solid var(--border);
-      font-size: 13px;
-    }
-    .state-mini-list li:last-child { border-bottom: none; }
-    .badge-sm {
-      font-size: 11px;
-      font-weight: 700;
-      padding: 2px 8px;
-      border-radius: 100px;
-    }
+    .fact-list li::before { content: '✓'; color: var(--green); font-weight: 700; flex-shrink: 0; }
+    .state-mini { list-style: none; }
+    .state-mini li { display: flex; align-items: center; justify-content: space-between; padding: 6px 0; border-bottom: 1px solid var(--border); font-size: 12px; }
+    .state-mini li:last-child { border-bottom: none; }
+    .badge-sm { font-size: 10px; font-weight: 700; padding: 2px 7px; border-radius: 100px; }
     .badge-sm.green { background: var(--green-bg); color: var(--green); }
     .badge-sm.red { background: var(--red-bg); color: var(--red); }
     .badge-sm.yellow { background: var(--yellow-bg); color: var(--yellow); }
-    .badge-sm.gray { background: #EEF0F5; color: var(--muted); }
 
-    .email-form { display: flex; flex-direction: column; gap: 10px; }
-    .email-form input[type="email"] {
-      width: 100%;
-      height: 40px;
-      border: 1.5px solid var(--border);
-      border-radius: 7px;
-      padding: 0 12px;
-      font-family: 'DM Sans', sans-serif;
-      font-size: 14px;
-      outline: none;
-    }
-    .email-form input:focus { border-color: var(--gold); box-shadow: 0 0 0 3px rgba(201,149,42,0.15); }
-    .email-form button {
-      height: 40px;
-      background: var(--navy);
-      color: white;
-      border: none;
-      border-radius: 7px;
-      font-family: 'DM Sans', sans-serif;
-      font-size: 14px;
-      font-weight: 600;
-      cursor: pointer;
-    }
-    .email-form button:hover { background: var(--navy-mid); }
+    /* FAQ */
+    .faq-section { max-width: 1100px; margin: 0 auto 80px; padding: 0 24px; }
+    .faq-section h2 { font-family: 'Playfair Display', serif; font-size: 26px; font-weight: 900; color: var(--navy); margin-bottom: 4px; }
+    .faq-sub { color: var(--muted); font-size: 15px; margin-bottom: 20px; }
+    .faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .faq-item { background: var(--white); border-radius: 10px; padding: 16px 18px; box-shadow: 0 2px 8px rgba(13,31,60,0.06); }
+    .faq-item h3 { font-size: 14px; font-weight: 700; color: var(--navy); margin-bottom: 6px; line-height: 1.3; }
+    .faq-item p { font-size: 13px; color: var(--muted); line-height: 1.6; }
 
-    /* ── FAQ SECTION ── */
-    .faq-section {
-      max-width: 1100px;
-      margin: 0 auto 80px;
-      padding: 0 24px;
-    }
-    .faq-section h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: 32px;
-      font-weight: 900;
-      color: var(--navy);
-      margin-bottom: 8px;
-    }
-    .faq-section .faq-sub { color: var(--muted); margin-bottom: 32px; font-size: 16px; }
-    .faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-    .faq-item {
-      background: var(--white);
-      border-radius: 10px;
-      padding: 20px 22px;
-      box-shadow: 0 2px 8px rgba(13,31,60,0.06);
-    }
-    .faq-item h3 {
-      font-size: 15px;
-      font-weight: 700;
-      color: var(--navy);
-      margin-bottom: 8px;
-      line-height: 1.3;
-    }
-    .faq-item p { font-size: 14px; color: var(--muted); line-height: 1.6; }
-
-    /* ── FOOTER ── */
-    footer {
-      background: var(--navy);
-      color: rgba(255,255,255,0.55);
-      padding: 32px 24px;
-      text-align: center;
-      font-size: 13px;
-      line-height: 1.7;
-    }
+    footer { background: var(--navy); color: rgba(255,255,255,0.55); padding: 32px 24px; text-align: center; font-size: 13px; line-height: 1.7; }
     footer a { color: var(--gold-light); text-decoration: none; }
     footer strong { color: rgba(255,255,255,0.8); }
 
-    /* ── RESPONSIVE ── */
+    /* MOBILE */
     @media (max-width: 760px) {
       nav { display: none; }
-      .main-wrap { grid-template-columns: 1fr; }
-      .sidebar { order: -1; }
-      .tips-link-card { display: none; }
-      .result-grid { grid-template-columns: 1fr; }
+      .hamburger { display: flex; }
+      .main-wrap { grid-template-columns: 1fr; padding: 20px 16px 60px; }
+      .calc-card { order: 1; }
+      .sidebar { order: 2; }
+      .tips-promo { display: none; }
       .faq-grid { grid-template-columns: 1fr; }
-      .hero { padding: 40px 20px 52px; }
-      .hero-stats { gap: 24px; }
+      .result-grid { grid-template-columns: 1fr; }
+      .hero { padding: 28px 16px 36px; }
+      .radio-option { flex: 1 1 calc(50% - 4px); }
     }
   </style>
 </head>
 <body>
 
-<!-- HEADER -->
 <header>
   <div class="header-inner">
     <a href="/" class="logo">
@@ -695,441 +208,350 @@
       <a href="/" class="active">Overtime Calculator</a>
       <a href="/no-tax-on-tips-calculator.html">Tips Calculator</a>
       <a href="/state-conformity-tracker.html">State Tracker</a>
-      <a href="/no-tax-on-tips-calculator.html" class="nav-cta">Check Tips Eligibility →</a>
+      <a href="/no-tax-on-tips-calculator.html" class="nav-cta">Tips Calculator →</a>
     </nav>
+    <button class="hamburger" onclick="document.getElementById('mnav').classList.toggle('open')" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-nav" id="mnav">
+    <a href="/">⏱️ Overtime Calculator</a>
+    <a href="/no-tax-on-tips-calculator.html">💵 Tips Calculator</a>
+    <a href="/state-conformity-tracker.html">🗺️ State Tracker</a>
+    <a href="/about.html">About</a>
+    <a href="/disclaimer.html">Disclaimer</a>
   </div>
 </header>
 
-<!-- HERO -->
 <section class="hero">
   <div class="hero-inner">
     <div class="hero-badge">🏛️ OBBBA · Public Law 119-21 · Tax Years 2025–2028</div>
-    <h1>How Much Do You Save With<br><em>No Tax on Overtime?</em></h1>
+    <h1>Save Up to <em>$25,000</em><br>on Your 2025 Taxes*</h1>
+    <p class="hero-asterisk">*$25,000 is the maximum combined deduction for married filing jointly filers, subject to income phase-out limits. Individual results will vary.</p>
     <p>The One Big Beautiful Bill Act created a new federal deduction on overtime pay. Calculate your exact savings in 60 seconds — free, no signup required.</p>
-    <div class="hero-stats">
-      <div class="hero-stat">
-        <span class="num">$12,500</span>
-        <span class="lbl">Max deduction (single)</span>
-      </div>
-      <div class="hero-stat">
-        <span class="num">$25,000</span>
-        <span class="lbl">Max deduction (joint)</span>
-      </div>
-      <div class="hero-stat">
-        <span class="num">2025–2028</span>
-        <span class="lbl">Deduction years</span>
-      </div>
-    </div>
   </div>
 </section>
 
-<!-- MAIN -->
 <div class="main-wrap">
+  <!-- CALCULATOR FIRST -->
+  <div class="calc-card">
+    <div class="calc-header">
+      <div class="calc-header-icon">⏱️</div>
+      <div>
+        <h2>No Tax on Overtime Calculator</h2>
+        <p>Tax Year 2025 · IRS Notice 2025-69 · IRC §225</p>
+      </div>
+    </div>
+    <div class="calc-body">
 
-  <!-- CALCULATOR -->
-  <div>
-    <div class="calc-card">
-      <div class="calc-header">
-        <div class="calc-header-icon">⏱️</div>
-        <div>
-          <h2>No Tax on Overtime Calculator</h2>
-          <p>For Tax Year 2025 (filing by April 15, 2026)</p>
+      <div class="form-section">
+        <div class="form-section-title">Step 1 — Your Information</div>
+
+        <div class="form-row">
+          <label>Filing Status</label>
+          <div class="radio-group">
+            <div class="radio-option">
+              <input type="radio" name="filing" id="f-single" value="single" checked />
+              <label for="f-single">Single</label>
+            </div>
+            <div class="radio-option">
+              <input type="radio" name="filing" id="f-mfj" value="mfj" />
+              <label for="f-mfj">Married Filing Jointly</label>
+            </div>
+            <div class="radio-option">
+              <input type="radio" name="filing" id="f-mfs" value="mfs" />
+              <label for="f-mfs">Married Filing Separately</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <label>
+            Annual Income
+            <span class="tooltip" data-tip="Modified Adjusted Gross Income (MAGI) — your total gross income before deductions. The OBBBA deduction phases out by $1 for every $1 your MAGI exceeds $150,000.">?</span>
+            <span class="label-sub">Modified Adjusted Gross Income (MAGI)</span>
+          </label>
+          <div class="input-prefix">
+            <span>$</span>
+            <input type="number" id="income" placeholder="e.g. 55000" min="0" />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <label>State of Residence</label>
+          <select id="state">
+            <option value="">— Select your state —</option>
+            <option value="AL">Alabama</option>
+            <option value="AK">Alaska (no state income tax)</option>
+            <option value="AZ">Arizona</option>
+            <option value="AR">Arkansas</option>
+            <option value="CA">California</option>
+            <option value="CO">Colorado</option>
+            <option value="CT">Connecticut</option>
+            <option value="DE">Delaware</option>
+            <option value="DC">District of Columbia</option>
+            <option value="FL">Florida (no state income tax)</option>
+            <option value="GA">Georgia</option>
+            <option value="HI">Hawaii</option>
+            <option value="ID">Idaho</option>
+            <option value="IL">Illinois</option>
+            <option value="IN">Indiana</option>
+            <option value="IA">Iowa</option>
+            <option value="KS">Kansas</option>
+            <option value="KY">Kentucky</option>
+            <option value="LA">Louisiana</option>
+            <option value="ME">Maine</option>
+            <option value="MD">Maryland</option>
+            <option value="MA">Massachusetts</option>
+            <option value="MI">Michigan</option>
+            <option value="MN">Minnesota</option>
+            <option value="MS">Mississippi</option>
+            <option value="MO">Missouri</option>
+            <option value="MT">Montana</option>
+            <option value="NE">Nebraska</option>
+            <option value="NV">Nevada (no state income tax)</option>
+            <option value="NH">New Hampshire (no state income tax)</option>
+            <option value="NJ">New Jersey</option>
+            <option value="NM">New Mexico</option>
+            <option value="NY">New York</option>
+            <option value="NC">North Carolina</option>
+            <option value="ND">North Dakota</option>
+            <option value="OH">Ohio</option>
+            <option value="OK">Oklahoma</option>
+            <option value="OR">Oregon</option>
+            <option value="PA">Pennsylvania</option>
+            <option value="RI">Rhode Island</option>
+            <option value="SC">South Carolina</option>
+            <option value="SD">South Dakota (no state income tax)</option>
+            <option value="TN">Tennessee (no state income tax)</option>
+            <option value="TX">Texas (no state income tax)</option>
+            <option value="UT">Utah</option>
+            <option value="VT">Vermont</option>
+            <option value="VA">Virginia</option>
+            <option value="WA">Washington (no state income tax)</option>
+            <option value="WV">West Virginia</option>
+            <option value="WI">Wisconsin</option>
+            <option value="WY">Wyoming (no state income tax)</option>
+          </select>
         </div>
       </div>
-      <div class="calc-body">
 
-        <!-- Filing Status -->
-        <div class="form-section">
-          <div class="form-section-title">Step 1 — Filing Information</div>
-          <div class="form-row">
-            <label>Filing Status</label>
-            <div class="radio-group">
-              <div class="radio-option">
-                <input type="radio" name="filing" id="single" value="single" checked />
-                <label for="single">Single</label>
-              </div>
-              <div class="radio-option">
-                <input type="radio" name="filing" id="mfj" value="mfj" />
-                <label for="mfj">Married Filing Jointly</label>
-              </div>
-              <div class="radio-option">
-                <input type="radio" name="filing" id="mfs" value="mfs" />
-                <label for="mfs">Married Filing Separately</label>
-              </div>
-            </div>
-          </div>
-          <div class="form-row">
-            <label>
-              Annual Gross Income (MAGI)
-              <span class="tooltip" data-tip="Your total income before deductions. Used to calculate the phase-out — deduction reduces by $1 for every $1 over $150,000.">?</span>
-            </label>
-            <div class="input-prefix">
-              <span>$</span>
-              <input type="number" id="income" placeholder="e.g. 55000" min="0" max="9999999" />
-            </div>
-          </div>
-          <div class="form-row">
-            <label>State of Residence</label>
-            <select id="state">
-              <option value="">— Select your state —</option>
-              <option value="AL">Alabama</option>
-              <option value="AK">Alaska (no state income tax)</option>
-              <option value="AZ">Arizona</option>
-              <option value="AR">Arkansas</option>
-              <option value="CA">California</option>
-              <option value="CO">Colorado</option>
-              <option value="CT">Connecticut</option>
-              <option value="DE">Delaware</option>
-              <option value="DC">District of Columbia</option>
-              <option value="FL">Florida (no state income tax)</option>
-              <option value="GA">Georgia</option>
-              <option value="HI">Hawaii</option>
-              <option value="ID">Idaho</option>
-              <option value="IL">Illinois</option>
-              <option value="IN">Indiana</option>
-              <option value="IA">Iowa</option>
-              <option value="KS">Kansas</option>
-              <option value="KY">Kentucky</option>
-              <option value="LA">Louisiana</option>
-              <option value="ME">Maine</option>
-              <option value="MD">Maryland</option>
-              <option value="MA">Massachusetts</option>
-              <option value="MI">Michigan</option>
-              <option value="MN">Minnesota</option>
-              <option value="MS">Mississippi</option>
-              <option value="MO">Missouri</option>
-              <option value="MT">Montana</option>
-              <option value="NE">Nebraska</option>
-              <option value="NV">Nevada (no state income tax)</option>
-              <option value="NH">New Hampshire (no state income tax)</option>
-              <option value="NJ">New Jersey</option>
-              <option value="NM">New Mexico</option>
-              <option value="NY">New York</option>
-              <option value="NC">North Carolina</option>
-              <option value="ND">North Dakota</option>
-              <option value="OH">Ohio</option>
-              <option value="OK">Oklahoma</option>
-              <option value="OR">Oregon</option>
-              <option value="PA">Pennsylvania</option>
-              <option value="RI">Rhode Island</option>
-              <option value="SC">South Carolina</option>
-              <option value="SD">South Dakota (no state income tax)</option>
-              <option value="TN">Tennessee (no state income tax)</option>
-              <option value="TX">Texas (no state income tax)</option>
-              <option value="UT">Utah</option>
-              <option value="VT">Vermont</option>
-              <option value="VA">Virginia</option>
-              <option value="WA">Washington (no state income tax)</option>
-              <option value="WV">West Virginia</option>
-              <option value="WI">Wisconsin</option>
-              <option value="WY">Wyoming (no state income tax)</option>
-            </select>
+      <div class="form-section">
+        <div class="form-section-title">Step 2 — Your Overtime Pay in 2025</div>
+
+        <div class="form-row">
+          <label>
+            How was your overtime reported?
+            <span class="tooltip" data-tip="Check your pay stubs. If overtime is listed as a separate line item, choose 'Separately.' Most workers have it combined — the IRS ÷3 formula is applied automatically.">?</span>
+          </label>
+          <select id="reporting">
+            <option value="combined">Combined in total wages (most common)</option>
+            <option value="separate">Separately on pay stub / W-2</option>
+          </select>
+        </div>
+
+        <div class="form-row" id="row-total">
+          <label>
+            Total Overtime Wages in 2025
+            <span class="tooltip" data-tip="The total dollar amount you were paid for overtime hours worked. We divide this by 3 using the IRS formula to calculate the deductible premium portion (IRS Notice 2025-69).">?</span>
+          </label>
+          <div class="input-prefix">
+            <span>$</span>
+            <input type="number" id="overtime" placeholder="e.g. 9000" min="0" />
           </div>
         </div>
 
-        <!-- Overtime -->
-        <div class="form-section">
-          <div class="form-section-title">Step 2 — Your Overtime Pay in 2025</div>
-          <div class="form-row">
-            <label>
-              How was your overtime reported?
-              <span class="tooltip" data-tip="Check your pay stubs or W-2. If your employer listed overtime separately, choose 'Separately.' If you only see total wages, choose 'Combined in total wages.'">?</span>
-            </label>
-            <select id="reporting">
-              <option value="separate">Separately on pay stub / W-2</option>
-              <option value="combined">Combined in total wages (most common)</option>
-            </select>
-          </div>
-          <div class="form-row" id="row-premium" style="display:none">
-            <label>
-              Overtime Premium Amount
-              <span class="tooltip" data-tip="The 'premium' is the EXTRA half of your time-and-a-half pay. For example, if you earn $20/hr and worked 10 overtime hours, your premium is $100 (10 hrs × $10 premium).">?</span>
-            </label>
-            <div class="input-prefix">
-              <span>$</span>
-              <input type="number" id="premium" placeholder="e.g. 3500" min="0" />
-            </div>
-          </div>
-          <div class="form-row" id="row-total">
-            <label>
-              Total Overtime Wages Received
-              <span class="tooltip" data-tip="The total dollar amount you were paid in overtime (time-and-a-half hours × your pay rate). Find this on your pay stubs for all of 2025.">?</span>
-            </label>
-            <div class="input-prefix">
-              <span>$</span>
-              <input type="number" id="overtime" placeholder="e.g. 9000" min="0" />
-            </div>
+        <div class="form-row" id="row-premium" style="display:none">
+          <label>
+            Overtime Premium Amount
+            <span class="tooltip" data-tip="The premium is the EXTRA half of time-and-a-half pay. Example: base $20/hr × 10 OT hours = $100 premium (not the full $300 total OT pay).">?</span>
+          </label>
+          <div class="input-prefix">
+            <span>$</span>
+            <input type="number" id="premium" placeholder="e.g. 3000" min="0" />
           </div>
         </div>
-
-        <button class="calc-btn" onclick="trackCalc(); calculate()">Calculate My Savings →</button>
-
-        <!-- RESULTS -->
-        <div id="results">
-          <div class="results-title">📊 Your Estimated 2025 Savings</div>
-
-          <div class="result-primary">
-            <span class="amount" id="res-savings">$0</span>
-            <span class="label">Estimated Federal Tax Savings</span>
-          </div>
-
-          <div class="result-grid">
-            <div class="result-box">
-              <div class="r-label">Deduction Amount</div>
-              <div class="r-value" id="res-deduction">$0</div>
-            </div>
-            <div class="result-box">
-              <div class="r-label">Your Marginal Tax Rate</div>
-              <div class="r-value" id="res-rate">—</div>
-            </div>
-          </div>
-
-          <div id="state-status"></div>
-
-          <div class="disclaimer-box">
-            <strong>📋 How to claim this:</strong> Report your overtime deduction on <strong>Schedule 1-A (Form 1040)</strong>, line for "Qualified Overtime Compensation Deduction." This is an above-the-line deduction — you do NOT need to itemize.
-          </div>
-
-          <div class="affiliate-cta">
-            <strong>Ready to file? TurboTax handles OBBBA deductions automatically.</strong>
-            <p>They've updated their 2025 software to include all new OBBBA deductions — overtime, tips, and more.</p>
-            <a href="https://turbotax.intuit.com" target="_blank" rel="noopener sponsored" onclick="trackAffiliate('turbotax_overtime')">File with TurboTax →</a>
-          </div>
-        </div>
-
       </div>
+
+      <button class="calc-btn" onclick="trackCalc(); calculate();">Calculate My Tax Savings →</button>
+
+      <div id="results">
+        <div class="results-title">📊 Your Estimated 2025 Savings</div>
+        <div class="result-primary">
+          <span class="amount" id="res-savings">$0</span>
+          <span class="label">Estimated Federal Tax Savings</span>
+        </div>
+        <div class="result-grid">
+          <div class="result-box">
+            <div class="r-label">Deduction Amount</div>
+            <div class="r-value" id="res-deduction">$0</div>
+          </div>
+          <div class="result-box">
+            <div class="r-label">Your Marginal Rate</div>
+            <div class="r-value" id="res-rate">—</div>
+          </div>
+        </div>
+        <div id="state-status"></div>
+        <div class="disclaimer-box">
+          <strong>How to claim:</strong> Report on <strong>Schedule 1-A (Form 1040)</strong>. This is an above-the-line deduction — no need to itemize.
+        </div>
+        <div class="affiliate-cta">
+          <strong>TurboTax handles OBBBA deductions automatically.</strong>
+          <p>Their 2025 software includes all new overtime and tips deductions — calculated correctly and filed on your behalf.</p>
+          <a href="https://turbotax.intuit.com" target="_blank" rel="noopener sponsored" onclick="trackAffiliate('turbotax_overtime')">File with TurboTax →</a>
+          <p class="turbo-disc">~37% of filers qualify. Simple Form 1040 returns only (no schedules, except for EITC, CTC, student loan interest, and Schedule 1-A).</p>
+        </div>
+      </div>
+
     </div>
   </div>
 
-  <!-- SIDEBAR -->
+  <!-- SIDEBAR SECOND (goes below on mobile) -->
   <div class="sidebar">
-
-    <!-- Tips Calculator CTA -->
-    <a href="/no-tax-on-tips-calculator.html" class="tips-link-card">
-      <div class="tc-badge">NEW TOOL</div>
+    <a href="/no-tax-on-tips-calculator.html" class="tips-promo">
+      <div class="tp-tag">ALSO FREE</div>
       <h3>Do You Also Receive Tips?</h3>
-      <p>The OBBBA also created a No Tax on Tips deduction. Check your occupation eligibility and calculate your additional savings.</p>
-      <div class="arrow">Use Tips Calculator <span>→</span></div>
+      <p>OBBBA also created a No Tax on Tips deduction worth up to $25,000. Check your occupation eligibility.</p>
+      <div class="arrow">Use Tips Calculator →</div>
     </a>
 
-    <!-- Key Facts -->
     <div class="side-card">
       <div class="side-card-header">⚡ Key Facts</div>
       <div class="side-card-body">
         <ul class="fact-list">
-          <li>Only FLSA non-exempt (hourly) W-2 employees qualify</li>
-          <li>Deducts the "overtime premium" — the extra half of time-and-a-half</li>
-          <li>Above-the-line: no need to itemize your taxes</li>
+          <li>W-2 hourly (FLSA non-exempt) employees only</li>
+          <li>Deducts the overtime premium — the extra ½ of time-and-a-half pay</li>
+          <li>Above-the-line: no need to itemize deductions</li>
           <li>FICA/Social Security taxes are NOT reduced</li>
-          <li>Service charges and shift differentials do NOT qualify</li>
           <li>Valid for tax years 2025 through 2028</li>
-          <li>Source: IRS Notice 2025-69, IRC §225</li>
+          <li>Based on IRS Notice 2025-69, IRC §225</li>
         </ul>
       </div>
     </div>
 
-    <!-- State Conformity Mini -->
     <div class="side-card">
       <div class="side-card-header">🗺️ State Conformity</div>
       <div class="side-card-body">
-        <ul class="state-mini-list">
+        <ul class="state-mini">
           <li><span>Texas, Florida + 7 others</span><span class="badge-sm green">No State Tax</span></li>
-          <li><span>Most rolling states</span><span class="badge-sm green">Conforms</span></li>
-          <li><span>District of Columbia</span><span class="badge-sm red">Decoupled</span></li>
-          <li><span>Maine</span><span class="badge-sm red">Decoupled</span></li>
-          <li><span>Illinois</span><span class="badge-sm red">Decoupled</span></li>
-          <li><span>New Jersey</span><span class="badge-sm yellow">Monitoring</span></li>
-          <li><span>Pennsylvania</span><span class="badge-sm yellow">Monitoring</span></li>
+          <li><span>Most states</span><span class="badge-sm green">Conforms</span></li>
+          <li><span>DC, IL, ME</span><span class="badge-sm red">Decoupled</span></li>
+          <li><span>NJ, PA, CA, NY, MN</span><span class="badge-sm yellow">Monitoring</span></li>
         </ul>
-        <a href="/state-conformity-tracker.html" style="display:block;margin-top:12px;text-align:center;font-size:13px;color:var(--navy);font-weight:600;text-decoration:none;">View All 50 States →</a>
+        <a href="/state-conformity-tracker.html" style="display:block;margin-top:10px;text-align:center;font-size:13px;color:var(--navy);font-weight:600;text-decoration:none;">View All 50 States →</a>
       </div>
     </div>
-
-    <!-- Email Capture -->
-    <div class="side-card">
-      <div class="side-card-header">📬 State Updates</div>
-      <div class="side-card-body">
-        <p style="font-size:13px;color:var(--muted);margin-bottom:12px;">Get notified when your state finalizes its OBBBA conformity decision.</p>
-        <form class="email-form" onsubmit="return handleEmail(event)">
-          <input type="email" id="email-input" placeholder="your@email.com" required />
-          <button type="submit">Notify Me</button>
-        </form>
-        <p id="email-success" style="display:none;font-size:13px;color:var(--green);margin-top:8px;font-weight:600;">✓ You're on the list!</p>
-      </div>
-    </div>
-
   </div>
 </div>
 
-<!-- FAQ SECTION -->
+<!-- FAQ -->
 <section class="faq-section">
   <h2>Frequently Asked Questions</h2>
   <p class="faq-sub">Everything you need to know about the No Tax on Overtime deduction</p>
   <div class="faq-grid">
-
     <div class="faq-item">
       <h3>Who qualifies for the No Tax on Overtime deduction?</h3>
-      <p>You must be a W-2 employee who is "non-exempt" under the Fair Labor Standards Act (FLSA) — meaning your employer is required by law to pay you overtime for hours over 40 per week. Salaried employees who are FLSA-exempt, self-employed workers, and independent contractors do <strong>not</strong> qualify.</p>
+      <p>W-2 employees who are "non-exempt" under the Fair Labor Standards Act (FLSA) — meaning your employer is legally required to pay you overtime for hours over 40 per week. Salaried exempt employees, self-employed workers, and independent contractors do not qualify.</p>
     </div>
-
     <div class="faq-item">
       <h3>What exactly is the "overtime premium"?</h3>
-      <p>When you earn time-and-a-half, your pay is split into two parts: regular pay (1×) and the overtime premium (the extra ½). The deduction only covers the premium portion. If your overtime wages are not reported separately, the IRS allows you to divide your total overtime wages by 3 to calculate the premium (per IRS Notice 2025-69).</p>
+      <p>When you earn time-and-a-half, your pay splits into regular pay (1×) and the premium (the extra ½). The deduction only covers the premium. If overtime isn't reported separately, the IRS allows dividing total overtime wages by 3 to estimate the premium.</p>
     </div>
-
     <div class="faq-item">
       <h3>Does this reduce my Social Security or Medicare taxes?</h3>
-      <p>No. The No Tax on Overtime deduction only reduces your <strong>federal income tax</strong>. FICA taxes (Social Security at 6.2% and Medicare at 1.45%) are still owed on all wages, including overtime.</p>
+      <p>No. This deduction only reduces federal income tax. FICA taxes (Social Security 6.2% and Medicare 1.45%) are still owed on all wages including overtime pay.</p>
     </div>
-
     <div class="faq-item">
       <h3>My income is over $150,000. Do I still qualify?</h3>
-      <p>Partially. The deduction phases out at $1 for every $1 your Modified Adjusted Gross Income (MAGI) exceeds $150,000. So if you're single and earn $155,000, your maximum deduction is reduced by $5,000. At $162,500 (single) the deduction is fully phased out.</p>
+      <p>Partially. The deduction phases out at $1 for every $1 your MAGI exceeds $150,000. At $162,500 for single filers the deduction is fully phased out. Married filing separately filers receive no deduction.</p>
     </div>
-
     <div class="faq-item">
-      <h3>How do I actually claim this on my tax return?</h3>
-      <p>Report the deduction on <strong>Schedule 1-A (Form 1040)</strong>. This is an above-the-line deduction, meaning you claim it whether you itemize or take the standard deduction. Most major tax software (TurboTax, H&R Block, TaxAct) has already updated for this deduction.</p>
+      <h3>How do I claim this on my tax return?</h3>
+      <p>Report on Schedule 1-A of Form 1040. This is an above-the-line deduction — claim it whether you itemize or take the standard deduction. Major tax software including TurboTax has been updated for the 2025 OBBBA deductions.</p>
     </div>
-
     <div class="faq-item">
       <h3>How long does this deduction last?</h3>
-      <p>The No Tax on Overtime deduction is valid for <strong>tax years 2025 through 2028</strong>, per the One Big Beautiful Bill Act (Public Law 119-21, signed July 4, 2025). Unless Congress extends it, the deduction will expire after the 2028 tax year.</p>
+      <p>Tax years 2025 through 2028. The deduction was created by the One Big Beautiful Bill Act (Public Law 119-21, signed July 4, 2025). Unless Congress extends it, it expires after the 2028 tax year.</p>
     </div>
-
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
   <p><strong>OBBACalc.com</strong> — Free OBBBA Tax Deduction Calculators</p>
-  <p>This calculator provides estimates for informational purposes only. It is not tax advice. Consult a qualified tax professional for your specific situation.</p>
-  <p style="margin-top:8px;">Sources: <a href="https://www.irs.gov" target="_blank">IRS.gov</a> · IRS Notice 2025-69 · IRC §225 · Public Law 119-21 (OBBBA)</p>
+  <p>For informational purposes only. Not tax, financial, or legal advice. Consult a qualified tax professional for your specific situation.</p>
+  <p style="margin-top:6px;">Sources: <a href="https://www.irs.gov" target="_blank" rel="noopener">IRS.gov</a> · IRS Notice 2025-69 · IRC §225 · Public Law 119-21</p>
   <p style="margin-top:8px;font-size:12px;">© 2026 OBBACalc.com · <a href="/privacy.html">Privacy Policy</a> · <a href="/about.html">About</a> · <a href="/disclaimer.html">Disclaimer</a> · This site contains affiliate links.</p>
 </footer>
 
 <script>
-  // Show/hide overtime fields based on reporting type
   document.getElementById('reporting').addEventListener('change', function() {
-    if (this.value === 'separate') {
-      document.getElementById('row-premium').style.display = 'block';
-      document.getElementById('row-total').style.display = 'none';
-    } else {
-      document.getElementById('row-premium').style.display = 'none';
-      document.getElementById('row-total').style.display = 'block';
-    }
+    const sep = this.value === 'separate';
+    document.getElementById('row-premium').style.display = sep ? 'block' : 'none';
+    document.getElementById('row-total').style.display = sep ? 'none' : 'block';
   });
 
-  // State conformity data
-  const stateConformity = {
-    no_tax: ['AK','FL','NV','NH','SD','TN','TX','WA','WY'],
-    decoupled: ['DC','ME','IL'],
-    monitoring: ['NJ','PA'],
-  };
+  const NO_TAX = ['AK','FL','NV','NH','SD','TN','TX','WA','WY'];
+  const DECOUPLED = ['DC','ME','IL'];
+  const MONITORING = ['NJ','PA','CA','NY','MN'];
 
-  function getStateStatus(code) {
+  function getStatus(code) {
     if (!code) return null;
-    if (stateConformity.no_tax.includes(code)) return 'no_tax';
-    if (stateConformity.decoupled.includes(code)) return 'decoupled';
-    if (stateConformity.monitoring.includes(code)) return 'monitoring';
+    if (NO_TAX.includes(code)) return 'no_tax';
+    if (DECOUPLED.includes(code)) return 'decoupled';
+    if (MONITORING.includes(code)) return 'monitoring';
     return 'conforms';
   }
 
-  // 2025 federal marginal rates
   function getMarginalRate(income, filing) {
-    let brackets;
-    if (filing === 'mfj') {
-      brackets = [[23850,0.10],[96950,0.12],[206700,0.22],[394600,0.24],[501050,0.32],[751600,0.35],[Infinity,0.37]];
-    } else {
-      brackets = [[11925,0.10],[48475,0.12],[103350,0.22],[197300,0.24],[250525,0.32],[626350,0.35],[Infinity,0.37]];
-    }
-    for (const [limit, rate] of brackets) {
-      if (income <= limit) return rate;
-    }
+    const mfj = [[23850,.10],[96950,.12],[206700,.22],[394600,.24],[501050,.32],[751600,.35],[Infinity,.37]];
+    const single = [[11925,.10],[48475,.12],[103350,.22],[197300,.24],[250525,.32],[626350,.35],[Infinity,.37]];
+    const brackets = filing === 'mfj' ? mfj : single;
+    for (const [lim, rate] of brackets) { if (income <= lim) return rate; }
     return 0.37;
   }
 
-  function fmt(n) {
-    return '$' + Math.round(n).toLocaleString('en-US');
-  }
+  function fmt(n) { return '$' + Math.round(n).toLocaleString('en-US'); }
 
   function calculate() {
     const filing = document.querySelector('input[name="filing"]:checked').value;
     const income = parseFloat(document.getElementById('income').value) || 0;
     const state = document.getElementById('state').value;
     const reporting = document.getElementById('reporting').value;
+    const raw = reporting === 'separate'
+      ? parseFloat(document.getElementById('premium').value) || 0
+      : (parseFloat(document.getElementById('overtime').value) || 0) / 3;
 
-    let premium = 0;
-    if (reporting === 'separate') {
-      premium = parseFloat(document.getElementById('premium').value) || 0;
-    } else {
-      const total = parseFloat(document.getElementById('overtime').value) || 0;
-      premium = total / 3; // IRS Notice 2025-69 formula
-    }
-
-    if (income <= 0 || premium <= 0) {
-      alert('Please enter your annual income and overtime pay to calculate.');
+    if (income <= 0 || raw <= 0) {
+      alert('Please enter your annual income and overtime wages to calculate.');
       return;
     }
 
-    // Apply deduction cap
     const cap = filing === 'mfj' ? 25000 : 12500;
-    let deduction = Math.min(premium, cap);
-
-    // Phase-out: $1 for every $1 over $150,000
-    const phaseOutStart = 150000;
-    if (income > phaseOutStart) {
-      const reduction = income - phaseOutStart;
-      deduction = Math.max(0, deduction - reduction);
-    }
-
-    // MFS: not eligible for overtime deduction per IRC §225
-    if (filing === 'mfs') {
-      deduction = 0;
-    }
+    let deduction = filing === 'mfs' ? 0 : Math.min(raw, cap);
+    if (income > 150000) deduction = Math.max(0, deduction - (income - 150000));
 
     const rate = getMarginalRate(income, filing);
     const savings = deduction * rate;
 
-    // Update UI
     document.getElementById('res-savings').textContent = fmt(savings);
     document.getElementById('res-deduction').textContent = fmt(deduction);
     document.getElementById('res-rate').textContent = Math.round(rate * 100) + '%';
 
-    // State status
-    const statusEl = document.getElementById('state-status');
-    const stStatus = getStateStatus(state);
-    let stateHTML = '';
-    if (stStatus === 'no_tax') {
-      stateHTML = `<div class="state-badge green"><span class="badge-icon">✅</span><div><strong>Your state has no income tax</strong>The federal deduction is what matters — and it applies in full.</div></div>`;
-    } else if (stStatus === 'decoupled') {
-      const stateName = document.getElementById('state').options[document.getElementById('state').selectedIndex].text;
-      stateHTML = `<div class="state-badge red"><span class="badge-icon">⚠️</span><div><strong>${stateName} does NOT conform to OBBBA</strong>You'll save federally, but your state income tax is unchanged. The federal savings above still apply.</div></div>`;
-    } else if (stStatus === 'monitoring') {
-      const stateName = document.getElementById('state').options[document.getElementById('state').selectedIndex].text;
-      stateHTML = `<div class="state-badge yellow"><span class="badge-icon">🔍</span><div><strong>${stateName} conformity is still being decided</strong>Check back — we update this tracker as states make decisions. <a href="/state-conformity-tracker.html" style="color:inherit;font-weight:700;">View State Tracker →</a></div></div>`;
-    } else if (stStatus === 'conforms') {
-      stateHTML = `<div class="state-badge green"><span class="badge-icon">✅</span><div><strong>Your state conforms to OBBBA</strong>You receive both the federal and state-level deduction benefit.</div></div>`;
-    } else {
-      stateHTML = `<div class="state-badge yellow"><span class="badge-icon">🔍</span><div><strong>Select your state above</strong>to see state conformity status.</div></div>`;
-    }
-    statusEl.innerHTML = stateHTML;
+    const status = getStatus(state);
+    const stateName = state ? document.getElementById('state').options[document.getElementById('state').selectedIndex].text.replace(/ \(.*\)/, '') : '';
+    let html = '';
+    if (status === 'no_tax') html = `<div class="state-badge green"><div><strong>✅ Your state has no income tax</strong>Your full federal deduction applies. No state complication.</div></div>`;
+    else if (status === 'conforms') html = `<div class="state-badge green"><div><strong>✅ ${stateName} conforms to OBBBA</strong>You receive both federal and ${stateName} state-level deduction benefits.</div></div>`;
+    else if (status === 'decoupled') html = `<div class="state-badge red"><div><strong>⚠️ ${stateName} does not conform to OBBBA</strong>Your federal savings above still apply. No additional state-level benefit.</div></div>`;
+    else if (status === 'monitoring') html = `<div class="state-badge yellow"><div><strong>🔍 ${stateName} conformity is pending</strong>Federal savings are guaranteed. State decision expected before April 15. <a href="/state-conformity-tracker.html" style="color:inherit;font-weight:700;">Track updates →</a></div></div>`;
+    document.getElementById('state-status').innerHTML = html;
 
-    // Show results
-    const resultsEl = document.getElementById('results');
-    resultsEl.classList.remove('visible');
-    void resultsEl.offsetWidth; // trigger reflow for animation
-    resultsEl.classList.add('visible');
-    resultsEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-  }
-
-  function handleEmail(e) {
-    e.preventDefault();
-    document.getElementById('email-success').style.display = 'block';
-    document.getElementById('email-input').value = '';
-    return false;
+    const el = document.getElementById('results');
+    el.classList.remove('visible');
+    void el.offsetWidth;
+    el.classList.add('visible');
+    setTimeout(() => el.scrollIntoView({ behavior: 'smooth', block: 'nearest' }), 50);
   }
 </script>
-
 </body>
 </html>

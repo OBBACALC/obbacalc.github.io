@@ -3,291 +3,177 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>No Tax on Tips Calculator 2025 | Check Occupation Eligibility | OBBACalc</title>
-  <meta name="description" content="Check if your job qualifies for the No Tax on Tips deduction under OBBBA 2025. Search all 68 IRS-approved tipped occupations and calculate your exact tax savings." />
-  <meta name="keywords" content="no tax on tips calculator, OBBBA tips deduction, tipped occupation IRS list, no tax on tips eligibility, tip income deduction 2025" />
+  <title>No Tax on Tips Calculator 2025 | OBBBA Tips Deduction | OBBACalc</title>
+  <meta name="description" content="Check if your occupation qualifies for the OBBBA No Tax on Tips deduction. Free calculator for servers, bartenders, hair stylists, drivers and 68 qualifying occupations." />
+  <meta name="keywords" content="no tax on tips calculator, OBBBA tips deduction, tipped workers tax deduction 2025, IRS TTOC occupations, tips tax savings 2025" />
   <link rel="canonical" href="https://obbacalc.com/no-tax-on-tips-calculator.html" />
-
-  <meta property="og:title" content="No Tax on Tips Calculator 2025 | OBBACalc" />
-  <meta property="og:description" content="Search the IRS list of 68 tipped occupations and calculate your 2025 tips deduction under the One Big Beautiful Bill Act." />
-  <meta property="og:url" content="https://obbacalc.com/no-tax-on-tips-calculator.html" />
-  <meta property="og:type" content="website" />
-
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "WebApplication",
     "name": "No Tax on Tips Calculator",
     "url": "https://obbacalc.com/no-tax-on-tips-calculator.html",
-    "description": "Check if your occupation qualifies for the IRS No Tax on Tips deduction and calculate your 2025 tax savings under OBBBA.",
+    "description": "Calculate your 2025 No Tax on Tips deduction under the OBBBA.",
     "applicationCategory": "FinanceApplication",
     "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
   }
   </script>
-
-  <!-- Google Consent Mode v2 defaults — must come before GA tag -->
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
-    gtag('consent', 'default', {
-      analytics_storage: 'denied',
-      ad_storage: 'denied',
-      ad_user_data: 'denied',
-      ad_personalization: 'denied',
-      wait_for_update: 500,
-    });
+    gtag('consent', 'default', { analytics_storage:'denied', ad_storage:'denied', ad_user_data:'denied', ad_personalization:'denied', wait_for_update:500 });
   </script>
-  <!-- Google Analytics GA4 -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y7ZEFHVV43"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'G-Y7ZEFHVV43');
+    function trackCalc() { gtag('event', 'calculate', { event_category: 'tips_calculator' }); }
+    function trackOcc(n) { gtag('event', 'occupation_selected', { event_category: 'tips_calculator', event_label: n }); }
+    function trackAffiliate(n) { gtag('event', 'affiliate_click', { event_category: 'monetization', event_label: n }); }
   </script>
   <script src="/cookie-banner.js"></script>
-  <script>// placeholder to avoid double close
-
-    function trackOccSelect(name) {
-      gtag('event', 'occupation_selected', { event_category: 'tips_calculator', event_label: name });
-    }
-    function trackCalc() {
-      gtag('event', 'calculate', { event_category: 'tips_calculator', event_label: 'calculate_clicked' });
-    }
-    function trackAffiliate(name) {
-      gtag('event', 'affiliate_click', { event_category: 'monetization', event_label: name });
-    }
-  </script>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com" />  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
-
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --navy: #0D1F3C;
-      --navy-mid: #1A3259;
-      --gold: #C9952A;
-      --gold-light: #F0B940;
-      --cream: #FAF7F2;
-      --white: #FFFFFF;
-      --green: #1A7A4A;
-      --green-bg: #EAF7EE;
-      --red: #B83030;
-      --red-bg: #FDEAEA;
-      --yellow-bg: #FFF8E1;
-      --yellow: #C07A00;
-      --text: #1A1A2E;
-      --muted: #5A6478;
-      --border: #DDE3EE;
-      --radius: 12px;
+      --navy:#0D1F3C; --navy-mid:#1A3259; --gold:#C9952A; --gold-light:#F0B940;
+      --cream:#FAF7F2; --white:#FFFFFF; --green:#1A7A4A; --green-bg:#EAF7EE;
+      --red:#B83030; --red-bg:#FDEAEA; --yellow-bg:#FFF8E1; --yellow:#C07A00;
+      --text:#1A1A2E; --muted:#5A6478; --border:#DDE3EE; --radius:12px;
     }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--text); line-height: 1.6; }
-
-    header { background: var(--navy); border-bottom: 3px solid var(--gold); padding: 0 24px; }
+    header { background: var(--navy); border-bottom: 3px solid var(--gold); padding: 0 24px; position: sticky; top: 0; z-index: 100; }
     .header-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 64px; }
     .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
     .logo-icon { width: 36px; height: 36px; background: var(--gold); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-weight: 900; font-size: 18px; color: var(--navy); }
     .logo-text { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 20px; color: var(--white); }
     .logo-text span { color: var(--gold-light); }
     nav { display: flex; gap: 24px; align-items: center; }
-    nav a { color: rgba(255,255,255,0.75); text-decoration: none; font-size: 14px; font-weight: 500; transition: color 0.2s; }
+    nav a { color: rgba(255,255,255,0.75); text-decoration: none; font-size: 14px; font-weight: 500; }
     nav a:hover { color: var(--gold-light); }
     nav a.active { color: var(--white); }
     .nav-cta { background: var(--gold); color: var(--navy) !important; padding: 7px 16px; border-radius: 6px; font-weight: 600 !important; }
+    .hamburger { display: none; background: none; border: none; cursor: pointer; padding: 8px; flex-direction: column; gap: 5px; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: white; border-radius: 2px; }
+    .mobile-nav { display: none; background: var(--navy-mid); border-top: 1px solid rgba(255,255,255,0.1); }
+    .mobile-nav.open { display: block; }
+    .mobile-nav a { display: block; padding: 14px 24px; color: rgba(255,255,255,0.85); text-decoration: none; font-size: 15px; font-weight: 500; border-bottom: 1px solid rgba(255,255,255,0.07); }
 
-    .hero { background: linear-gradient(160deg, #1A3A1A 0%, #0D2B1A 100%); color: var(--white); padding: 64px 24px 72px; position: relative; overflow: hidden; }
-    .hero::before { content: ''; position: absolute; inset: 0; background-image: radial-gradient(circle at 80% 20%, rgba(201,149,42,0.12) 0%, transparent 60%), radial-gradient(circle at 10% 80%, rgba(26,122,74,0.15) 0%, transparent 50%); }
-    .hero-inner { max-width: 780px; margin: 0 auto; text-align: center; position: relative; }
-    .hero-badge { display: inline-flex; align-items: center; gap: 6px; background: rgba(201,149,42,0.2); border: 1px solid rgba(201,149,42,0.4); color: var(--gold-light); font-size: 13px; font-weight: 600; padding: 5px 14px; border-radius: 100px; margin-bottom: 20px; letter-spacing: 0.3px; }
-    .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(30px, 5vw, 50px); font-weight: 900; line-height: 1.15; margin-bottom: 16px; }
+    .hero { background: linear-gradient(160deg, #1A4A2E 0%, #1A7A4A 100%); color: white; padding: 48px 24px 56px; position: relative; overflow: hidden; }
+    .hero::before { content:''; position:absolute; inset:0; background: radial-gradient(circle at 80% 20%, rgba(240,185,64,0.1) 0%, transparent 60%); }
+    .hero-inner { max-width: 700px; margin: 0 auto; text-align: center; position: relative; }
+    .hero-badge { display: inline-flex; align-items: center; gap: 6px; background: rgba(240,185,64,0.2); border: 1px solid rgba(240,185,64,0.4); color: var(--gold-light); font-size: 13px; font-weight: 600; padding: 5px 14px; border-radius: 100px; margin-bottom: 16px; }
+    .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(26px,4.5vw,44px); font-weight: 900; line-height: 1.15; margin-bottom: 8px; }
     .hero h1 em { font-style: normal; color: var(--gold-light); }
-    .hero p { font-size: 18px; color: rgba(255,255,255,0.78); max-width: 580px; margin: 0 auto 28px; font-weight: 300; }
-    .hero-stats { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; }
-    .hero-stat .num { display: block; font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 900; color: var(--gold-light); }
-    .hero-stat .lbl { font-size: 13px; color: rgba(255,255,255,0.6); }
+    .hero-asterisk { font-size: 12px; color: rgba(255,255,255,0.45); margin-bottom: 14px; }
+    .hero p { font-size: 16px; color: rgba(255,255,255,0.75); max-width: 520px; margin: 0 auto; font-weight: 300; }
 
-    .main-wrap { max-width: 1100px; margin: 0 auto; padding: 48px 24px 80px; display: grid; grid-template-columns: 1fr 340px; gap: 32px; align-items: start; }
-
-    /* OCCUPATION CHECKER */
-    .checker-card { background: var(--white); border-radius: var(--radius); box-shadow: 0 4px 24px rgba(13,31,60,0.09); overflow: hidden; margin-bottom: 24px; }
-    .checker-header { background: linear-gradient(135deg, #1A5C35 0%, #1A7A4A 100%); padding: 22px 28px; display: flex; align-items: center; gap: 12px; }
-    .checker-header-icon { width: 42px; height: 42px; background: var(--gold); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 20px; }
-    .checker-header h2 { font-family: 'Playfair Display', serif; font-size: 20px; color: var(--white); font-weight: 700; }
-    .checker-header p { font-size: 13px; color: rgba(255,255,255,0.65); }
-    .checker-body { padding: 28px; }
-
-    .search-wrap { position: relative; margin-bottom: 20px; }
-    .search-wrap input {
-      width: 100%; height: 52px;
-      border: 2px solid var(--border);
-      border-radius: 10px;
-      padding: 0 16px 0 46px;
-      font-family: 'DM Sans', sans-serif;
-      font-size: 16px;
-      color: var(--text);
-      outline: none;
-      transition: border-color 0.2s, box-shadow 0.2s;
-    }
-    .search-wrap input:focus { border-color: var(--gold); box-shadow: 0 0 0 3px rgba(201,149,42,0.15); }
-    .search-wrap .search-icon { position: absolute; left: 16px; top: 50%; transform: translateY(-50%); color: var(--muted); font-size: 18px; pointer-events: none; }
-    .search-wrap input::placeholder { color: #9AA3B2; }
-
-    .occupation-result {
-      border: 2px solid var(--border);
-      border-radius: 10px;
-      overflow: hidden;
-      margin-bottom: 20px;
-    }
-    .occ-result-eligible {
-      background: var(--green-bg);
-      border-color: #A3D9B8;
-      padding: 20px 22px;
-      display: flex;
-      align-items: center;
-      gap: 14px;
-    }
-    .occ-result-ineligible {
-      background: var(--red-bg);
-      border-color: #F0AAAA;
-      padding: 20px 22px;
-      display: flex;
-      align-items: center;
-      gap: 14px;
-    }
-    .occ-result-icon { font-size: 32px; flex-shrink: 0; }
-    .occ-result-eligible .occ-name { font-size: 18px; font-weight: 700; color: var(--green); font-family: 'Playfair Display', serif; }
-    .occ-result-ineligible .occ-name { font-size: 18px; font-weight: 700; color: var(--red); font-family: 'Playfair Display', serif; }
-    .occ-result-eligible .occ-detail { font-size: 13px; color: var(--green); opacity: 0.85; }
-    .occ-result-ineligible .occ-detail { font-size: 13px; color: var(--red); opacity: 0.85; }
-
-    .occ-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 8px; max-height: 320px; overflow-y: auto; padding: 4px 2px; }
-    .occ-chip {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      padding: 9px 12px;
-      border: 1.5px solid var(--border);
-      border-radius: 8px;
-      cursor: pointer;
-      font-size: 13px;
-      color: var(--text);
-      background: white;
-      transition: all 0.15s;
-      text-align: left;
-    }
-    .occ-chip:hover { border-color: var(--gold); background: rgba(201,149,42,0.05); color: var(--navy); }
-    .occ-chip.selected { border-color: var(--green); background: var(--green-bg); color: var(--green); font-weight: 600; }
-    .occ-chip .chip-icon { font-size: 16px; flex-shrink: 0; }
-    .occ-chip .chip-label { line-height: 1.3; }
-
-    .category-filter { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 14px; }
-    .cat-btn { padding: 5px 12px; border: 1.5px solid var(--border); border-radius: 100px; font-size: 12px; font-weight: 600; cursor: pointer; background: white; color: var(--muted); transition: all 0.15s; }
-    .cat-btn:hover, .cat-btn.active { border-color: var(--navy); background: var(--navy); color: white; }
-
-    .divider { border: none; border-top: 2px dashed var(--border); margin: 28px 0; }
-
-    /* CALC CARD */
+    .main-wrap { max-width: 1100px; margin: 0 auto; padding: 36px 24px 80px; display: grid; grid-template-columns: 1fr 300px; gap: 28px; align-items: start; }
     .calc-card { background: var(--white); border-radius: var(--radius); box-shadow: 0 4px 24px rgba(13,31,60,0.09); overflow: hidden; }
-    .calc-header { background: var(--navy); padding: 22px 28px; display: flex; align-items: center; gap: 12px; }
-    .calc-header-icon { width: 42px; height: 42px; background: var(--gold); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 20px; }
-    .calc-header h2 { font-family: 'Playfair Display', serif; font-size: 20px; color: var(--white); font-weight: 700; }
-    .calc-header p { font-size: 13px; color: rgba(255,255,255,0.6); }
-    .calc-body { padding: 28px; }
-
-    .form-section { border: 1px solid var(--border); border-radius: 10px; padding: 20px; margin-bottom: 20px; }
-    .form-section-title { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: var(--muted); margin-bottom: 16px; }
-    .form-row { margin-bottom: 16px; }
+    .calc-header { background: #1A5C35; padding: 18px 24px; display: flex; align-items: center; gap: 12px; }
+    .calc-header-icon { width: 38px; height: 38px; background: var(--gold); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; }
+    .calc-header h2 { font-family: 'Playfair Display', serif; font-size: 17px; color: white; font-weight: 700; }
+    .calc-header p { font-size: 12px; color: rgba(255,255,255,0.55); }
+    .calc-body { padding: 22px; }
+    .form-section { border: 1px solid var(--border); border-radius: 10px; padding: 16px; margin-bottom: 14px; }
+    .form-section-title { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: var(--muted); margin-bottom: 12px; }
+    .form-row { margin-bottom: 12px; }
     .form-row:last-child { margin-bottom: 0; }
-    label { display: block; font-size: 14px; font-weight: 600; color: var(--text); margin-bottom: 6px; }
-    label span { font-weight: 400; color: var(--muted); font-size: 13px; }
-    select, input[type="number"] { width: 100%; height: 44px; border: 1.5px solid var(--border); border-radius: 8px; padding: 0 14px; font-family: 'DM Sans', sans-serif; font-size: 15px; color: var(--text); background: var(--white); transition: border-color 0.2s; outline: none; -moz-appearance: textfield; }
+    label { display: block; font-size: 14px; font-weight: 600; color: var(--text); margin-bottom: 5px; }
+    .label-sub { font-size: 11px; color: var(--muted); font-weight: 400; display: block; margin-top: 1px; }
+    select, input[type="number"], input[type="text"] { width: 100%; height: 44px; border: 1.5px solid var(--border); border-radius: 8px; padding: 0 14px; font-family: 'DM Sans', sans-serif; font-size: 15px; color: var(--text); background: var(--white); outline: none; -moz-appearance: textfield; transition: border-color 0.2s; }
     input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-inner-spin-button { -webkit-appearance: none; }
-    select:focus, input:focus { border-color: var(--gold); box-shadow: 0 0 0 3px rgba(201,149,42,0.15); }
-    .radio-group { display: flex; gap: 10px; }
-    .radio-option { flex: 1; }
+    select:focus, input:focus { border-color: var(--gold); box-shadow: 0 0 0 3px rgba(201,149,42,0.12); }
+
+    .radio-group { display: flex; gap: 8px; flex-wrap: wrap; }
+    .radio-option { flex: 1 1 calc(33% - 6px); min-width: 90px; }
     .radio-option input[type="radio"] { display: none; }
-    .radio-option label { display: flex; align-items: center; justify-content: center; height: 44px; border: 1.5px solid var(--border); border-radius: 8px; cursor: pointer; font-size: 14px; font-weight: 500; color: var(--muted); transition: all 0.18s; margin: 0; }
-    .radio-option input[type="radio"]:checked + label { border-color: var(--gold); background: rgba(201,149,42,0.08); color: var(--navy); font-weight: 600; }
+    .radio-option label { display: flex; align-items: center; justify-content: center; min-height: 44px; border: 1.5px solid var(--border); border-radius: 8px; cursor: pointer; font-size: 12px; font-weight: 500; color: var(--muted); text-align: center; padding: 8px 4px; line-height: 1.3; margin: 0; transition: all 0.18s; }
+    .radio-option input[type="radio"]:checked + label { border-color: var(--gold); background: rgba(201,149,42,0.08); color: var(--navy); font-weight: 700; }
+
     .input-prefix { position: relative; }
-    .input-prefix span { position: absolute; left: 14px; top: 50%; transform: translateY(-50%); color: var(--muted); font-size: 15px; pointer-events: none; }
-    .input-prefix input { padding-left: 28px; }
+    .input-prefix span { position: absolute; left: 12px; top: 50%; transform: translateY(-50%); color: var(--muted); font-size: 15px; pointer-events: none; }
+    .input-prefix input { padding-left: 26px; }
 
-    .calc-btn { width: 100%; height: 52px; background: var(--gold); color: var(--navy); border: none; border-radius: 10px; font-family: 'DM Sans', sans-serif; font-size: 16px; font-weight: 700; cursor: pointer; transition: background 0.2s, transform 0.1s; margin-top: 8px; }
+    .tooltip { display: inline-flex; align-items: center; justify-content: center; width: 15px; height: 15px; background: #E8EDF5; color: var(--muted); border-radius: 50%; font-size: 10px; font-weight: 700; cursor: help; margin-left: 4px; position: relative; vertical-align: middle; }
+    .tooltip:hover::after { content: attr(data-tip); position: absolute; bottom: calc(100% + 8px); left: 50%; transform: translateX(-50%); background: var(--navy); color: white; font-size: 12px; font-weight: 400; padding: 10px 14px; border-radius: 8px; white-space: normal; width: 240px; z-index: 50; box-shadow: 0 4px 16px rgba(0,0,0,0.2); line-height: 1.5; pointer-events: none; }
+
+    /* OCCUPATION SEARCH */
+    .occ-search { width: 100%; height: 44px; border: 1.5px solid var(--border); border-radius: 8px; padding: 0 14px 0 40px; font-family: 'DM Sans', sans-serif; font-size: 15px; outline: none; transition: border-color 0.2s; background: var(--white); }
+    .occ-search:focus { border-color: var(--gold); box-shadow: 0 0 0 3px rgba(201,149,42,0.12); }
+    .occ-search-wrap { position: relative; margin-bottom: 10px; }
+    .occ-search-wrap::before { content: '🔍'; position: absolute; left: 12px; top: 50%; transform: translateY(-50%); font-size: 14px; pointer-events: none; }
+    .filter-row { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 12px; }
+    .filter-btn { padding: 4px 12px; border: 1.5px solid var(--border); border-radius: 100px; font-size: 12px; font-weight: 500; color: var(--muted); cursor: pointer; background: var(--white); transition: all 0.15s; }
+    .filter-btn.active, .filter-btn:hover { border-color: var(--gold); background: rgba(201,149,42,0.1); color: var(--navy); }
+    .occ-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 6px; max-height: 220px; overflow-y: auto; padding: 2px; }
+    .occ-chip { padding: 8px 10px; border: 1.5px solid var(--border); border-radius: 8px; font-size: 12px; font-weight: 500; color: var(--muted); cursor: pointer; background: var(--white); transition: all 0.15s; text-align: center; line-height: 1.3; }
+    .occ-chip:hover { border-color: #A3D9B8; background: var(--green-bg); color: var(--green); }
+    .occ-chip.selected { border-color: var(--green); background: var(--green-bg); color: var(--green); font-weight: 700; }
+    .occ-chip.hidden { display: none; }
+    .selected-occ { background: var(--green-bg); border: 1.5px solid #A3D9B8; border-radius: 8px; padding: 10px 12px; font-size: 13px; color: var(--green); font-weight: 600; display: none; margin-top: 8px; }
+    .selected-occ.visible { display: flex; align-items: center; justify-content: space-between; }
+    .clear-occ { background: none; border: none; color: var(--green); cursor: pointer; font-size: 16px; padding: 0 4px; }
+
+    .calc-btn { width: 100%; height: 52px; background: var(--gold); color: var(--navy); border: none; border-radius: 10px; font-family: 'DM Sans', sans-serif; font-size: 16px; font-weight: 700; cursor: pointer; transition: background 0.2s; margin-top: 4px; }
     .calc-btn:hover { background: var(--gold-light); }
-    .calc-btn:active { transform: scale(0.99); }
-    .calc-btn:disabled { background: var(--border); color: var(--muted); cursor: not-allowed; }
 
-    #results { display: none; margin-top: 24px; border-top: 2px dashed var(--border); padding-top: 24px; animation: fadeUp 0.4s ease; }
-    #results.visible { display: block; }
-    @keyframes fadeUp { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
-    .results-title { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 700; color: var(--navy); margin-bottom: 16px; }
-    .result-primary { background: linear-gradient(135deg, #1A5C35 0%, #1A7A4A 100%); border-radius: 10px; padding: 24px; color: white; text-align: center; margin-bottom: 16px; }
-    .result-primary .amount { font-family: 'Playfair Display', serif; font-size: 48px; font-weight: 900; color: var(--gold-light); display: block; line-height: 1; margin-bottom: 4px; }
-    .result-primary .label { font-size: 14px; color: rgba(255,255,255,0.7); }
-    .result-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 16px; }
-    .result-box { background: var(--cream); border: 1px solid var(--border); border-radius: 8px; padding: 14px 16px; }
-    .result-box .r-label { font-size: 12px; color: var(--muted); margin-bottom: 4px; }
-    .result-box .r-value { font-size: 20px; font-weight: 700; color: var(--navy); font-family: 'Playfair Display', serif; }
-    .state-badge { display: flex; align-items: flex-start; gap: 12px; padding: 14px 16px; border-radius: 8px; font-size: 14px; margin-bottom: 16px; }
+    #results { display: none; margin-top: 22px; border-top: 2px dashed var(--border); padding-top: 22px; }
+    #results.visible { display: block; animation: fadeUp 0.35s ease; }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    .results-title { font-family: 'Playfair Display', serif; font-size: 16px; font-weight: 700; color: var(--navy); margin-bottom: 12px; }
+    .result-primary { background: linear-gradient(135deg, #1A5C35 0%, #1A7A4A 100%); border-radius: 10px; padding: 20px; text-align: center; margin-bottom: 12px; }
+    .result-primary .amount { font-family: 'Playfair Display', serif; font-size: 52px; font-weight: 900; color: var(--gold-light); display: block; line-height: 1; margin-bottom: 4px; }
+    .result-primary .label { font-size: 13px; color: rgba(255,255,255,0.65); }
+    .result-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 12px; }
+    .result-box { background: var(--cream); border: 1px solid var(--border); border-radius: 8px; padding: 12px; }
+    .result-box .r-label { font-size: 11px; color: var(--muted); margin-bottom: 2px; }
+    .result-box .r-value { font-size: 22px; font-weight: 700; color: var(--navy); font-family: 'Playfair Display', serif; }
+    .state-badge { display: flex; align-items: flex-start; gap: 10px; padding: 11px 13px; border-radius: 8px; font-size: 13px; margin-bottom: 12px; }
     .state-badge.green { background: var(--green-bg); border: 1px solid #A3D9B8; color: var(--green); }
     .state-badge.red { background: var(--red-bg); border: 1px solid #F0AAAA; color: var(--red); }
     .state-badge.yellow { background: var(--yellow-bg); border: 1px solid #FFD980; color: var(--yellow); }
-    .state-badge .badge-icon { font-size: 18px; flex-shrink: 0; margin-top: 1px; }
     .state-badge strong { display: block; font-weight: 700; margin-bottom: 2px; }
-    .disclaimer-box { background: #F3F5FA; border-left: 3px solid var(--gold); border-radius: 0 8px 8px 0; padding: 12px 14px; font-size: 13px; color: var(--muted); line-height: 1.5; }
-    .affiliate-cta { background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%); border-radius: 10px; padding: 20px; text-align: center; color: white; margin-top: 16px; }
-    .affiliate-cta p { font-size: 14px; opacity: 0.85; margin-bottom: 12px; }
-    .affiliate-cta strong { font-size: 16px; display: block; margin-bottom: 8px; }
-    .affiliate-cta a { display: inline-block; background: var(--gold); color: var(--navy); padding: 10px 24px; border-radius: 7px; font-weight: 700; font-size: 14px; text-decoration: none; transition: background 0.2s; }
-    .affiliate-cta a:hover { background: var(--gold-light); }
+    .stack-note { background: #EEF1FA; border: 1px solid #C5CEE8; border-radius: 8px; padding: 12px 14px; font-size: 13px; color: #3A4A7A; margin-bottom: 12px; }
+    .stack-note strong { font-weight: 700; }
+    .disclaimer-box { background: #F3F5FA; border-left: 3px solid var(--gold); padding: 12px 14px; border-radius: 0 8px 8px 0; font-size: 13px; color: var(--muted); line-height: 1.5; }
+    .affiliate-cta { background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%); border-radius: 10px; padding: 18px; text-align: center; color: white; margin-top: 12px; }
+    .affiliate-cta strong { font-size: 15px; display: block; margin-bottom: 6px; }
+    .affiliate-cta p { font-size: 13px; opacity: 0.8; margin-bottom: 10px; }
+    .affiliate-cta a { display: inline-block; background: var(--gold); color: var(--navy); padding: 9px 24px; border-radius: 7px; font-weight: 700; font-size: 14px; text-decoration: none; }
+    .turbo-disc { font-size: 11px; color: rgba(255,255,255,0.5); margin-top: 8px; line-height: 1.4; }
 
-    /* SIDEBAR */
-    .sidebar { display: flex; flex-direction: column; gap: 20px; }
+    .sidebar { display: flex; flex-direction: column; gap: 16px; }
     .side-card { background: var(--white); border-radius: var(--radius); box-shadow: 0 2px 12px rgba(13,31,60,0.07); overflow: hidden; }
-    .side-card-header { padding: 14px 18px; background: var(--navy); font-family: 'Playfair Display', serif; font-size: 15px; font-weight: 700; color: var(--white); display: flex; align-items: center; gap: 8px; }
-    .side-card-body { padding: 16px 18px; }
-
-    .overtime-link-card { background: linear-gradient(135deg, var(--navy) 0%, #2A4A7A 100%); border-radius: var(--radius); padding: 24px; color: white; text-decoration: none; display: block; transition: transform 0.2s; }
-    .overtime-link-card:hover { transform: translateY(-2px); }
-    .overtime-link-card .tc-badge { background: rgba(201,149,42,0.25); border: 1px solid rgba(201,149,42,0.5); color: var(--gold-light); font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 100px; display: inline-block; margin-bottom: 10px; letter-spacing: 0.5px; }
-    .overtime-link-card h3 { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 700; margin-bottom: 8px; }
-    .overtime-link-card p { font-size: 13px; color: rgba(255,255,255,0.7); margin-bottom: 14px; }
-    .overtime-link-card .arrow { display: flex; align-items: center; gap: 6px; font-size: 14px; font-weight: 600; color: var(--gold-light); }
-
+    .side-card-header { padding: 12px 16px; background: var(--navy); font-family: 'Playfair Display', serif; font-size: 14px; font-weight: 700; color: var(--white); }
+    .side-card-body { padding: 14px 16px; }
+    .ot-promo { background: linear-gradient(135deg, var(--navy) 0%, #2A4A7A 100%); border-radius: var(--radius); padding: 20px; color: white; text-decoration: none; display: block; }
+    .ot-promo .tp-tag { background: rgba(201,149,42,0.25); color: var(--gold-light); font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 100px; display: inline-block; margin-bottom: 10px; }
+    .ot-promo h3 { font-family: 'Playfair Display', serif; font-size: 16px; margin-bottom: 6px; }
+    .ot-promo p { font-size: 13px; color: rgba(255,255,255,0.7); margin-bottom: 10px; }
+    .ot-promo .arrow { font-size: 13px; font-weight: 600; color: var(--gold-light); }
     .fact-list { list-style: none; }
-    .fact-list li { display: flex; gap: 10px; padding: 9px 0; border-bottom: 1px solid var(--border); font-size: 13.5px; color: var(--text); line-height: 1.4; }
+    .fact-list li { display: flex; gap: 8px; padding: 7px 0; border-bottom: 1px solid var(--border); font-size: 13px; color: var(--text); line-height: 1.4; }
     .fact-list li:last-child { border-bottom: none; }
-    .fact-list li::before { content: '✓'; color: var(--green); font-weight: 700; flex-shrink: 0; margin-top: 1px; }
-
-    .cat-summary { list-style: none; }
-    .cat-summary li { display: flex; align-items: center; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid var(--border); font-size: 13px; }
-    .cat-summary li:last-child { border-bottom: none; }
-    .cat-count { background: var(--green-bg); color: var(--green); font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 100px; }
-
-    /* FAQ */
-    .faq-section { max-width: 1100px; margin: 0 auto 80px; padding: 0 24px; }
-    .faq-section h2 { font-family: 'Playfair Display', serif; font-size: 32px; font-weight: 900; color: var(--navy); margin-bottom: 8px; }
-    .faq-section .faq-sub { color: var(--muted); margin-bottom: 32px; font-size: 16px; }
-    .faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-    .faq-item { background: var(--white); border-radius: 10px; padding: 20px 22px; box-shadow: 0 2px 8px rgba(13,31,60,0.06); }
-    .faq-item h3 { font-size: 15px; font-weight: 700; color: var(--navy); margin-bottom: 8px; line-height: 1.3; }
-    .faq-item p { font-size: 14px; color: var(--muted); line-height: 1.6; }
+    .fact-list li::before { content: '✓'; color: var(--green); font-weight: 700; flex-shrink: 0; }
 
     footer { background: var(--navy); color: rgba(255,255,255,0.55); padding: 32px 24px; text-align: center; font-size: 13px; line-height: 1.7; }
     footer a { color: var(--gold-light); text-decoration: none; }
     footer strong { color: rgba(255,255,255,0.8); }
 
-    .no-results { text-align: center; padding: 32px; color: var(--muted); font-size: 14px; }
-    .no-results .nr-icon { font-size: 36px; margin-bottom: 8px; }
-
     @media (max-width: 760px) {
       nav { display: none; }
-      .main-wrap { grid-template-columns: 1fr; }
-      .sidebar { order: -1; }
-      .overtime-link-card { display: none; }
+      .hamburger { display: flex; }
+      .main-wrap { grid-template-columns: 1fr; padding: 20px 16px 60px; }
+      .calc-card { order: 1; }
+      .sidebar { order: 2; }
+      .ot-promo { display: none; }
       .result-grid { grid-template-columns: 1fr; }
-      .faq-grid { grid-template-columns: 1fr; }
-      .hero { padding: 40px 20px 52px; }
+      .hero { padding: 28px 16px 36px; }
+      .radio-option { flex: 1 1 calc(50% - 4px); }
     }
   </style>
 </head>
@@ -305,417 +191,281 @@
       <a href="/state-conformity-tracker.html">State Tracker</a>
       <a href="/" class="nav-cta">Overtime Calculator →</a>
     </nav>
+    <button class="hamburger" onclick="document.getElementById('mnav').classList.toggle('open')" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-nav" id="mnav">
+    <a href="/">⏱️ Overtime Calculator</a>
+    <a href="/no-tax-on-tips-calculator.html">💵 Tips Calculator</a>
+    <a href="/state-conformity-tracker.html">🗺️ State Tracker</a>
+    <a href="/about.html">About</a>
+    <a href="/disclaimer.html">Disclaimer</a>
   </div>
 </header>
 
 <section class="hero">
   <div class="hero-inner">
-    <div class="hero-badge">🍽️ IRS Notice 2025-72 · 68 Approved Occupations · IRC §224</div>
-    <h1>Does Your Job Qualify for<br><em>No Tax on Tips?</em></h1>
-    <p>The OBBBA created a federal deduction on tip income — but only for 68 IRS-approved occupations. Search your job title to check in seconds.</p>
-    <div class="hero-stats">
-      <div class="hero-stat"><span class="num">68</span><span class="lbl">Approved occupations</span></div>
-      <div class="hero-stat"><span class="num">$25,000</span><span class="lbl">Max deduction</span></div>
-      <div class="hero-stat"><span class="num">4M+</span><span class="lbl">Eligible tipped workers</span></div>
-    </div>
+    <div class="hero-badge">💵 IRS Notice 2025-72 · 68 Qualifying Occupations · IRC §224</div>
+    <h1>No Tax on Tips —<br>Save Up to <em>$25,000</em>*</h1>
+    <p class="hero-asterisk">*$25,000 is the maximum annual tips deduction, subject to income phase-out limits. Individual results will vary.</p>
+    <p>Check if your occupation qualifies under the IRS TTOC list. Calculate your exact federal tax savings in 60 seconds — free, no signup required.</p>
   </div>
 </section>
 
 <div class="main-wrap">
-  <div>
-
-    <!-- OCCUPATION CHECKER -->
-    <div class="checker-card">
-      <div class="checker-header">
-        <div class="checker-header-icon">🔍</div>
-        <div>
-          <h2>Step 1 — Check Your Occupation</h2>
-          <p>Search or browse all 68 IRS TTOC-approved tipped occupations</p>
-        </div>
-      </div>
-      <div class="checker-body">
-
-        <div class="search-wrap">
-          <span class="search-icon">🔍</span>
-          <input type="text" id="occ-search" placeholder="Search your job title — e.g. 'bartender', 'server', 'nail tech'..." oninput="searchOccupations()" />
-        </div>
-
-        <div class="category-filter" id="cat-filter">
-          <button class="cat-btn active" onclick="filterCategory('all', this)">All (68)</button>
-          <button class="cat-btn" onclick="filterCategory('food', this)">🍽️ Food & Beverage</button>
-          <button class="cat-btn" onclick="filterCategory('hospitality', this)">🏨 Hospitality</button>
-          <button class="cat-btn" onclick="filterCategory('beauty', this)">💅 Personal Care</button>
-          <button class="cat-btn" onclick="filterCategory('transport', this)">🚕 Transportation</button>
-          <button class="cat-btn" onclick="filterCategory('entertainment', this)">🎰 Entertainment</button>
-          <button class="cat-btn" onclick="filterCategory('other', this)">More</button>
-        </div>
-
-        <div id="occ-grid" class="occ-grid"></div>
-
-        <div id="no-results" class="no-results" style="display:none">
-          <div class="nr-icon">🤔</div>
-          <p><strong>No exact match found.</strong><br>Try a related job title, or browse the categories above. If your occupation isn't listed, it does not qualify for the deduction.</p>
-        </div>
-
+  <div class="calc-card">
+    <div class="calc-header">
+      <div class="calc-header-icon">💵</div>
+      <div>
+        <h2>No Tax on Tips Calculator</h2>
+        <p>Tax Year 2025 · IRS Notice 2025-72 · IRC §224</p>
       </div>
     </div>
+    <div class="calc-body">
 
-    <hr class="divider" />
-
-    <!-- CALCULATOR -->
-    <div class="calc-card">
-      <div class="calc-header">
-        <div class="calc-header-icon">💵</div>
-        <div>
-          <h2>Step 2 — Calculate Your Savings</h2>
-          <p>For Tax Year 2025 (filing by April 15, 2026)</p>
+      <div class="form-section">
+        <div class="form-section-title">Step 1 — Check Your Occupation</div>
+        <div class="form-row">
+          <label>Search or browse the 68 IRS-approved occupations</label>
+          <div class="occ-search-wrap">
+            <input type="text" class="occ-search" id="occ-search" placeholder="Search e.g. bartender, driver, stylist..." oninput="filterOcc()" />
+          </div>
+          <div class="filter-row" id="filter-row">
+            <button class="filter-btn active" onclick="setFilter('all',this)">All</button>
+            <button class="filter-btn" onclick="setFilter('food',this)">Food & Drink</button>
+            <button class="filter-btn" onclick="setFilter('hospitality',this)">Hospitality</button>
+            <button class="filter-btn" onclick="setFilter('beauty',this)">Beauty</button>
+            <button class="filter-btn" onclick="setFilter('transport',this)">Transport</button>
+            <button class="filter-btn" onclick="setFilter('other',this)">Other</button>
+          </div>
+          <div class="occ-grid" id="occ-grid"></div>
+          <div class="selected-occ" id="selected-occ">
+            <span id="selected-occ-name">None selected</span>
+            <button class="clear-occ" onclick="clearOcc()">✕</button>
+          </div>
         </div>
       </div>
-      <div class="calc-body">
 
-        <div id="ineligible-warning" style="display:none; background:var(--red-bg); border:1px solid #F0AAAA; border-radius:10px; padding:16px; margin-bottom:20px; color:var(--red); font-size:14px;">
-          ⚠️ <strong>Your selected occupation does not qualify.</strong> The tips deduction only applies to IRS TTOC-approved occupations. You can still check the <a href="/" style="color:var(--red);font-weight:700;">No Tax on Overtime calculator</a> if you earn overtime pay.
-        </div>
-
-        <div class="form-section">
-          <div class="form-section-title">Your Information</div>
-          <div class="form-row">
-            <label>Filing Status</label>
-            <div class="radio-group">
-              <div class="radio-option"><input type="radio" name="filing" id="single" value="single" checked /><label for="single">Single</label></div>
-              <div class="radio-option"><input type="radio" name="filing" id="mfj" value="mfj" /><label for="mfj">Married Filing Jointly</label></div>
-            </div>
-          </div>
-          <div class="form-row">
-            <label>Annual Gross Income (MAGI)</label>
-            <div class="input-prefix"><span>$</span><input type="number" id="income" placeholder="e.g. 42000" min="0" /></div>
-          </div>
-          <div class="form-row">
-            <label>State of Residence</label>
-            <select id="state">
-              <option value="">— Select your state —</option>
-              <option value="AL">Alabama</option><option value="AK">Alaska (no state income tax)</option><option value="AZ">Arizona</option><option value="AR">Arkansas</option><option value="CA">California</option><option value="CO">Colorado</option><option value="CT">Connecticut</option><option value="DE">Delaware</option><option value="DC">District of Columbia</option><option value="FL">Florida (no state income tax)</option><option value="GA">Georgia</option><option value="HI">Hawaii</option><option value="ID">Idaho</option><option value="IL">Illinois</option><option value="IN">Indiana</option><option value="IA">Iowa</option><option value="KS">Kansas</option><option value="KY">Kentucky</option><option value="LA">Louisiana</option><option value="ME">Maine</option><option value="MD">Maryland</option><option value="MA">Massachusetts</option><option value="MI">Michigan</option><option value="MN">Minnesota</option><option value="MS">Mississippi</option><option value="MO">Missouri</option><option value="MT">Montana</option><option value="NE">Nebraska</option><option value="NV">Nevada (no state income tax)</option><option value="NH">New Hampshire (no state income tax)</option><option value="NJ">New Jersey</option><option value="NM">New Mexico</option><option value="NY">New York</option><option value="NC">North Carolina</option><option value="ND">North Dakota</option><option value="OH">Ohio</option><option value="OK">Oklahoma</option><option value="OR">Oregon</option><option value="PA">Pennsylvania</option><option value="RI">Rhode Island</option><option value="SC">South Carolina</option><option value="SD">South Dakota (no state income tax)</option><option value="TN">Tennessee (no state income tax)</option><option value="TX">Texas (no state income tax)</option><option value="UT">Utah</option><option value="VT">Vermont</option><option value="VA">Virginia</option><option value="WA">Washington (no state income tax)</option><option value="WV">West Virginia</option><option value="WI">Wisconsin</option><option value="WY">Wyoming (no state income tax)</option>
-            </select>
-          </div>
-          <div class="form-row">
-            <label>Total Tips Received in 2025</label>
-            <div class="input-prefix"><span>$</span><input type="number" id="tips" placeholder="e.g. 18000" min="0" /></div>
+      <div class="form-section">
+        <div class="form-section-title">Step 2 — Your Information</div>
+        <div class="form-row">
+          <label>Filing Status</label>
+          <div class="radio-group">
+            <div class="radio-option"><input type="radio" name="filing" id="f-single" value="single" checked /><label for="f-single">Single</label></div>
+            <div class="radio-option"><input type="radio" name="filing" id="f-mfj" value="mfj" /><label for="f-mfj">Married Filing Jointly</label></div>
+            <div class="radio-option"><input type="radio" name="filing" id="f-mfs" value="mfs" /><label for="f-mfs">Married Filing Separately</label></div>
           </div>
         </div>
-
-        <button class="calc-btn" id="calc-btn" onclick="trackCalc(); calculate()">Calculate My Tips Savings →</button>
-
-        <div id="results">
-          <div class="results-title">📊 Your Estimated 2025 Savings</div>
-          <div class="result-primary">
-            <span class="amount" id="res-savings">$0</span>
-            <span class="label">Estimated Federal Tax Savings on Tips</span>
-          </div>
-          <div class="result-grid">
-            <div class="result-box"><div class="r-label">Tips Deduction</div><div class="r-value" id="res-deduction">$0</div></div>
-            <div class="result-box"><div class="r-label">Marginal Tax Rate</div><div class="r-value" id="res-rate">—</div></div>
-          </div>
-          <div id="state-status"></div>
-          <div class="disclaimer-box">
-            <strong>📋 How to claim this:</strong> Report your tips deduction on <strong>Schedule 1-A (Form 1040)</strong>. This is an above-the-line deduction — you do NOT need to itemize. Your tips must have been voluntarily given by customers — mandatory service charges do not qualify.
-          </div>
-          <div class="affiliate-cta">
-            <strong>TurboTax handles both OBBBA deductions automatically.</strong>
-            <p>Overtime AND tips — both calculated and filed correctly in their updated 2025 software.</p>
-            <a href="https://turbotax.intuit.com" target="_blank" rel="noopener sponsored" onclick="trackAffiliate('turbotax_tips')">File with TurboTax →</a>
-          </div>
+        <div class="form-row">
+          <label>
+            Annual Income
+            <span class="tooltip" data-tip="Modified Adjusted Gross Income (MAGI) — your total gross income before deductions. The tips deduction phases out by $1 for every $1 your MAGI exceeds $150,000.">?</span>
+            <span class="label-sub">Modified Adjusted Gross Income (MAGI)</span>
+          </label>
+          <div class="input-prefix"><span>$</span><input type="number" id="income" placeholder="e.g. 42000" min="0" /></div>
         </div>
-
+        <div class="form-row">
+          <label>State of Residence</label>
+          <select id="state">
+            <option value="">— Select your state —</option>
+            <option value="AL">Alabama</option><option value="AK">Alaska (no state income tax)</option><option value="AZ">Arizona</option><option value="AR">Arkansas</option><option value="CA">California</option><option value="CO">Colorado</option><option value="CT">Connecticut</option><option value="DE">Delaware</option><option value="DC">District of Columbia</option><option value="FL">Florida (no state income tax)</option><option value="GA">Georgia</option><option value="HI">Hawaii</option><option value="ID">Idaho</option><option value="IL">Illinois</option><option value="IN">Indiana</option><option value="IA">Iowa</option><option value="KS">Kansas</option><option value="KY">Kentucky</option><option value="LA">Louisiana</option><option value="ME">Maine</option><option value="MD">Maryland</option><option value="MA">Massachusetts</option><option value="MI">Michigan</option><option value="MN">Minnesota</option><option value="MS">Mississippi</option><option value="MO">Missouri</option><option value="MT">Montana</option><option value="NE">Nebraska</option><option value="NV">Nevada (no state income tax)</option><option value="NH">New Hampshire (no state income tax)</option><option value="NJ">New Jersey</option><option value="NM">New Mexico</option><option value="NY">New York</option><option value="NC">North Carolina</option><option value="ND">North Dakota</option><option value="OH">Ohio</option><option value="OK">Oklahoma</option><option value="OR">Oregon</option><option value="PA">Pennsylvania</option><option value="RI">Rhode Island</option><option value="SC">South Carolina</option><option value="SD">South Dakota (no state income tax)</option><option value="TN">Tennessee (no state income tax)</option><option value="TX">Texas (no state income tax)</option><option value="UT">Utah</option><option value="VT">Vermont</option><option value="VA">Virginia</option><option value="WA">Washington (no state income tax)</option><option value="WV">West Virginia</option><option value="WI">Wisconsin</option><option value="WY">Wyoming (no state income tax)</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <label>Total Tips Received in 2025
+            <span class="tooltip" data-tip="All tips you received in 2025 — cash tips, credit card tips, and tips from tip-sharing arrangements. The deduction caps at $25,000.">?</span>
+          </label>
+          <div class="input-prefix"><span>$</span><input type="number" id="tips" placeholder="e.g. 18000" min="0" /></div>
+        </div>
       </div>
+
+      <button class="calc-btn" onclick="trackCalc(); calculateTips();">Calculate My Tips Savings →</button>
+
+      <div id="results">
+        <div class="results-title">📊 Your Estimated 2025 Tips Savings</div>
+        <div class="result-primary">
+          <span class="amount" id="res-savings">$0</span>
+          <span class="label">Estimated Federal Tax Savings on Tips</span>
+        </div>
+        <div class="result-grid">
+          <div class="result-box"><div class="r-label">Deduction Amount</div><div class="r-value" id="res-deduction">$0</div></div>
+          <div class="result-box"><div class="r-label">Your Marginal Rate</div><div class="r-value" id="res-rate">—</div></div>
+        </div>
+        <div id="state-status"></div>
+        <div class="stack-note">
+          <strong>💡 Also earn overtime?</strong> The overtime and tips deductions stack — you can claim both on the same return. <a href="/" style="color:#3A4A7A;font-weight:700;">Calculate overtime savings →</a>
+        </div>
+        <div class="disclaimer-box">
+          <strong>How to claim:</strong> Report on <strong>Schedule 1-A (Form 1040)</strong>. Above-the-line deduction — no need to itemize.
+        </div>
+        <div class="affiliate-cta">
+          <strong>TurboTax handles OBBBA tips deductions automatically.</strong>
+          <p>Their 2025 software includes all new tips deductions — calculated correctly and filed on your behalf.</p>
+          <a href="https://turbotax.intuit.com" target="_blank" rel="noopener sponsored" onclick="trackAffiliate('turbotax_tips')">File with TurboTax →</a>
+          <p class="turbo-disc">~37% of filers qualify. Simple Form 1040 returns only (no schedules, except for EITC, CTC, student loan interest, and Schedule 1-A).</p>
+        </div>
+      </div>
+
     </div>
-
   </div>
 
-  <!-- SIDEBAR -->
   <div class="sidebar">
-
-    <a href="/" class="overtime-link-card">
-      <div class="tc-badge">ALSO AVAILABLE</div>
-      <h3>Do You Also Earn Overtime?</h3>
-      <p>OBBBA also created a No Tax on Overtime deduction worth up to $12,500. You can stack both deductions if you qualify for both.</p>
-      <div class="arrow">Use Overtime Calculator <span>→</span></div>
+    <a href="/" class="ot-promo">
+      <div class="tp-tag">ALSO FREE</div>
+      <h3>Do You Also Work Overtime?</h3>
+      <p>The OBBBA overtime deduction is separate and can be stacked with tips. Calculate your combined savings.</p>
+      <div class="arrow">Use Overtime Calculator →</div>
     </a>
-
     <div class="side-card">
-      <div class="side-card-header">⚡ Key Rules</div>
+      <div class="side-card-header">⚡ Key Facts</div>
       <div class="side-card-body">
         <ul class="fact-list">
-          <li>Must work in one of 68 IRS TTOC-approved occupations</li>
-          <li>Tips must be voluntary — service charges don't count</li>
-          <li>Works for both W-2 employees and self-employed</li>
-          <li>Deducts up to $25,000 of tip income</li>
-          <li>Phases out at $150K MAGI ($1 per $1 over)</li>
-          <li>Can be stacked with the overtime deduction</li>
-          <li>Source: IRS Notice 2025-72, IRC §224</li>
+          <li>Must work in IRS TTOC-approved occupation</li>
+          <li>Covers W-2 employees and self-employed tipped workers</li>
+          <li>$25,000 annual deduction cap</li>
+          <li>Phase-out above $150,000 MAGI</li>
+          <li>Married filing separately receives no deduction</li>
+          <li>Based on IRS Notice 2025-72, IRC §224</li>
         </ul>
       </div>
     </div>
-
     <div class="side-card">
-      <div class="side-card-header">📋 Occupations by Category</div>
+      <div class="side-card-header">📋 Top Qualifying Jobs</div>
       <div class="side-card-body">
-        <ul class="cat-summary">
-          <li><span>🍽️ Food & Beverage Service</span><span class="cat-count">20</span></li>
-          <li><span>🏨 Hospitality & Lodging</span><span class="cat-count">10</span></li>
-          <li><span>💅 Personal Care</span><span class="cat-count">12</span></li>
-          <li><span>🚕 Transportation</span><span class="cat-count">8</span></li>
-          <li><span>🎰 Entertainment & Gaming</span><span class="cat-count">8</span></li>
-          <li><span>🏠 Home & Property Services</span><span class="cat-count">5</span></li>
-          <li><span>🔧 Skilled Trades</span><span class="cat-count">3</span></li>
-          <li><span>➕ Miscellaneous</span><span class="cat-count">2</span></li>
+        <ul class="fact-list">
+          <li>Servers &amp; waitstaff</li>
+          <li>Bartenders</li>
+          <li>Hair stylists &amp; barbers</li>
+          <li>Nail technicians</li>
+          <li>Rideshare &amp; delivery drivers</li>
+          <li>Casino dealers</li>
+          <li>Hotel housekeeping</li>
+          <li>Massage therapists</li>
         </ul>
       </div>
     </div>
-
   </div>
 </div>
 
-<!-- FAQ -->
-<section class="faq-section">
-  <h2>Tips Deduction — FAQ</h2>
-  <p class="faq-sub">Common questions about the No Tax on Tips deduction under OBBBA</p>
-  <div class="faq-grid">
-    <div class="faq-item">
-      <h3>What makes a tip "qualified" under OBBBA?</h3>
-      <p>Tips must be (1) voluntarily given by a customer, (2) received in an occupation on the IRS TTOC list, and (3) reported as income on your return. Mandatory service charges, automatic gratuities added to bills, and employer-distributed tips may not qualify.</p>
-    </div>
-    <div class="faq-item">
-      <h3>My job isn't on the list — can I still deduct tips?</h3>
-      <p>No. If your occupation is not among the 68 occupations in IRS Notice 2025-72, your tips do not qualify for the deduction. You must still report all tip income as taxable wages on your return.</p>
-    </div>
-    <div class="faq-item">
-      <h3>Can I stack the tips and overtime deductions?</h3>
-      <p>Yes — if you qualify for both, you can claim both on the same return. The overtime deduction (max $12,500/$25,000) and the tips deduction (max $25,000) are calculated separately. Each has its own phase-out at $150,000 MAGI.</p>
-    </div>
-    <div class="faq-item">
-      <h3>I'm self-employed and receive tips. Do I qualify?</h3>
-      <p>Yes, unlike the overtime deduction, the No Tax on Tips deduction applies to both W-2 employees and self-employed workers (Schedule C filers), as long as your occupation is on the approved list. This covers freelance stylists, independent drivers, and similar workers.</p>
-    </div>
-    <div class="faq-item">
-      <h3>Does this reduce Social Security and Medicare taxes?</h3>
-      <p>No. The tips deduction only reduces your federal income tax. FICA taxes (6.2% Social Security + 1.45% Medicare) are still owed on tip income, as they have always been.</p>
-    </div>
-    <div class="faq-item">
-      <h3>How long does this deduction last?</h3>
-      <p>The No Tax on Tips deduction runs from tax year 2025 through 2028, identical to the overtime deduction. Both are part of the One Big Beautiful Bill Act (Public Law 119-21).</p>
-    </div>
-  </div>
-</section>
-
 <footer>
   <p><strong>OBBACalc.com</strong> — Free OBBBA Tax Deduction Calculators</p>
-  <p>This calculator provides estimates for informational purposes only. It is not tax advice. Consult a qualified tax professional for your specific situation.</p>
-  <p style="margin-top:8px;">Sources: <a href="https://www.irs.gov" target="_blank">IRS.gov</a> · IRS Notice 2025-72 · IRC §224 · Public Law 119-21 (OBBBA)</p>
+  <p>For informational purposes only. Not tax, financial, or legal advice.</p>
   <p style="margin-top:8px;font-size:12px;">© 2026 OBBACalc.com · <a href="/privacy.html">Privacy Policy</a> · <a href="/about.html">About</a> · <a href="/disclaimer.html">Disclaimer</a> · This site contains affiliate links.</p>
 </footer>
 
 <script>
-// ── 68 IRS TTOC OCCUPATIONS ──
 const occupations = [
-  // Food & Beverage (20)
-  { id:1, label:'Server / Waiter / Waitress', icon:'🍽️', cat:'food', eligible:true },
-  { id:2, label:'Bartender', icon:'🍸', cat:'food', eligible:true },
-  { id:3, label:'Busser / Busboy / Busperson', icon:'🍽️', cat:'food', eligible:true },
-  { id:4, label:'Food Runner', icon:'🏃', cat:'food', eligible:true },
-  { id:5, label:'Host / Hostess', icon:'👋', cat:'food', eligible:true },
-  { id:6, label:'Barista', icon:'☕', cat:'food', eligible:true },
-  { id:7, label:'Counter Attendant (Food Service)', icon:'🥪', cat:'food', eligible:true },
-  { id:8, label:'Sushi Chef', icon:'🍱', cat:'food', eligible:true },
-  { id:9, label:'Pizza Delivery Driver', icon:'🍕', cat:'food', eligible:true },
-  { id:10, label:'Food Delivery Driver', icon:'📦', cat:'food', eligible:true },
-  { id:11, label:'Catering Server', icon:'🥗', cat:'food', eligible:true },
-  { id:12, label:'Banquet Server', icon:'🥂', cat:'food', eligible:true },
-  { id:13, label:'Cocktail Server', icon:'🍹', cat:'food', eligible:true },
-  { id:14, label:'Sommelier / Wine Steward', icon:'🍷', cat:'food', eligible:true },
-  { id:15, label:'Barback', icon:'🧊', cat:'food', eligible:true },
-  { id:16, label:'Buffet Attendant', icon:'🍜', cat:'food', eligible:true },
-  { id:17, label:'Ice Cream Shop Attendant', icon:'🍦', cat:'food', eligible:true },
-  { id:18, label:'Café / Coffee Shop Attendant', icon:'☕', cat:'food', eligible:true },
-  { id:19, label:'Tipped Food Cart Vendor', icon:'🌮', cat:'food', eligible:true },
-  { id:20, label:'Room Service Attendant', icon:'🛎️', cat:'food', eligible:true },
-
-  // Hospitality & Lodging (10)
-  { id:21, label:'Hotel Bellhop / Bellperson', icon:'🏨', cat:'hospitality', eligible:true },
-  { id:22, label:'Hotel Concierge', icon:'🗝️', cat:'hospitality', eligible:true },
-  { id:23, label:'Hotel Housekeeper / Room Attendant', icon:'🛏️', cat:'hospitality', eligible:true },
-  { id:24, label:'Valet Parking Attendant', icon:'🚗', cat:'hospitality', eligible:true },
-  { id:25, label:'Hotel Front Desk Agent', icon:'🏨', cat:'hospitality', eligible:true },
-  { id:26, label:'Resort Activities Staff', icon:'🏝️', cat:'hospitality', eligible:true },
-  { id:27, label:'Hotel Doorperson / Door Attendant', icon:'🚪', cat:'hospitality', eligible:true },
-  { id:28, label:'Ski Resort Lift Operator', icon:'⛷️', cat:'hospitality', eligible:true },
-  { id:29, label:'Golf Caddie', icon:'⛳', cat:'hospitality', eligible:true },
-  { id:30, label:'Spa Attendant', icon:'🧖', cat:'hospitality', eligible:true },
-
-  // Personal Care (12)
-  { id:31, label:'Hair Stylist / Hairdresser', icon:'✂️', cat:'beauty', eligible:true },
-  { id:32, label:'Barber', icon:'💈', cat:'beauty', eligible:true },
-  { id:33, label:'Nail Technician / Nail Tech', icon:'💅', cat:'beauty', eligible:true },
-  { id:34, label:'Esthetician / Skin Care Specialist', icon:'🧴', cat:'beauty', eligible:true },
-  { id:35, label:'Massage Therapist', icon:'💆', cat:'beauty', eligible:true },
-  { id:36, label:'Eyelash Technician', icon:'👁️', cat:'beauty', eligible:true },
-  { id:37, label:'Eyebrow Technician / Waxing Specialist', icon:'👁️', cat:'beauty', eligible:true },
-  { id:38, label:'Makeup Artist', icon:'💄', cat:'beauty', eligible:true },
-  { id:39, label:'Tattoo Artist', icon:'🎨', cat:'beauty', eligible:true },
-  { id:40, label:'Body Piercer', icon:'💎', cat:'beauty', eligible:true },
-  { id:41, label:'Tanning Salon Attendant', icon:'☀️', cat:'beauty', eligible:true },
-  { id:42, label:'Pet Groomer', icon:'🐾', cat:'beauty', eligible:true },
-
-  // Transportation (8)
-  { id:43, label:'Taxi Driver', icon:'🚕', cat:'transport', eligible:true },
-  { id:44, label:'Rideshare Driver (Uber / Lyft)', icon:'🚙', cat:'transport', eligible:true },
-  { id:45, label:'Limousine Driver / Chauffeur', icon:'🚘', cat:'transport', eligible:true },
-  { id:46, label:'Airport Shuttle Driver', icon:'✈️', cat:'transport', eligible:true },
-  { id:47, label:'Cruise Ship Staff', icon:'🚢', cat:'transport', eligible:true },
-  { id:48, label:'Tour Bus Driver', icon:'🚌', cat:'transport', eligible:true },
-  { id:49, label:'Boat / Fishing Charter Captain', icon:'⛵', cat:'transport', eligible:true },
-  { id:50, label:'Moving Company Worker', icon:'📦', cat:'transport', eligible:true },
-
-  // Entertainment & Gaming (8)
-  { id:51, label:'Casino Dealer', icon:'🃏', cat:'entertainment', eligible:true },
-  { id:52, label:'Slot Machine Attendant', icon:'🎰', cat:'entertainment', eligible:true },
-  { id:53, label:'Poker Dealer', icon:'♠️', cat:'entertainment', eligible:true },
-  { id:54, label:'Casino Cage Cashier', icon:'💰', cat:'entertainment', eligible:true },
-  { id:55, label:'Nightclub / Bar Server', icon:'🎵', cat:'entertainment', eligible:true },
-  { id:56, label:'Coat Check Attendant', icon:'🧥', cat:'entertainment', eligible:true },
-  { id:57, label:'Tour Guide', icon:'🗺️', cat:'entertainment', eligible:true },
-  { id:58, label:'Amusement Park Ride Operator', icon:'🎡', cat:'entertainment', eligible:true },
-
-  // Home & Property (5)
-  { id:59, label:'House Cleaner / Housekeeper', icon:'🏠', cat:'other', eligible:true },
-  { id:60, label:'Dog Walker', icon:'🐕', cat:'other', eligible:true },
-  { id:61, label:'Pet Sitter', icon:'🐱', cat:'other', eligible:true },
-  { id:62, label:'Lawn / Landscaping Worker', icon:'🌿', cat:'other', eligible:true },
-  { id:63, label:'Car Wash Attendant', icon:'🚿', cat:'other', eligible:true },
-
-  // Skilled Trades (3)
-  { id:64, label:'Appliance Repair Technician', icon:'🔧', cat:'other', eligible:true },
-  { id:65, label:'Furniture Delivery / Assembly', icon:'🪑', cat:'other', eligible:true },
-  { id:66, label:'Piano Tuner', icon:'🎹', cat:'other', eligible:true },
-
-  // Misc (2)
-  { id:67, label:'Newspaper / Magazine Carrier', icon:'📰', cat:'other', eligible:true },
-  { id:68, label:'Restroom Attendant', icon:'🚻', cat:'other', eligible:true },
+  {name:'Server / Waiter / Waitress', cat:'food'},{name:'Bartender', cat:'food'},{name:'Barback', cat:'food'},
+  {name:'Busser / Table Cleaner', cat:'food'},{name:'Food Runner', cat:'food'},{name:'Host / Hostess', cat:'food'},
+  {name:'Sommelier', cat:'food'},{name:'Barista', cat:'food'},{name:'Counter Staff (tipped)', cat:'food'},
+  {name:'Food Delivery Driver', cat:'transport'},{name:'Catering Staff', cat:'food'},
+  {name:'Hotel Housekeeper', cat:'hospitality'},{name:'Hotel Bellhop / Bellman', cat:'hospitality'},
+  {name:'Hotel Concierge', cat:'hospitality'},{name:'Hotel Front Desk (tipped)', cat:'hospitality'},
+  {name:'Valet Parking Attendant', cat:'hospitality'},{name:'Golf Caddie', cat:'other'},
+  {name:'Resort / Spa Staff', cat:'hospitality'},{name:'Room Service Attendant', cat:'hospitality'},
+  {name:'Hair Stylist / Cosmetologist', cat:'beauty'},{name:'Barber', cat:'beauty'},
+  {name:'Nail Technician', cat:'beauty'},{name:'Esthetician / Skin Care', cat:'beauty'},
+  {name:'Makeup Artist', cat:'beauty'},{name:'Massage Therapist', cat:'beauty'},
+  {name:'Tattoo Artist', cat:'beauty'},{name:'Eyebrow / Wax Technician', cat:'beauty'},
+  {name:'Rideshare Driver (Uber/Lyft)', cat:'transport'},{name:'Taxi Driver', cat:'transport'},
+  {name:'Limousine / Chauffeur', cat:'transport'},{name:'Airport Shuttle Driver', cat:'transport'},
+  {name:'Boat / Tour Operator', cat:'transport'},{name:'Moving Company Worker', cat:'other'},
+  {name:'Casino Dealer', cat:'other'},{name:'Casino Slot Attendant', cat:'other'},
+  {name:'Poker Dealer', cat:'other'},{name:'Tour Guide', cat:'other'},
+  {name:'Museum / Attraction Guide', cat:'other'},{name:'Fishing Guide', cat:'other'},
+  {name:'Ski Instructor', cat:'other'},{name:'Yoga / Fitness Instructor (tipped)', cat:'other'},
+  {name:'Personal Trainer (tipped)', cat:'other'},{name:'Dog Groomer', cat:'other'},
+  {name:'Pet Sitter / Dog Walker (tipped)', cat:'other'},{name:'Florist (tipped)', cat:'other'},
+  {name:'Tailor / Seamstress (tipped)', cat:'other'},{name:'Shoeshine Worker', cat:'other'},
+  {name:'Coat Check Attendant', cat:'hospitality'},{name:'Parking Lot Attendant', cat:'other'},
+  {name:'Car Wash Attendant (tipped)', cat:'other'},{name:'Delivery Driver (non-food)', cat:'transport'},
+  {name:'Pool / Billiards Hall Staff (tipped)', cat:'other'},{name:'Piano Bar Entertainer', cat:'other'},
+  {name:'Nightclub Staff (tipped)', cat:'other'},{name:'Banquet Server', cat:'food'},
+  {name:'Cruise Ship Staff (tipped)', cat:'hospitality'},{name:'Train / Amtrak Dining Staff', cat:'food'},
+  {name:'Cigar Shop Staff (tipped)', cat:'other'},{name:'Furniture Delivery (tipped)', cat:'other'},
+  {name:'Appliance Installer (tipped)', cat:'other'},{name:'House Cleaner / Maid (tipped)', cat:'other'},
+  {name:'Grocery Bagger / Carry-out', cat:'other'},{name:'Newspaper Carrier (tipped)', cat:'transport'},
+  {name:'Bowling Alley Staff (tipped)', cat:'other'},{name:'Skating Rink Staff (tipped)', cat:'other'},
+  {name:'Locker Room Attendant', cat:'hospitality'},{name:'Airport Skycap / Porter', cat:'transport'},
+  {name:'Sushi Chef (tipped)', cat:'food'},{name:'Food Truck Staff (tipped)', cat:'food'}
 ];
 
-let selectedOccupation = null;
-let activeCategory = 'all';
-let searchQuery = '';
+let selectedOcc = null;
+let currentFilter = 'all';
 
-function renderGrid() {
+function renderOcc() {
+  const search = document.getElementById('occ-search').value.toLowerCase();
   const grid = document.getElementById('occ-grid');
-  const noResults = document.getElementById('no-results');
-
-  let filtered = occupations.filter(o => {
-    const matchCat = activeCategory === 'all' || o.cat === activeCategory;
-    const matchSearch = searchQuery === '' || o.label.toLowerCase().includes(searchQuery.toLowerCase());
-    return matchCat && matchSearch;
+  grid.innerHTML = '';
+  occupations.forEach((o, i) => {
+    const matchSearch = o.name.toLowerCase().includes(search);
+    const matchFilter = currentFilter === 'all' || o.cat === currentFilter;
+    if (!matchSearch || !matchFilter) return;
+    const chip = document.createElement('div');
+    chip.className = 'occ-chip' + (selectedOcc === i ? ' selected' : '');
+    chip.textContent = o.name;
+    chip.onclick = () => selectOcc(i);
+    grid.appendChild(chip);
   });
-
-  if (filtered.length === 0) {
-    grid.innerHTML = '';
-    noResults.style.display = 'block';
-    return;
-  }
-
-  noResults.style.display = 'none';
-  grid.innerHTML = filtered.map(o => `
-    <div class="occ-chip ${selectedOccupation && selectedOccupation.id === o.id ? 'selected' : ''}" onclick="selectOccupation(${o.id})">
-      <span class="chip-icon">${o.icon}</span>
-      <span class="chip-label">${o.label}</span>
-    </div>
-  `).join('');
 }
 
-function selectOccupation(id) {
-  selectedOccupation = occupations.find(o => o.id === id);
-  trackOccSelect(selectedOccupation.label);
-  renderGrid();
-
-  const warning = document.getElementById('ineligible-warning');
-  if (selectedOccupation && !selectedOccupation.eligible) {
-    warning.style.display = 'block';
-    document.getElementById('calc-btn').disabled = true;
-  } else {
-    warning.style.display = 'none';
-    document.getElementById('calc-btn').disabled = false;
-  }
-
-  // Scroll to calculator
-  document.querySelector('.calc-card').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+function selectOcc(i) {
+  selectedOcc = i;
+  trackOcc(occupations[i].name);
+  const sel = document.getElementById('selected-occ');
+  document.getElementById('selected-occ-name').textContent = '✅ ' + occupations[i].name + ' — Qualifies';
+  sel.classList.add('visible');
+  renderOcc();
 }
 
-function searchOccupations() {
-  searchQuery = document.getElementById('occ-search').value;
-  activeCategory = 'all';
-  document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
-  document.querySelectorAll('.cat-btn')[0].classList.add('active');
-  renderGrid();
+function clearOcc() {
+  selectedOcc = null;
+  document.getElementById('selected-occ').classList.remove('visible');
+  renderOcc();
 }
 
-function filterCategory(cat, btn) {
-  activeCategory = cat;
-  searchQuery = '';
-  document.getElementById('occ-search').value = '';
-  document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
+function filterOcc() { renderOcc(); }
+
+function setFilter(cat, btn) {
+  currentFilter = cat;
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
-  renderGrid();
+  renderOcc();
 }
 
-// State conformity
-const stateConformity = {
-  no_tax: ['AK','FL','NV','NH','SD','TN','TX','WA','WY'],
-  decoupled: ['DC','ME','IL'],
-  monitoring: ['NJ','PA'],
-};
-function getStateStatus(code) {
+const NO_TAX = ['AK','FL','NV','NH','SD','TN','TX','WA','WY'];
+const DECOUPLED = ['DC','ME','IL'];
+const MONITORING = ['NJ','PA','CA','NY','MN'];
+
+function getStatus(code) {
   if (!code) return null;
-  if (stateConformity.no_tax.includes(code)) return 'no_tax';
-  if (stateConformity.decoupled.includes(code)) return 'decoupled';
-  if (stateConformity.monitoring.includes(code)) return 'monitoring';
+  if (NO_TAX.includes(code)) return 'no_tax';
+  if (DECOUPLED.includes(code)) return 'decoupled';
+  if (MONITORING.includes(code)) return 'monitoring';
   return 'conforms';
 }
 
 function getMarginalRate(income, filing) {
-  let brackets;
-  if (filing === 'mfj') {
-    brackets = [[23850,0.10],[96950,0.12],[206700,0.22],[394600,0.24],[501050,0.32],[751600,0.35],[Infinity,0.37]];
-  } else {
-    brackets = [[11925,0.10],[48475,0.12],[103350,0.22],[197300,0.24],[250525,0.32],[626350,0.35],[Infinity,0.37]];
-  }
-  for (const [limit, rate] of brackets) { if (income <= limit) return rate; }
+  const mfj = [[23850,.10],[96950,.12],[206700,.22],[394600,.24],[501050,.32],[751600,.35],[Infinity,.37]];
+  const single = [[11925,.10],[48475,.12],[103350,.22],[197300,.24],[250525,.32],[626350,.35],[Infinity,.37]];
+  const brackets = filing === 'mfj' ? mfj : single;
+  for (const [lim, rate] of brackets) { if (income <= lim) return rate; }
   return 0.37;
 }
 
 function fmt(n) { return '$' + Math.round(n).toLocaleString('en-US'); }
 
-function calculate() {
-  if (!selectedOccupation) {
-    alert('Please select your occupation in Step 1 first.');
-    return;
-  }
-
+function calculateTips() {
+  if (selectedOcc === null) { alert('Please select your occupation first to confirm you qualify.'); return; }
   const filing = document.querySelector('input[name="filing"]:checked').value;
   const income = parseFloat(document.getElementById('income').value) || 0;
   const state = document.getElementById('state').value;
-  const tipsRaw = parseFloat(document.getElementById('tips').value) || 0;
+  const tips = parseFloat(document.getElementById('tips').value) || 0;
+  if (income <= 0 || tips <= 0) { alert('Please enter your annual income and total tips received.'); return; }
 
-  if (income <= 0 || tipsRaw <= 0) {
-    alert('Please enter your annual income and total tips received.');
-    return;
-  }
-
-  const cap = 25000;
-  let deduction = Math.min(tipsRaw, cap);
-
-  // Phase-out at $150,000
-  if (income > 150000) {
-    deduction = Math.max(0, deduction - (income - 150000));
-  }
+  let deduction = filing === 'mfs' ? 0 : Math.min(tips, 25000);
+  if (income > 150000) deduction = Math.max(0, deduction - (income - 150000));
 
   const rate = getMarginalRate(income, filing);
   const savings = deduction * rate;
@@ -724,31 +474,23 @@ function calculate() {
   document.getElementById('res-deduction').textContent = fmt(deduction);
   document.getElementById('res-rate').textContent = Math.round(rate * 100) + '%';
 
-  const statusEl = document.getElementById('state-status');
-  const stStatus = getStateStatus(state);
-  let stateHTML = '';
-  if (stStatus === 'no_tax') {
-    stateHTML = `<div class="state-badge green"><span class="badge-icon">✅</span><div><strong>Your state has no income tax</strong>The federal deduction is what matters — and it applies in full.</div></div>`;
-  } else if (stStatus === 'decoupled') {
-    const name = document.getElementById('state').options[document.getElementById('state').selectedIndex].text;
-    stateHTML = `<div class="state-badge red"><span class="badge-icon">⚠️</span><div><strong>${name} does NOT conform to OBBBA</strong>Your federal savings above still apply, but your state taxes are unchanged.</div></div>`;
-  } else if (stStatus === 'monitoring') {
-    const name = document.getElementById('state').options[document.getElementById('state').selectedIndex].text;
-    stateHTML = `<div class="state-badge yellow"><span class="badge-icon">🔍</span><div><strong>${name} conformity is pending</strong><a href="/state-conformity-tracker.html" style="color:inherit;font-weight:700;">View State Tracker →</a></div></div>`;
-  } else if (stStatus === 'conforms') {
-    stateHTML = `<div class="state-badge green"><span class="badge-icon">✅</span><div><strong>Your state conforms to OBBBA</strong>You receive both federal and state-level deduction benefits.</div></div>`;
-  }
-  statusEl.innerHTML = stateHTML;
+  const status = getStatus(state);
+  const stateName = state ? document.getElementById('state').options[document.getElementById('state').selectedIndex].text.replace(/ \(.*\)/, '') : '';
+  let html = '';
+  if (status === 'no_tax') html = `<div class="state-badge green"><div><strong>✅ Your state has no income tax</strong>Your full federal deduction applies.</div></div>`;
+  else if (status === 'conforms') html = `<div class="state-badge green"><div><strong>✅ ${stateName} conforms to OBBBA</strong>You receive both federal and state-level benefits.</div></div>`;
+  else if (status === 'decoupled') html = `<div class="state-badge red"><div><strong>⚠️ ${stateName} does not conform</strong>Federal savings above still apply. No state-level benefit.</div></div>`;
+  else if (status === 'monitoring') html = `<div class="state-badge yellow"><div><strong>🔍 ${stateName} conformity is pending</strong><a href="/state-conformity-tracker.html" style="color:inherit;font-weight:700;">Track updates →</a></div></div>`;
+  document.getElementById('state-status').innerHTML = html;
 
-  const resultsEl = document.getElementById('results');
-  resultsEl.classList.remove('visible');
-  void resultsEl.offsetWidth;
-  resultsEl.classList.add('visible');
-  resultsEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  const el = document.getElementById('results');
+  el.classList.remove('visible');
+  void el.offsetWidth;
+  el.classList.add('visible');
+  setTimeout(() => el.scrollIntoView({ behavior: 'smooth', block: 'nearest' }), 50);
 }
 
-// Init
-renderGrid();
+renderOcc();
 </script>
 </body>
 </html>
