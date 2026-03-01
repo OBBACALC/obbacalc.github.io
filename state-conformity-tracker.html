@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OBBBA State Conformity Tracker 2025 | All 50 States | OBBACalc</title>
+  <meta name="description" content="Track which states conform to the OBBBA No Tax on Overtime and No Tax on Tips deductions. Updated state-by-state conformity status for all 50 states plus DC." />
+  <meta name="keywords" content="OBBBA state conformity, no tax on overtime state, no tax on tips state conformity, OBBBA 2025 states, one big beautiful bill state taxes" />
+  <link rel="canonical" href="https://obbacalc.com/state-conformity-tracker.html" />
+
+  <meta property="og:title" content="OBBBA State Conformity Tracker 2025 | OBBACalc" />
+  <meta property="og:description" content="See if your state conforms to the OBBBA No Tax on Overtime and Tips deductions. All 50 states tracked and updated." />
+  <meta property="og:type" content="website" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "OBBBA State Conformity Tracker",
+    "url": "https://obbacalc.com/state-conformity-tracker.html",
+    "description": "Track OBBBA No Tax on Overtime and Tips deduction conformity for all 50 US states plus Washington DC."
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --navy: #0D1F3C;
+      --navy-mid: #1A3259;
+      --gold: #C9952A;
+      --gold-light: #F0B940;
+      --cream: #FAF7F2;
+      --white: #FFFFFF;
+      --green: #1A7A4A;
+      --green-bg: #EAF7EE;
+      --green-border: #A3D9B8;
+      --red: #B83030;
+      --red-bg: #FDEAEA;
+      --red-border: #F0AAAA;
+      --yellow: #C07A00;
+      --yellow-bg: #FFF8E1;
+      --yellow-border: #FFD980;
+      --blue: #1A4A8A;
+      --blue-bg: #EAF0FA;
+      --blue-border: #A3BDE8;
+      --text: #1A1A2E;
+      --muted: #5A6478;
+      --border: #DDE3EE;
+      --radius: 12px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--text); line-height: 1.6; }
+
+    header { background: var(--navy); border-bottom: 3px solid var(--gold); padding: 0 24px; }
+    .header-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 64px; }
+    .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .logo-icon { width: 36px; height: 36px; background: var(--gold); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-weight: 900; font-size: 18px; color: var(--navy); }
+    .logo-text { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 20px; color: var(--white); }
+    .logo-text span { color: var(--gold-light); }
+    nav { display: flex; gap: 24px; align-items: center; }
+    nav a { color: rgba(255,255,255,0.75); text-decoration: none; font-size: 14px; font-weight: 500; transition: color 0.2s; }
+    nav a:hover { color: var(--gold-light); }
+    nav a.active { color: var(--white); }
+    .nav-cta { background: var(--gold); color: var(--navy) !important; padding: 7px 16px; border-radius: 6px; font-weight: 600 !important; }
+
+    .hero { background: linear-gradient(160deg, #1A1A3A 0%, #0D1F3C 100%); color: var(--white); padding: 56px 24px 64px; position: relative; overflow: hidden; }
+    .hero::before { content: ''; position: absolute; inset: 0; background-image: radial-gradient(circle at 85% 15%, rgba(201,149,42,0.1) 0%, transparent 55%), radial-gradient(circle at 15% 85%, rgba(26,74,138,0.15) 0%, transparent 50%); }
+    .hero-inner { max-width: 780px; margin: 0 auto; text-align: center; position: relative; }
+    .hero-badge { display: inline-flex; align-items: center; gap: 6px; background: rgba(201,149,42,0.2); border: 1px solid rgba(201,149,42,0.4); color: var(--gold-light); font-size: 13px; font-weight: 600; padding: 5px 14px; border-radius: 100px; margin-bottom: 20px; }
+    .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(28px, 4.5vw, 46px); font-weight: 900; line-height: 1.15; margin-bottom: 14px; }
+    .hero h1 em { font-style: normal; color: var(--gold-light); }
+    .hero p { font-size: 17px; color: rgba(255,255,255,0.75); max-width: 560px; margin: 0 auto 28px; font-weight: 300; }
+
+    .summary-bar { display: flex; justify-content: center; gap: 0; flex-wrap: wrap; max-width: 640px; margin: 0 auto; border-radius: 10px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); }
+    .sum-item { flex: 1; min-width: 120px; padding: 14px 10px; text-align: center; }
+    .sum-item.no-tax { background: rgba(26,122,74,0.25); }
+    .sum-item.conforms { background: rgba(26,122,74,0.15); }
+    .sum-item.monitoring { background: rgba(192,122,0,0.2); }
+    .sum-item.decoupled { background: rgba(184,48,48,0.2); }
+    .sum-item .s-num { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 900; display: block; }
+    .sum-item.no-tax .s-num { color: #5ADDA0; }
+    .sum-item.conforms .s-num { color: #7DD8A8; }
+    .sum-item.monitoring .s-num { color: var(--gold-light); }
+    .sum-item.decoupled .s-num { color: #FF9A9A; }
+    .sum-item .s-lbl { font-size: 11px; color: rgba(255,255,255,0.6); letter-spacing: 0.3px; }
+
+    .page-wrap { max-width: 1100px; margin: 0 auto; padding: 40px 24px 80px; }
+
+    /* CONTROLS */
+    .controls { display: flex; gap: 12px; margin-bottom: 24px; flex-wrap: wrap; align-items: center; }
+    .search-wrap { position: relative; flex: 1; min-width: 200px; }
+    .search-wrap input { width: 100%; height: 44px; border: 1.5px solid var(--border); border-radius: 8px; padding: 0 14px 0 42px; font-family: 'DM Sans', sans-serif; font-size: 15px; outline: none; background: white; transition: border-color 0.2s; }
+    .search-wrap input:focus { border-color: var(--gold); box-shadow: 0 0 0 3px rgba(201,149,42,0.15); }
+    .search-wrap .si { position: absolute; left: 14px; top: 50%; transform: translateY(-50%); color: var(--muted); }
+    .filter-btns { display: flex; gap: 8px; flex-wrap: wrap; }
+    .fbtn { height: 44px; padding: 0 16px; border: 1.5px solid var(--border); border-radius: 8px; font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 600; cursor: pointer; background: white; color: var(--muted); transition: all 0.15s; white-space: nowrap; }
+    .fbtn:hover { border-color: var(--navy); color: var(--navy); }
+    .fbtn.active { background: var(--navy); color: white; border-color: var(--navy); }
+    .fbtn.f-green.active { background: var(--green); border-color: var(--green); }
+    .fbtn.f-yellow.active { background: var(--yellow); border-color: var(--yellow); }
+    .fbtn.f-red.active { background: var(--red); border-color: var(--red); }
+    .fbtn.f-blue.active { background: var(--blue); border-color: var(--blue); }
+
+    /* STATE GRID */
+    .state-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(310px, 1fr)); gap: 14px; }
+
+    .state-card {
+      background: var(--white);
+      border-radius: 10px;
+      border: 1.5px solid var(--border);
+      padding: 18px 20px;
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      transition: box-shadow 0.15s, transform 0.15s;
+      cursor: default;
+    }
+    .state-card:hover { box-shadow: 0 4px 16px rgba(13,31,60,0.1); transform: translateY(-1px); }
+    .state-card.no-tax { border-color: var(--green-border); background: linear-gradient(135deg, #FAFFFE 0%, var(--green-bg) 100%); }
+    .state-card.conforms { border-color: var(--green-border); }
+    .state-card.monitoring { border-color: var(--yellow-border); }
+    .state-card.decoupled { border-color: var(--red-border); }
+    .state-card.pending { border-color: var(--blue-border); }
+
+    .state-abbr {
+      width: 48px; height: 48px;
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Playfair Display', serif;
+      font-weight: 900;
+      font-size: 15px;
+      flex-shrink: 0;
+      letter-spacing: -0.5px;
+    }
+    .state-card.no-tax .state-abbr { background: var(--green-bg); color: var(--green); }
+    .state-card.conforms .state-abbr { background: var(--green-bg); color: var(--green); }
+    .state-card.monitoring .state-abbr { background: var(--yellow-bg); color: var(--yellow); }
+    .state-card.decoupled .state-abbr { background: var(--red-bg); color: var(--red); }
+    .state-card.pending .state-abbr { background: var(--blue-bg); color: var(--blue); }
+
+    .state-info { flex: 1; min-width: 0; }
+    .state-name { font-weight: 700; font-size: 15px; color: var(--navy); margin-bottom: 3px; }
+    .state-note { font-size: 12.5px; color: var(--muted); line-height: 1.4; }
+
+    .status-badge {
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 9px;
+      border-radius: 100px;
+      white-space: nowrap;
+      flex-shrink: 0;
+      align-self: flex-start;
+      margin-top: 2px;
+    }
+    .badge-no-tax { background: var(--green-bg); color: var(--green); border: 1px solid var(--green-border); }
+    .badge-conforms { background: var(--green-bg); color: var(--green); border: 1px solid var(--green-border); }
+    .badge-monitoring { background: var(--yellow-bg); color: var(--yellow); border: 1px solid var(--yellow-border); }
+    .badge-decoupled { background: var(--red-bg); color: var(--red); border: 1px solid var(--red-border); }
+    .badge-pending { background: var(--blue-bg); color: var(--blue); border: 1px solid var(--blue-border); }
+
+    .no-match { text-align: center; padding: 60px 20px; color: var(--muted); }
+    .no-match .nm-icon { font-size: 40px; margin-bottom: 12px; }
+
+    /* LEGEND */
+    .legend { display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 20px; }
+    .leg-item { display: flex; align-items: center; gap: 7px; font-size: 13px; color: var(--muted); }
+    .leg-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+    .leg-dot.no-tax, .leg-dot.conforms { background: var(--green); }
+    .leg-dot.monitoring { background: var(--yellow); }
+    .leg-dot.decoupled { background: var(--red); }
+    .leg-dot.pending { background: var(--blue); }
+
+    /* EXPLAINER SECTION */
+    .explainer { background: var(--white); border-radius: var(--radius); box-shadow: 0 2px 12px rgba(13,31,60,0.07); padding: 32px; margin-bottom: 32px; }
+    .explainer h2 { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 700; color: var(--navy); margin-bottom: 16px; }
+    .explainer-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 16px; }
+    .exp-item { border-radius: 8px; padding: 16px; }
+    .exp-item.green { background: var(--green-bg); border: 1px solid var(--green-border); }
+    .exp-item.yellow { background: var(--yellow-bg); border: 1px solid var(--yellow-border); }
+    .exp-item.red { background: var(--red-bg); border: 1px solid var(--red-border); }
+    .exp-item.blue { background: var(--blue-bg); border: 1px solid var(--blue-border); }
+    .exp-item .exp-title { font-weight: 700; font-size: 14px; margin-bottom: 6px; }
+    .exp-item.green .exp-title { color: var(--green); }
+    .exp-item.yellow .exp-title { color: var(--yellow); }
+    .exp-item.red .exp-title { color: var(--red); }
+    .exp-item.blue .exp-title { color: var(--blue); }
+    .exp-item p { font-size: 13px; color: var(--muted); line-height: 1.5; }
+
+    /* CTA STRIP */
+    .cta-strip { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 40px; }
+    .cta-card { background: var(--navy); border-radius: var(--radius); padding: 24px; color: white; text-decoration: none; display: block; transition: transform 0.2s; }
+    .cta-card:hover { transform: translateY(-2px); }
+    .cta-card .cc-badge { background: rgba(201,149,42,0.25); border: 1px solid rgba(201,149,42,0.4); color: var(--gold-light); font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 100px; display: inline-block; margin-bottom: 10px; }
+    .cta-card h3 { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 700; margin-bottom: 6px; }
+    .cta-card p { font-size: 13px; color: rgba(255,255,255,0.65); margin-bottom: 14px; }
+    .cta-card .arrow { font-size: 14px; font-weight: 600; color: var(--gold-light); }
+
+    /* FAQ */
+    .faq-section { margin-top: 48px; }
+    .faq-section h2 { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 900; color: var(--navy); margin-bottom: 8px; }
+    .faq-sub { color: var(--muted); margin-bottom: 24px; }
+    .faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .faq-item { background: var(--white); border-radius: 10px; padding: 18px 20px; box-shadow: 0 2px 8px rgba(13,31,60,0.06); }
+    .faq-item h3 { font-size: 14px; font-weight: 700; color: var(--navy); margin-bottom: 6px; line-height: 1.3; }
+    .faq-item p { font-size: 13px; color: var(--muted); line-height: 1.6; }
+
+    footer { background: var(--navy); color: rgba(255,255,255,0.55); padding: 32px 24px; text-align: center; font-size: 13px; line-height: 1.7; }
+    footer a { color: var(--gold-light); text-decoration: none; }
+    footer strong { color: rgba(255,255,255,0.8); }
+
+    @media (max-width: 760px) {
+      nav { display: none; }
+      .summary-bar { flex-direction: row; }
+      .state-grid { grid-template-columns: 1fr; }
+      .cta-strip { grid-template-columns: 1fr; }
+      .faq-grid { grid-template-columns: 1fr; }
+      .explainer-grid { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="/" class="logo">
+      <div class="logo-icon">O</div>
+      <span class="logo-text">OBBA<span>Calc</span></span>
+    </a>
+    <nav>
+      <a href="/">Overtime Calculator</a>
+      <a href="/no-tax-on-tips-calculator.html">Tips Calculator</a>
+      <a href="/state-conformity-tracker.html" class="active">State Tracker</a>
+      <a href="/" class="nav-cta">Calculate Savings →</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-badge">🗺️ Last Updated March 2026 · All 50 States + DC</div>
+    <h1>Does Your State Honor the<br><em>OBBBA Deductions?</em></h1>
+    <p>Federal conformity varies — some states automatically adopt IRS changes, others decouple. Find your state's status on both overtime and tips deductions.</p>
+    <div class="summary-bar">
+      <div class="sum-item no-tax"><span class="s-num" id="cnt-notax">9</span><span class="s-lbl">No State Tax</span></div>
+      <div class="sum-item conforms"><span class="s-num" id="cnt-conforms">34</span><span class="s-lbl">Conforms</span></div>
+      <div class="sum-item monitoring"><span class="s-num" id="cnt-monitoring">5</span><span class="s-lbl">Monitoring</span></div>
+      <div class="sum-item decoupled"><span class="s-num" id="cnt-decoupled">3</span><span class="s-lbl">Decoupled</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="page-wrap">
+
+  <!-- EXPLAINER -->
+  <div class="explainer">
+    <h2>What Does "Conformity" Mean?</h2>
+    <div class="explainer-grid">
+      <div class="exp-item green">
+        <div class="exp-title">✅ No State Income Tax</div>
+        <p>No state income tax at all. The federal deduction is all that matters — you keep 100% of your savings.</p>
+      </div>
+      <div class="exp-item green">
+        <div class="exp-title">✅ Conforms to OBBBA</div>
+        <p>The state automatically adopts federal changes (rolling or static conformity). You get both the federal AND state deduction.</p>
+      </div>
+      <div class="exp-item yellow">
+        <div class="exp-title">🔍 Monitoring / Pending</div>
+        <p>The state legislature is still deciding whether to adopt OBBBA changes. Could go either way — check back for updates.</p>
+      </div>
+      <div class="exp-item red">
+        <div class="exp-title">⚠️ Decoupled</div>
+        <p>The state has explicitly chosen NOT to conform to OBBBA. You still get the federal deduction, but state taxes are unchanged.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTROLS -->
+  <div class="controls">
+    <div class="search-wrap">
+      <span class="si">🔍</span>
+      <input type="text" id="state-search" placeholder="Search state name..." oninput="renderStates()" />
+    </div>
+    <div class="filter-btns">
+      <button class="fbtn active" onclick="setFilter('all', this)">All States</button>
+      <button class="fbtn f-green" onclick="setFilter('conforms', this)">✅ Conforms</button>
+      <button class="fbtn f-yellow" onclick="setFilter('monitoring', this)">🔍 Monitoring</button>
+      <button class="fbtn f-red" onclick="setFilter('decoupled', this)">⚠️ Decoupled</button>
+      <button class="fbtn f-blue" onclick="setFilter('no-tax', this)">🏖️ No State Tax</button>
+    </div>
+  </div>
+
+  <div class="legend">
+    <div class="leg-item"><div class="leg-dot conforms"></div>Conforms / No state tax — full benefit</div>
+    <div class="leg-item"><div class="leg-dot monitoring"></div>Monitoring — decision pending</div>
+    <div class="leg-item"><div class="leg-dot decoupled"></div>Decoupled — state will not honor deduction</div>
+  </div>
+
+  <!-- STATE GRID -->
+  <div class="state-grid" id="state-grid"></div>
+  <div id="no-match" class="no-match" style="display:none">
+    <div class="nm-icon">🗺️</div>
+    <p>No states match your search.</p>
+  </div>
+
+  <!-- CTA STRIP -->
+  <div class="cta-strip">
+    <a href="/" class="cta-card">
+      <div class="cc-badge">CALCULATOR</div>
+      <h3>No Tax on Overtime</h3>
+      <p>Calculate your exact federal savings on overtime pay under OBBBA. Covers state conformity automatically.</p>
+      <div class="arrow">Use Calculator →</div>
+    </a>
+    <a href="/no-tax-on-tips-calculator.html" class="cta-card">
+      <div class="cc-badge">CALCULATOR</div>
+      <h3>No Tax on Tips</h3>
+      <p>Check if your occupation qualifies and calculate your tips deduction. All 68 IRS-approved occupations covered.</p>
+      <div class="arrow">Check Eligibility →</div>
+    </a>
+  </div>
+
+  <!-- FAQ -->
+  <div class="faq-section">
+    <h2>State Conformity FAQ</h2>
+    <p class="faq-sub">Understanding how state taxes interact with the federal OBBBA deductions</p>
+    <div class="faq-grid">
+      <div class="faq-item">
+        <h3>My state doesn't conform — do I still get the federal deduction?</h3>
+        <p>Yes, absolutely. State conformity only affects your <em>state</em> income tax. Your federal income tax savings from OBBBA are unaffected regardless of what your state does. You'll simply owe state tax on the income as you normally would.</p>
+      </div>
+      <div class="faq-item">
+        <h3>What is "rolling conformity" vs "static conformity"?</h3>
+        <p>Rolling conformity states automatically adopt federal tax changes as they happen — so they typically conform to OBBBA without any state legislation needed. Static conformity states are locked to a specific year of the federal tax code and must actively pass legislation to update.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Why did some states decouple from OBBBA?</h3>
+        <p>States like Illinois, Maine, and DC have decoupled because conforming would reduce their state tax revenue. These states made a deliberate legislative or administrative decision not to adopt the federal deduction for state tax purposes.</p>
+      </div>
+      <div class="faq-item">
+        <h3>How often is this tracker updated?</h3>
+        <p>We monitor state revenue department announcements, legislative updates, and IRS guidance continuously. This page is updated as states make official conformity decisions. Most "monitoring" states are expected to finalize their positions before the April 15, 2026 filing deadline.</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <p><strong>OBBACalc.com</strong> — Free OBBBA Tax Deduction Calculators</p>
+  <p>State conformity statuses are based on publicly available state revenue department guidance and legislative actions as of March 2026. This is not legal or tax advice.</p>
+  <p style="margin-top:8px;">Sources: <a href="https://www.irs.gov" target="_blank">IRS.gov</a> · State Department of Revenue announcements · IRS Notice 2025-69 · IRS Notice 2025-72</p>
+  <p style="margin-top:8px;font-size:12px;">© 2026 OBBACalc.com · <a href="/privacy.html">Privacy Policy</a> · This site may earn commissions from affiliate links at no cost to you.</p>
+</footer>
+
+<script>
+const states = [
+  // NO STATE INCOME TAX (9)
+  { abbr:'AK', name:'Alaska', status:'no-tax', note:'No state income tax. Federal deduction applies in full.' },
+  { abbr:'FL', name:'Florida', status:'no-tax', note:'No state income tax. Federal deduction applies in full.' },
+  { abbr:'NV', name:'Nevada', status:'no-tax', note:'No state income tax. Federal deduction applies in full.' },
+  { abbr:'NH', name:'New Hampshire', status:'no-tax', note:'No state income tax on wages. Federal deduction applies in full.' },
+  { abbr:'SD', name:'South Dakota', status:'no-tax', note:'No state income tax. Federal deduction applies in full.' },
+  { abbr:'TN', name:'Tennessee', status:'no-tax', note:'No state income tax on wages. Federal deduction applies in full.' },
+  { abbr:'TX', name:'Texas', status:'no-tax', note:'No state income tax. Federal deduction applies in full.' },
+  { abbr:'WA', name:'Washington', status:'no-tax', note:'No state income tax. Federal deduction applies in full.' },
+  { abbr:'WY', name:'Wyoming', status:'no-tax', note:'No state income tax. Federal deduction applies in full.' },
+
+  // DECOUPLED (3)
+  { abbr:'DC', name:'District of Columbia', status:'decoupled', note:'DC DOR has explicitly decoupled from OBBBA. State taxes unchanged on overtime and tips.' },
+  { abbr:'IL', name:'Illinois', status:'decoupled', note:'Illinois uses a fixed-date conformity and has not adopted OBBBA deductions. No state benefit.' },
+  { abbr:'ME', name:'Maine', status:'decoupled', note:'Maine Revenue Services decoupled from OBBBA. No deduction at state level.' },
+
+  // MONITORING / PENDING (5)
+  { abbr:'NJ', name:'New Jersey', status:'monitoring', note:'New Jersey Division of Taxation is reviewing OBBBA conformity. Decision expected before April 2026.' },
+  { abbr:'PA', name:'Pennsylvania', status:'monitoring', note:'Pennsylvania Department of Revenue has not issued guidance. Monitoring closely.' },
+  { abbr:'CA', name:'California', status:'monitoring', note:'California has historically decoupled from federal changes. Conformity decision pending — likely to decouple.' },
+  { abbr:'NY', name:'New York', status:'monitoring', note:'New York State Tax Department is reviewing. Decision expected before April 2026 filing deadline.' },
+  { abbr:'MN', name:'Minnesota', status:'monitoring', note:'Minnesota Department of Revenue reviewing OBBBA conformity. Static conformity state — requires legislation.' },
+
+  // CONFORMS — rolling conformity (34 remaining)
+  { abbr:'AL', name:'Alabama', status:'conforms', note:'Rolling conformity. OBBBA deductions apply at state level.' },
+  { abbr:'AZ', name:'Arizona', status:'conforms', note:'Rolling conformity. OBBBA deductions apply at state level.' },
+  { abbr:'AR', name:'Arkansas', status:'conforms', note:'Rolling conformity. OBBBA deductions apply at state level.' },
+  { abbr:'CO', name:'Colorado', status:'conforms', note:'Rolling conformity to federal tax code. OBBBA deductions apply.' },
+  { abbr:'CT', name:'Connecticut', status:'conforms', note:'Connecticut conforms to federal AGI. OBBBA deductions apply.' },
+  { abbr:'DE', name:'Delaware', status:'conforms', note:'Rolling conformity. OBBBA deductions apply at state level.' },
+  { abbr:'GA', name:'Georgia', status:'conforms', note:'Rolling conformity. OBBBA deductions apply at state level.' },
+  { abbr:'HI', name:'Hawaii', status:'conforms', note:'Rolling conformity. OBBBA deductions apply at state level.' },
+  { abbr:'ID', name:'Idaho', status:'conforms', note:'Rolling conformity. OBBBA deductions apply at state level.' },
+  { abbr:'IN', name:'Indiana', status:'conforms', note:'Rolling conformity. OBBBA deductions apply at state level.' },
+  { abbr:'IA', name:'Iowa', status:'conforms', note:'Rolling conformity. OBBBA deductions apply at state level.' },
+  { abbr:'KS', name:'Kansas', status:'conforms', note:'Rolling conformity. OBBBA deductions apply at state level.' },
+  { abbr:'KY', name:'Kentucky', status:'conforms', note:'Rolling conformity. OBBBA deductions apply at state level.' },
+  { abbr:'LA', name:'Louisiana', status:'conforms', note:'Rolling conformity. OBBBA deductions apply at state level.' },
+  { abbr:'MD', name:'Maryland', status:'conforms', note:'Rolling conformity. OBBBA deductions apply at state level.' },
+  { abbr:'MA', name:'Massachusetts', status:'conforms', note:'Rolling conformity to federal gross income. OBBBA deductions apply.' },
+  { abbr:'MI', name:'Michigan', status:'conforms', note:'Rolling conformity. OBBBA deductions apply at state level.' },
+  { abbr:'MS', name:'Mississippi', status:'conforms', note:'Rolling conformity. OBBBA deductions apply at state level.' },
+  { abbr:'MO', name:'Missouri', status:'conforms', note:'Rolling conformity. OBBBA deductions apply at state level.' },
+  { abbr:'MT', name:'Montana', status:'conforms', note:'Rolling conformity. OBBBA deductions apply at state level.' },
+  { abbr:'NE', name:'Nebraska', status:'conforms', note:'Rolling conformity. OBBBA deductions apply at state level.' },
+  { abbr:'NM', name:'New Mexico', status:'conforms', note:'Rolling conformity. OBBBA deductions apply at state level.' },
+  { abbr:'NC', name:'North Carolina', status:'conforms', note:'Rolling conformity. OBBBA deductions apply at state level.' },
+  { abbr:'ND', name:'North Dakota', status:'conforms', note:'Rolling conformity. OBBBA deductions apply at state level.' },
+  { abbr:'OH', name:'Ohio', status:'conforms', note:'Rolling conformity. OBBBA deductions apply at state level.' },
+  { abbr:'OK', name:'Oklahoma', status:'conforms', note:'Rolling conformity. OBBBA deductions apply at state level.' },
+  { abbr:'OR', name:'Oregon', status:'conforms', note:'Rolling conformity. OBBBA deductions apply at state level.' },
+  { abbr:'RI', name:'Rhode Island', status:'conforms', note:'Rolling conformity. OBBBA deductions apply at state level.' },
+  { abbr:'SC', name:'South Carolina', status:'conforms', note:'Rolling conformity. OBBBA deductions apply at state level.' },
+  { abbr:'UT', name:'Utah', status:'conforms', note:'Rolling conformity. OBBBA deductions apply at state level.' },
+  { abbr:'VT', name:'Vermont', status:'conforms', note:'Rolling conformity. OBBBA deductions apply at state level.' },
+  { abbr:'VA', name:'Virginia', status:'conforms', note:'Rolling conformity. OBBBA deductions apply at state level.' },
+  { abbr:'WV', name:'West Virginia', status:'conforms', note:'Rolling conformity. OBBBA deductions apply at state level.' },
+  { abbr:'WI', name:'Wisconsin', status:'conforms', note:'Rolling conformity. OBBBA deductions apply at state level.' },
+];
+
+const statusMeta = {
+  'no-tax':    { label:'No State Tax', badgeClass:'badge-no-tax', cardClass:'no-tax' },
+  'conforms':  { label:'Conforms',     badgeClass:'badge-conforms', cardClass:'conforms' },
+  'monitoring':{ label:'Monitoring',   badgeClass:'badge-monitoring', cardClass:'monitoring' },
+  'decoupled': { label:'Decoupled',    badgeClass:'badge-decoupled', cardClass:'decoupled' },
+};
+
+let activeFilter = 'all';
+
+function setFilter(f, btn) {
+  activeFilter = f;
+  document.querySelectorAll('.fbtn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  renderStates();
+}
+
+function renderStates() {
+  const query = document.getElementById('state-search').value.toLowerCase();
+  const grid = document.getElementById('state-grid');
+  const noMatch = document.getElementById('no-match');
+
+  let filtered = states.filter(s => {
+    const matchFilter = activeFilter === 'all' || s.status === activeFilter;
+    const matchSearch = query === '' || s.name.toLowerCase().includes(query) || s.abbr.toLowerCase().includes(query);
+    return matchFilter && matchSearch;
+  });
+
+  // Sort: no-tax first, then conforms, monitoring, decoupled
+  const order = { 'no-tax': 0, 'conforms': 1, 'monitoring': 2, 'decoupled': 3 };
+  filtered.sort((a, b) => {
+    if (order[a.status] !== order[b.status]) return order[a.status] - order[b.status];
+    return a.name.localeCompare(b.name);
+  });
+
+  if (filtered.length === 0) {
+    grid.innerHTML = '';
+    noMatch.style.display = 'block';
+    return;
+  }
+
+  noMatch.style.display = 'none';
+  grid.innerHTML = filtered.map(s => {
+    const meta = statusMeta[s.status];
+    return `
+      <div class="state-card ${meta.cardClass}">
+        <div class="state-abbr">${s.abbr}</div>
+        <div class="state-info">
+          <div class="state-name">${s.name}</div>
+          <div class="state-note">${s.note}</div>
+        </div>
+        <span class="status-badge ${meta.badgeClass}">${meta.label}</span>
+      </div>
+    `;
+  }).join('');
+}
+
+// Init
+renderStates();
+</script>
+</body>
+</html>
