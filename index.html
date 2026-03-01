@@ -342,19 +342,42 @@
 
         <div class="form-row">
           <label>
-            How was your overtime reported?
-            <span class="tooltip" data-tip="Check your pay stubs. If overtime is listed as a separate line item, choose 'Separately.' Most workers have it combined — the IRS ÷3 safe-harbour method is applied, valid where overtime was paid at exactly 1.5× your regular FLSA rate.">?</span>
+            How would you like to enter your overtime?
+            <span class="tooltip" data-tip="Choose the method that best matches your records. 'Hourly wage + hours' is the most precise. 'Total wages ÷ 3' is the IRS safe-harbour method for workers paid at exactly 1.5× their regular FLSA rate. 'Premium amount' is for workers whose pay stub lists the premium separately.">?</span>
           </label>
           <select id="reporting">
-            <option value="combined">Combined in total wages (most common)</option>
-            <option value="separate">Separately on pay stub / W-2</option>
+            <option value="hours">Hourly wage + overtime hours (most precise)</option>
+            <option value="combined">Total overtime wages ÷ 3 (IRS safe-harbour)</option>
+            <option value="separate">Premium amount from pay stub / W-2</option>
           </select>
         </div>
 
-        <div class="form-row" id="row-total">
+        <div class="form-row" id="row-hours">
+          <label>
+            Regular Hourly Wage
+            <span class="tooltip" data-tip="Your standard base hourly rate — not the overtime rate. The premium is calculated as 0.5 × this rate × overtime hours.">?</span>
+          </label>
+          <div class="input-prefix">
+            <span>$</span>
+            <input type="number" id="hourly-wage" placeholder="e.g. 20" min="0" step="0.01" />
+          </div>
+        </div>
+
+        <div class="form-row" id="row-ot-hours">
+          <label>
+            Annual Overtime Hours in 2025
+            <span class="tooltip" data-tip="Total FLSA-qualifying overtime hours worked in 2025 — hours above 40 per week paid at time-and-a-half.">?</span>
+          </label>
+          <div class="input-prefix">
+            <span>hrs</span>
+            <input type="number" id="ot-hours" placeholder="e.g. 200" min="0" />
+          </div>
+        </div>
+
+        <div class="form-row" id="row-total" style="display:none">
           <label>
             Total Overtime Wages in 2025
-            <span class="tooltip" data-tip="The total dollar amount you were paid for overtime hours worked. We divide this by 3 using the IRS safe-harbour method to estimate the deductible premium — but only where overtime was paid at exactly 1.5× your regular FLSA rate (IRS Notice 2025-69).">?</span>
+            <span class="tooltip" data-tip="The total dollar amount you were paid for overtime hours worked. We divide this by 3 using the IRS safe-harbour method — valid only where overtime was paid at exactly 1.5× your regular FLSA rate (IRS Notice 2025-69).">?</span>
           </label>
           <div class="input-prefix">
             <span>$</span>
@@ -487,14 +510,16 @@
 
 <script>
   document.getElementById('reporting').addEventListener('change', function() {
-    const sep = this.value === 'separate';
-    document.getElementById('row-premium').style.display = sep ? 'block' : 'none';
-    document.getElementById('row-total').style.display = sep ? 'none' : 'block';
+    const val = this.value;
+    document.getElementById('row-hours').style.display    = val === 'hours'    ? 'block' : 'none';
+    document.getElementById('row-ot-hours').style.display = val === 'hours'    ? 'block' : 'none';
+    document.getElementById('row-total').style.display    = val === 'combined' ? 'block' : 'none';
+    document.getElementById('row-premium').style.display  = val === 'separate' ? 'block' : 'none';
   });
 
   const NO_TAX = ['AK','FL','NV','NH','SD','TN','TX','WA','WY'];
-  const DECOUPLED = ['DC','ME','IL'];
-  const MONITORING = ['NJ','PA','CA','NY','MN'];
+  const DECOUPLED = ['DC','ME','IL','RI'];
+  const MONITORING = ['NJ','PA','CA','NY','MN','VA','MD'];
 
   function getStatus(code) {
     if (!code) return null;
@@ -519,12 +544,19 @@
     const income = parseFloat(document.getElementById('income').value) || 0;
     const state = document.getElementById('state').value;
     const reporting = document.getElementById('reporting').value;
-    const raw = reporting === 'separate'
-      ? parseFloat(document.getElementById('premium').value) || 0
-      : (parseFloat(document.getElementById('overtime').value) || 0) / 3;
+    let raw = 0;
+    if (reporting === 'hours') {
+      const wage = parseFloat(document.getElementById('hourly-wage').value) || 0;
+      const hours = parseFloat(document.getElementById('ot-hours').value) || 0;
+      raw = wage * 0.5 * hours;
+    } else if (reporting === 'separate') {
+      raw = parseFloat(document.getElementById('premium').value) || 0;
+    } else {
+      raw = (parseFloat(document.getElementById('overtime').value) || 0) / 3;
+    }
 
     if (income <= 0 || raw <= 0) {
-      alert('Please enter your annual income and overtime wages to calculate.');
+      alert('Please enter your annual income and overtime details to calculate.');
       return;
     }
 
