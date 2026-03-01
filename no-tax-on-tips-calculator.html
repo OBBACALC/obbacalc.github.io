@@ -25,8 +25,26 @@
   }
   </script>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <!-- Google Analytics GA4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y7ZEFHVV43"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-Y7ZEFHVV43');
+
+    function trackOccSelect(name) {
+      gtag('event', 'occupation_selected', { event_category: 'tips_calculator', event_label: name });
+    }
+    function trackCalc() {
+      gtag('event', 'calculate', { event_category: 'tips_calculator', event_label: 'calculate_clicked' });
+    }
+    function trackAffiliate(name) {
+      gtag('event', 'affiliate_click', { event_category: 'monetization', event_label: name });
+    }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
 
   <style>
     :root {
@@ -370,7 +388,7 @@
           </div>
         </div>
 
-        <button class="calc-btn" id="calc-btn" onclick="calculate()">Calculate My Tips Savings →</button>
+        <button class="calc-btn" id="calc-btn" onclick="trackCalc(); calculate()">Calculate My Tips Savings →</button>
 
         <div id="results">
           <div class="results-title">📊 Your Estimated 2025 Savings</div>
@@ -389,7 +407,7 @@
           <div class="affiliate-cta">
             <strong>TurboTax handles both OBBBA deductions automatically.</strong>
             <p>Overtime AND tips — both calculated and filed correctly in their updated 2025 software.</p>
-            <a href="https://turbotax.intuit.com" target="_blank" rel="noopener sponsored">File with TurboTax →</a>
+            <a href="https://turbotax.intuit.com" target="_blank" rel="noopener sponsored" onclick="trackAffiliate('turbotax_tips')">File with TurboTax →</a>
           </div>
         </div>
 
@@ -600,6 +618,7 @@ function renderGrid() {
 
 function selectOccupation(id) {
   selectedOccupation = occupations.find(o => o.id === id);
+  trackOccSelect(selectedOccupation.label);
   renderGrid();
 
   const warning = document.getElementById('ineligible-warning');

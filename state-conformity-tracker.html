@@ -22,6 +22,22 @@
   }
   </script>
 
+  <!-- Google Analytics GA4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y7ZEFHVV43"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-Y7ZEFHVV43');
+
+    function trackStateView(state) {
+      gtag('event', 'state_viewed', { event_category: 'state_tracker', event_label: state });
+    }
+    function trackFilter(filter) {
+      gtag('event', 'filter_used', { event_category: 'state_tracker', event_label: filter });
+    }
+  </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
 
@@ -426,6 +442,7 @@ let activeFilter = 'all';
 
 function setFilter(f, btn) {
   activeFilter = f;
+  trackFilter(f);
   document.querySelectorAll('.fbtn').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
   renderStates();

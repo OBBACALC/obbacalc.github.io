@@ -27,6 +27,24 @@
   }
   </script>
 
+  <!-- Google Analytics GA4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y7ZEFHVV43"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-Y7ZEFHVV43');
+
+    // Track calculator use
+    function trackCalc() {
+      gtag('event', 'calculate', { event_category: 'overtime_calculator', event_label: 'calculate_clicked' });
+    }
+    // Track affiliate clicks
+    function trackAffiliate(name) {
+      gtag('event', 'affiliate_click', { event_category: 'monetization', event_label: name });
+    }
+  </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
 
@@ -828,7 +846,7 @@
           </div>
         </div>
 
-        <button class="calc-btn" onclick="calculate()">Calculate My Savings →</button>
+        <button class="calc-btn" onclick="trackCalc(); calculate()">Calculate My Savings →</button>
 
         <!-- RESULTS -->
         <div id="results">
@@ -859,7 +877,7 @@
           <div class="affiliate-cta">
             <strong>Ready to file? TurboTax handles OBBBA deductions automatically.</strong>
             <p>They've updated their 2025 software to include all new OBBBA deductions — overtime, tips, and more.</p>
-            <a href="https://turbotax.intuit.com" target="_blank" rel="noopener sponsored">File with TurboTax →</a>
+            <a href="https://turbotax.intuit.com" target="_blank" rel="noopener sponsored" onclick="trackAffiliate('turbotax_overtime')">File with TurboTax →</a>
           </div>
         </div>
 
