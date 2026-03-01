@@ -268,7 +268,7 @@
         <div class="form-row">
           <label>
             Annual Income
-            <span class="tooltip" data-tip="Modified Adjusted Gross Income (MAGI) — your total gross income before deductions. The OBBBA deduction phases out by $1 for every $1 your MAGI exceeds $150,000.">?</span>
+            <span class="tooltip" data-tip="Modified Adjusted Gross Income (MAGI) — your total gross income before deductions. The OBBBA deduction reduces by $100 for every $1,000 your MAGI exceeds $150,000 (single) or $300,000 (married filing jointly).">?</span>
             <span class="label-sub">Modified Adjusted Gross Income (MAGI)</span>
           </label>
           <div class="input-prefix">
@@ -342,7 +342,7 @@
         <div class="form-row">
           <label>
             How was your overtime reported?
-            <span class="tooltip" data-tip="Check your pay stubs. If overtime is listed as a separate line item, choose 'Separately.' Most workers have it combined — the IRS ÷3 formula is applied automatically.">?</span>
+            <span class="tooltip" data-tip="Check your pay stubs. If overtime is listed as a separate line item, choose 'Separately.' Most workers have it combined — the IRS ÷3 safe-harbour method is applied, valid where overtime was paid at exactly 1.5× your regular FLSA rate.">?</span>
           </label>
           <select id="reporting">
             <option value="combined">Combined in total wages (most common)</option>
@@ -353,7 +353,7 @@
         <div class="form-row" id="row-total">
           <label>
             Total Overtime Wages in 2025
-            <span class="tooltip" data-tip="The total dollar amount you were paid for overtime hours worked. We divide this by 3 using the IRS formula to calculate the deductible premium portion (IRS Notice 2025-69).">?</span>
+            <span class="tooltip" data-tip="The total dollar amount you were paid for overtime hours worked. We divide this by 3 using the IRS safe-harbour method to estimate the deductible premium — but only where overtime was paid at exactly 1.5× your regular FLSA rate (IRS Notice 2025-69).">?</span>
           </label>
           <div class="input-prefix">
             <span>$</span>
@@ -423,8 +423,9 @@
           <li>Deducts the overtime premium — the extra ½ of time-and-a-half pay</li>
           <li>Above-the-line: no need to itemize deductions</li>
           <li>FICA/Social Security taxes are NOT reduced</li>
+          <li>Married filing separately receives no deduction</li>
           <li>Valid for tax years 2025 through 2028</li>
-          <li>Based on IRS Notice 2025-69, IRC §225</li>
+          <li>Source: IRS Notice 2025-69, IRC §225</li>
         </ul>
       </div>
     </div>
@@ -455,7 +456,7 @@
     </div>
     <div class="faq-item">
       <h3>What exactly is the "overtime premium"?</h3>
-      <p>When you earn time-and-a-half, your pay splits into regular pay (1×) and the premium (the extra ½). The deduction only covers the premium. If overtime isn't reported separately, the IRS allows dividing total overtime wages by 3 to estimate the premium.</p>
+      <p>When you earn time-and-a-half, your pay splits into regular pay (1×) and the premium (the extra ½). The deduction only covers the premium. If overtime isn't reported separately, the IRS allows dividing total overtime wages by 3 — but only where the overtime was paid at exactly 1.5× the regular rate as required under FLSA. Married filing separately filers receive no deduction.</p>
     </div>
     <div class="faq-item">
       <h3>Does this reduce my Social Security or Medicare taxes?</h3>
@@ -463,7 +464,7 @@
     </div>
     <div class="faq-item">
       <h3>My income is over $150,000. Do I still qualify?</h3>
-      <p>Partially. The deduction phases out at $1 for every $1 your MAGI exceeds $150,000. At $162,500 for single filers the deduction is fully phased out. Married filing separately filers receive no deduction.</p>
+      <p>Partially. The deduction reduces by $100 for every $1,000 your MAGI exceeds $150,000 (single) or $300,000 (married filing jointly). At $275,000 MAGI (single) the deduction is fully phased out. Married filing separately filers receive no deduction.</p>
     </div>
     <div class="faq-item">
       <h3>How do I claim this on my tax return?</h3>
@@ -527,8 +528,12 @@
     }
 
     const cap = filing === 'mfj' ? 25000 : 12500;
+    const threshold = filing === 'mfj' ? 300000 : 150000;
     let deduction = filing === 'mfs' ? 0 : Math.min(raw, cap);
-    if (income > 150000) deduction = Math.max(0, deduction - (income - 150000));
+    if (income > threshold) {
+      const excessThousands = Math.floor((income - threshold) / 1000);
+      deduction = Math.max(0, deduction - (excessThousands * 100));
+    }
 
     const rate = getMarginalRate(income, filing);
     const savings = deduction * rate;

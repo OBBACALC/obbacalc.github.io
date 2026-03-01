@@ -230,7 +230,7 @@
             <div class="input-prefix"><span>$</span><input type="number" id="ot-income" placeholder="e.g. 55000" min="0" /></div>
           </div>
           <div class="form-row">
-            <label>Total Overtime Wages in 2025 <span class="tooltip" data-tip="Total OT wages received. We apply the IRS ÷3 formula to calculate your deductible premium.">?</span></label>
+            <label>Total Overtime Wages in 2025 <span class="tooltip" data-tip="Total OT wages received. We apply the IRS ÷3 safe-harbour method — valid only where overtime was paid at exactly 1.5× your regular FLSA rate (IRS Notice 2025-69).">?</span></label>
             <div class="input-prefix"><span>$</span><input type="number" id="ot-wages" placeholder="e.g. 9000" min="0" /></div>
           </div>
         </div>
@@ -257,7 +257,7 @@
     <div class="calc-embed">
       <div class="calc-embed-header green">
         <div class="calc-embed-icon">💵</div>
-        <div><h3>No Tax on Tips — New Mexico</h3><p>IRS Notice 2025-72 · IRC §224</p></div>
+        <div><h3>No Tax on Tips — New Mexico</h3><p>90 FR 45340 · IRC §224</p></div>
       </div>
       <div class="calc-body">
         <div class="form-section">
@@ -271,7 +271,7 @@
             </div>
           </div>
           <div class="form-row">
-            <label>Annual Income <span class="tooltip" data-tip="Modified Adjusted Gross Income (MAGI). Tips deduction phases out above $150,000 MAGI.">?</span><span class="label-sub">Modified Adjusted Gross Income (MAGI)</span></label>
+            <label>Annual Income <span class="tooltip" data-tip="Modified Adjusted Gross Income (MAGI). Tips deduction reduces by $100 per $1,000 over $150,000 MAGI (single) or $300,000 (MFJ).">?</span><span class="label-sub">Modified Adjusted Gross Income (MAGI)</span></label>
             <div class="input-prefix"><span>$</span><input type="number" id="tp-income" placeholder="e.g. 42000" min="0" /></div>
           </div>
           <div class="form-row">
@@ -310,7 +310,7 @@
       </div>
       <div class="faq-item">
         <h3>Can I claim both the overtime AND tips deduction as a New Mexico resident?</h3>
-        <p>Yes — both deductions can be claimed on the same return. The overtime deduction (max $12,500 single / $25,000 MFJ) and tips deduction (max $25,000) are calculated separately, each with the $150,000 MAGI phase-out. Both are claimed on Schedule 1-A of Form 1040.</p>
+        <p>Yes — both deductions can be claimed on the same return. The overtime deduction (max $12,500 single / $25,000 MFJ) and tips deduction (max $25,000) are calculated separately. Phase-out begins at $150,000 MAGI (single) or $300,000 MAGI (MFJ), reducing by $100 per $1,000 above the threshold. Both are claimed on Schedule 1-A of Form 1040.</p>
       </div>
       <div class="faq-item">
         <h3>When is the filing deadline for New Mexico residents?</h3>
@@ -333,7 +333,7 @@
         <div class="stat-row"><span class="stat-label">OBBBA Status</span><span class="stat-val" style="color:#1A7A4A">Conforms to OBBBA</span></div>
         <div class="stat-row"><span class="stat-label">OT Deduction Cap</span><span class="stat-val">$12,500 / $25,000</span></div>
         <div class="stat-row"><span class="stat-label">Tips Deduction Cap</span><span class="stat-val">$25,000</span></div>
-        <div class="stat-row"><span class="stat-label">Phase-Out Starts</span><span class="stat-val">$150,000 MAGI</span></div>
+        <div class="stat-row"><span class="stat-label">Phase-Out Starts</span><span class="stat-val">$150K (single) / $300K (MFJ)</span></div>
         <div class="stat-row"><span class="stat-label">Filing Deadline</span><span class="stat-val">April 15, 2026</span></div>
       </div>
     </div>
@@ -386,9 +386,10 @@ function calcOT() {
   const wages=parseFloat(document.getElementById('ot-wages').value)||0;
   if(income<=0||wages<=0){alert('Please enter your income and overtime wages.');return;}
   const premium=wages/3;
+  const threshold=filing==="mfj"?300000:150000;
   const cap=filing==='mfj'?25000:12500;
   let ded=filing==='mfs'?0:Math.min(premium,cap);
-  if(income>150000)ded=Math.max(0,ded-(income-150000));
+  if(income>threshold){const ex=Math.floor((income-threshold)/1000);ded=Math.max(0,ded-(ex*100));}
   const rate=getMarginalRate(income,filing);
   document.getElementById('ot-savings').textContent=fmt(ded*rate);
   document.getElementById('ot-deduction').textContent=fmt(ded);
@@ -401,8 +402,9 @@ function calcTips() {
   const income=parseFloat(document.getElementById('tp-income').value)||0;
   const tips=parseFloat(document.getElementById('tp-tips').value)||0;
   if(income<=0||tips<=0){alert('Please enter your income and total tips.');return;}
+  const tipsThreshold=filing==='mfj'?300000:150000;
   let ded=filing==='mfs'?0:Math.min(tips,25000);
-  if(income>150000)ded=Math.max(0,ded-(income-150000));
+  if(income>tipsThreshold){const ex=Math.floor((income-tipsThreshold)/1000);ded=Math.max(0,ded-(ex*100));}
   const rate=getMarginalRate(income,filing);
   document.getElementById('tp-savings').textContent=fmt(ded*rate);
   document.getElementById('tp-deduction').textContent=fmt(ded);

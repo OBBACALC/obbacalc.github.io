@@ -206,10 +206,10 @@
 
 <section class="hero">
   <div class="hero-inner">
-    <div class="hero-badge">💵 IRS Notice 2025-72 · 68 Qualifying Occupations · IRC §224</div>
+    <div class="hero-badge">💵 90 FR 45340 · Treasury Tipped Occupation Codes · IRC §224</div>
     <h1>No Tax on Tips —<br>Save Up to <em>$25,000</em>*</h1>
     <p class="hero-asterisk">*$25,000 is the maximum annual tips deduction, subject to income phase-out limits. Individual results will vary.</p>
-    <p>Check if your occupation qualifies under the IRS TTOC list. Calculate your exact federal tax savings in 60 seconds — free, no signup required.</p>
+    <p>Check if your occupation qualifies under the IRS Treasury Tipped Occupation Codes (TTOC) list. Calculate your exact federal tax savings in 60 seconds — free, no signup required.</p>
   </div>
 </section>
 
@@ -219,7 +219,7 @@
       <div class="calc-header-icon">💵</div>
       <div>
         <h2>No Tax on Tips Calculator</h2>
-        <p>Tax Year 2025 · IRS Notice 2025-72 · IRC §224</p>
+        <p>Tax Year 2025 · 90 FR 45340 · IRC §224</p>
       </div>
     </div>
     <div class="calc-body">
@@ -260,7 +260,7 @@
         <div class="form-row">
           <label>
             Annual Income
-            <span class="tooltip" data-tip="Modified Adjusted Gross Income (MAGI) — your total gross income before deductions. The tips deduction phases out by $1 for every $1 your MAGI exceeds $150,000.">?</span>
+            <span class="tooltip" data-tip="Modified Adjusted Gross Income (MAGI) — your total gross income before deductions. The tips deduction reduces by $100 for every $1,000 your MAGI exceeds $150,000 (single) or $300,000 (married filing jointly).">?</span>
             <span class="label-sub">Modified Adjusted Gross Income (MAGI)</span>
           </label>
           <div class="input-prefix"><span>$</span><input type="number" id="income" placeholder="e.g. 42000" min="0" /></div>
@@ -321,12 +321,12 @@
       <div class="side-card-header">⚡ Key Facts</div>
       <div class="side-card-body">
         <ul class="fact-list">
-          <li>Must work in IRS TTOC-approved occupation</li>
+          <li>Must work in a Treasury Tipped Occupation Codes (TTOC)-approved occupation</li>
           <li>Covers W-2 employees and self-employed tipped workers</li>
           <li>$25,000 annual deduction cap</li>
-          <li>Phase-out above $150,000 MAGI</li>
+          <li>Phase-out: $100 per $1,000 over $150,000 MAGI (single) or $300,000 (MFJ)</li>
           <li>Married filing separately receives no deduction</li>
-          <li>Based on IRS Notice 2025-72, IRC §224</li>
+          <li>Based on 90 FR 45340, IRC §224</li>
         </ul>
       </div>
     </div>
@@ -464,8 +464,12 @@ function calculateTips() {
   const tips = parseFloat(document.getElementById('tips').value) || 0;
   if (income <= 0 || tips <= 0) { alert('Please enter your annual income and total tips received.'); return; }
 
+  const threshold = filing === 'mfj' ? 300000 : 150000;
   let deduction = filing === 'mfs' ? 0 : Math.min(tips, 25000);
-  if (income > 150000) deduction = Math.max(0, deduction - (income - 150000));
+  if (income > threshold) {
+    const excessThousands = Math.floor((income - threshold) / 1000);
+    deduction = Math.max(0, deduction - (excessThousands * 100));
+  }
 
   const rate = getMarginalRate(income, filing);
   const savings = deduction * rate;
