@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About OBBACalc | Free OBBBA Tax Calculators</title>
+  <meta name="description" content="OBBACalc.com provides free, accurate calculators for the OBBBA No Tax on Overtime and No Tax on Tips deductions. Learn about our mission, methodology, and data sources." />
+  <link rel="canonical" href="https://obbacalc.com/about.html" />
+  <!-- Google Analytics GA4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y7ZEFHVV43"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-Y7ZEFHVV43');
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --navy:#0D1F3C; --navy-mid:#1A3259; --gold:#C9952A; --gold-light:#F0B940;
+      --cream:#FAF7F2; --white:#FFFFFF; --green:#1A7A4A; --green-bg:#EAF7EE;
+      --text:#1A1A2E; --muted:#5A6478; --border:#DDE3EE; --radius:12px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--text); line-height: 1.6; }
+    header { background: var(--navy); border-bottom: 3px solid var(--gold); padding: 0 24px; }
+    .header-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 64px; }
+    .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .logo-icon { width: 36px; height: 36px; background: var(--gold); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-weight: 900; font-size: 18px; color: var(--navy); }
+    .logo-text { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 20px; color: var(--white); }
+    .logo-text span { color: var(--gold-light); }
+    nav { display: flex; gap: 24px; align-items: center; }
+    nav a { color: rgba(255,255,255,0.75); text-decoration: none; font-size: 14px; font-weight: 500; }
+    nav a:hover { color: var(--gold-light); }
+    .nav-cta { background: var(--gold); color: var(--navy) !important; padding: 7px 16px; border-radius: 6px; font-weight: 600 !important; }
+
+    .page-hero { background: linear-gradient(160deg, var(--navy) 0%, var(--navy-mid) 100%); padding: 56px 24px; position: relative; overflow: hidden; }
+    .page-hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 80% 50%, rgba(201,149,42,0.1) 0%, transparent 60%); }
+    .page-hero-inner { max-width: 760px; margin: 0 auto; position: relative; }
+    .page-hero h1 { font-family: 'Playfair Display', serif; font-size: 40px; font-weight: 900; color: var(--white); margin-bottom: 12px; }
+    .page-hero h1 em { font-style: normal; color: var(--gold-light); }
+    .page-hero p { color: rgba(255,255,255,0.7); font-size: 17px; font-weight: 300; max-width: 560px; }
+
+    .content-wrap { max-width: 900px; margin: 0 auto; padding: 48px 24px 80px; }
+
+    .mission-card { background: var(--white); border-radius: var(--radius); box-shadow: 0 2px 16px rgba(13,31,60,0.08); padding: 36px; margin-bottom: 32px; }
+    .mission-card h2 { font-family: 'Playfair Display', serif; font-size: 24px; font-weight: 700; color: var(--navy); margin-bottom: 16px; }
+    .mission-card p { font-size: 16px; color: var(--text); line-height: 1.75; margin-bottom: 14px; }
+    .mission-card p:last-child { margin-bottom: 0; }
+
+    .pillars { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 32px; }
+    .pillar { background: var(--white); border-radius: var(--radius); padding: 24px; box-shadow: 0 2px 12px rgba(13,31,60,0.07); text-align: center; }
+    .pillar .p-icon { font-size: 32px; margin-bottom: 12px; }
+    .pillar h3 { font-family: 'Playfair Display', serif; font-size: 17px; font-weight: 700; color: var(--navy); margin-bottom: 8px; }
+    .pillar p { font-size: 13.5px; color: var(--muted); line-height: 1.6; }
+
+    .sources-card { background: var(--white); border-radius: var(--radius); box-shadow: 0 2px 16px rgba(13,31,60,0.08); padding: 36px; margin-bottom: 32px; }
+    .sources-card h2 { font-family: 'Playfair Display', serif; font-size: 24px; font-weight: 700; color: var(--navy); margin-bottom: 20px; }
+    .source-row { display: flex; gap: 16px; padding: 14px 0; border-bottom: 1px solid var(--border); align-items: flex-start; }
+    .source-row:last-child { border-bottom: none; }
+    .source-icon { width: 40px; height: 40px; background: var(--green-bg); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; }
+    .source-name { font-weight: 700; font-size: 14px; color: var(--navy); margin-bottom: 3px; }
+    .source-desc { font-size: 13px; color: var(--muted); line-height: 1.5; }
+    .source-link { font-size: 12px; color: var(--gold); font-weight: 600; text-decoration: none; }
+    .source-link:hover { text-decoration: underline; }
+
+    .disclaimer-card { background: #FFF8E1; border: 1.5px solid #FFD980; border-radius: var(--radius); padding: 28px; margin-bottom: 32px; }
+    .disclaimer-card h2 { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; color: #C07A00; margin-bottom: 12px; }
+    .disclaimer-card p { font-size: 14px; color: #7A5500; line-height: 1.7; margin-bottom: 10px; }
+    .disclaimer-card p:last-child { margin-bottom: 0; }
+
+    .contact-card { background: var(--navy); border-radius: var(--radius); padding: 32px; text-align: center; color: white; }
+    .contact-card h2 { font-family: 'Playfair Display', serif; font-size: 24px; font-weight: 700; margin-bottom: 12px; }
+    .contact-card p { color: rgba(255,255,255,0.7); font-size: 15px; margin-bottom: 16px; }
+    .contact-card a { color: var(--gold-light); font-weight: 700; text-decoration: none; font-size: 16px; }
+
+    footer { background: var(--navy); color: rgba(255,255,255,0.55); padding: 32px 24px; text-align: center; font-size: 13px; line-height: 1.7; }
+    footer a { color: var(--gold-light); text-decoration: none; }
+    footer strong { color: rgba(255,255,255,0.8); }
+    @media (max-width: 700px) { nav { display: none; } .pillars { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="/" class="logo"><div class="logo-icon">O</div><span class="logo-text">OBBA<span>Calc</span></span></a>
+    <nav>
+      <a href="/">Overtime Calculator</a>
+      <a href="/no-tax-on-tips-calculator.html">Tips Calculator</a>
+      <a href="/state-conformity-tracker.html">State Tracker</a>
+      <a href="/" class="nav-cta">Calculate Savings →</a>
+    </nav>
+  </div>
+</header>
+
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <h1>About <em>OBBACalc</em></h1>
+    <p>Free, accurate calculators for the most significant worker tax changes in a generation — built to help every American understand their new deductions.</p>
+  </div>
+</div>
+
+<div class="content-wrap">
+
+  <!-- MISSION -->
+  <div class="mission-card">
+    <h2>Our Mission</h2>
+    <p>The One Big Beautiful Bill Act (OBBBA), signed July 4, 2025, introduced two landmark deductions for American workers — No Tax on Overtime and No Tax on Tips. These deductions could save millions of workers hundreds or thousands of dollars on their 2025 tax returns.</p>
+    <p>But understanding who qualifies, how much they save, and whether their state honors the deduction requires navigating dense IRS notices, state revenue department announcements, and complex phase-out calculations. Most workers simply don't have the time or resources to figure this out.</p>
+    <p>OBBACalc.com exists to solve that problem. We translate the IRS rules into simple, instant calculators that anyone can use — for free, with no signup required. Our goal is to make sure every eligible worker knows exactly what they're owed before April 15, 2026.</p>
+  </div>
+
+  <!-- THREE PILLARS -->
+  <div class="pillars">
+    <div class="pillar">
+      <div class="p-icon">🎯</div>
+      <h3>IRS-Accurate</h3>
+      <p>Every calculation is based directly on IRS Notice 2025-69 and 2025-72. We cite our sources and update immediately when guidance changes.</p>
+    </div>
+    <div class="pillar">
+      <div class="p-icon">🔒</div>
+      <h3>Privacy First</h3>
+      <p>All calculations happen in your browser. We never see, store, or transmit the numbers you enter. Your financial data stays on your device.</p>
+    </div>
+    <div class="pillar">
+      <div class="p-icon">🆓</div>
+      <h3>Always Free</h3>
+      <p>Our calculators are and will always be free to use. We earn commissions from tax software affiliate links when users choose to click them.</p>
+    </div>
+  </div>
+
+  <!-- SOURCES -->
+  <div class="sources-card">
+    <h2>Our Sources & Methodology</h2>
+
+    <div class="source-row">
+      <div class="source-icon">📋</div>
+      <div>
+        <div class="source-name">IRS Notice 2025-69 — Overtime Deduction</div>
+        <div class="source-desc">The primary IRS guidance document for the No Tax on Overtime deduction under IRC §225. Defines the "overtime premium" calculation method, the $12,500/$25,000 cap, the $150,000 MAGI phase-out, and the ÷3 formula for workers without separate overtime reporting.</div>
+        <a href="https://www.irs.gov" target="_blank" rel="noopener" class="source-link">irs.gov →</a>
+      </div>
+    </div>
+
+    <div class="source-row">
+      <div class="source-icon">💵</div>
+      <div>
+        <div class="source-name">IRS Notice 2025-72 — Tips Deduction (TTOC List)</div>
+        <div class="source-desc">The IRS guidance document for the No Tax on Tips deduction under IRC §224. Contains the complete list of 68 Tipped Trade or Occupation Classification (TTOC) approved occupations that qualify for the deduction.</div>
+        <a href="https://www.irs.gov" target="_blank" rel="noopener" class="source-link">irs.gov →</a>
+      </div>
+    </div>
+
+    <div class="source-row">
+      <div class="source-icon">🏛️</div>
+      <div>
+        <div class="source-name">Public Law 119-21 — One Big Beautiful Bill Act</div>
+        <div class="source-desc">The legislation signed July 4, 2025 that enacted the OBBBA deductions via IRC §§224–225. Sets the 2025–2028 effective period for both deductions.</div>
+        <a href="https://congress.gov" target="_blank" rel="noopener" class="source-link">congress.gov →</a>
+      </div>
+    </div>
+
+    <div class="source-row">
+      <div class="source-icon">🗺️</div>
+      <div>
+        <div class="source-name">State Department of Revenue Announcements</div>
+        <div class="source-desc">State conformity statuses are sourced from official state Department of Revenue announcements, revenue bulletins, and legislative actions. We monitor all 50 states plus DC and update conformity statuses as official decisions are made.</div>
+      </div>
+    </div>
+
+    <div class="source-row">
+      <div class="source-icon">📊</div>
+      <div>
+        <div class="source-name">IRS 2025 Tax Brackets</div>
+        <div class="source-desc">Marginal tax rate calculations use the official IRS 2025 inflation-adjusted tax brackets for Single and Married Filing Jointly filers, as published in IRS Revenue Procedure 2024-40.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DISCLAIMER -->
+  <div class="disclaimer-card">
+    <h2>⚠️ Important Disclaimer</h2>
+    <p>OBBACalc.com provides calculators and information for <strong>educational and informational purposes only</strong>. The results produced by our calculators are estimates based on the information you enter and our interpretation of IRS guidance. They are not tax advice.</p>
+    <p>Tax situations vary significantly based on individual circumstances. The OBBBA deductions have complex eligibility rules, and state conformity is still evolving. We strongly recommend consulting a qualified tax professional or CPA before making decisions based on our estimates.</p>
+    <p>OBBACalc.com is not affiliated with the IRS, any state Department of Revenue, TurboTax, H&R Block, TaxAct, or any other government agency or tax software company.</p>
+  </div>
+
+  <!-- CONTACT -->
+  <div class="contact-card">
+    <h2>Get in Touch</h2>
+    <p>Found an error in our calculations? Have a question about the OBBBA? Want to report a state conformity update?</p>
+    <a href="mailto:hello@obbacalc.com">hello@obbacalc.com</a>
+  </div>
+
+</div>
+
+<footer>
+  <p><strong>OBBACalc.com</strong> — Free OBBBA Tax Deduction Calculators</p>
+  <p style="margin-top:8px;font-size:12px;">© 2026 OBBACalc.com · <a href="/privacy.html">Privacy Policy</a> · <a href="/about.html">About</a></p>
+</footer>
+
+</body>
+</html>
